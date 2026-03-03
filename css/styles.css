@@ -1379,6 +1379,26 @@ p { margin-bottom: 1rem; }
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
+  /* Radar chart: add more padding so labels aren't cut off */
+  .chart-container {
+    padding: 10px 0;
+    overflow: visible;
+  }
+
+  /* Stack action buttons vertically with gap */
+  .results-section .btn-group,
+  .results-section div[style*="text-align: center"] {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .results-section div[style*="text-align: center"] .btn {
+    margin-left: 0 !important;
+    justify-content: center;
+  }
 }
 
 /* --- Print Styles (for PDF) --- */

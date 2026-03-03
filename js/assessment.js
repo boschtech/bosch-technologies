@@ -303,8 +303,9 @@ class MaturityAssessment {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: true,
         layout: {
-          padding: 20
+          padding: window.innerWidth < 768 ? 30 : 20
         },
         scales: {
           r: {
@@ -313,14 +314,14 @@ class MaturityAssessment {
             min: 0,
             ticks: {
               stepSize: 1,
-              font: { size: 11 },
+              font: { size: window.innerWidth < 768 ? 9 : 11 },
               color: '#666666',
               backdropColor: 'transparent'
             },
             pointLabels: {
-              font: { size: 13, weight: '600' },
+              font: { size: window.innerWidth < 768 ? 10 : 13, weight: '600' },
               color: '#ffffff',
-              padding: 15
+              padding: window.innerWidth < 768 ? 20 : 15
             },
             grid: {
               color: 'rgba(255, 255, 255, 0.08)'
