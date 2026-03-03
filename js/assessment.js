@@ -265,8 +265,15 @@ class MaturityAssessment {
     const ctx = document.getElementById('radar-chart');
     if (!ctx) return;
 
-    // Use shorter labels to prevent cutoff
-    const shortLabels = {
+    // Use shorter labels on mobile to prevent cutoff
+    const isMobile = window.innerWidth < 768;
+    const shortLabels = isMobile ? {
+      'Test Process & Governance': 'Process',
+      'Automation Coverage & Effectiveness': 'Automation',
+      'Tooling & Infrastructure': 'Tooling',
+      'Reporting & Observability': 'Reporting',
+      'Team Skills & Culture': 'Skills'
+    } : {
       'Test Process & Governance': 'Process &\nGovernance',
       'Automation Coverage & Effectiveness': 'Automation\nCoverage',
       'Tooling & Infrastructure': 'Tooling &\nInfrastructure',
@@ -290,7 +297,7 @@ class MaturityAssessment {
           pointBackgroundColor: '#b8961c',
           pointBorderColor: '#111111',
           pointBorderWidth: 2,
-          pointRadius: 6
+          pointRadius: isMobile ? 4 : 6
         }, {
           label: 'Target (Level 4)',
           data: [4, 4, 4, 4, 4],
@@ -305,7 +312,7 @@ class MaturityAssessment {
         responsive: true,
         maintainAspectRatio: true,
         layout: {
-          padding: window.innerWidth < 768 ? 30 : 20
+          padding: isMobile ? 10 : 20
         },
         scales: {
           r: {
@@ -314,14 +321,14 @@ class MaturityAssessment {
             min: 0,
             ticks: {
               stepSize: 1,
-              font: { size: window.innerWidth < 768 ? 9 : 11 },
+              font: { size: isMobile ? 8 : 11 },
               color: '#666666',
               backdropColor: 'transparent'
             },
             pointLabels: {
-              font: { size: window.innerWidth < 768 ? 10 : 13, weight: '600' },
+              font: { size: isMobile ? 11 : 13, weight: '600' },
               color: '#ffffff',
-              padding: window.innerWidth < 768 ? 20 : 15
+              padding: isMobile ? 8 : 15
             },
             grid: {
               color: 'rgba(255, 255, 255, 0.08)'
@@ -335,8 +342,8 @@ class MaturityAssessment {
           legend: {
             position: 'bottom',
             labels: {
-              padding: 24,
-              font: { size: 13 },
+              padding: isMobile ? 16 : 24,
+              font: { size: isMobile ? 11 : 13 },
               color: '#cccccc',
               usePointStyle: true,
               pointStyleWidth: 16
