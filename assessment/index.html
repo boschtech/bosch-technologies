@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Test Automation Maturity Assessment. Score your testing processes across 5 dimensions and get actionable recommendations.">
+  <title>Free Test Automation Maturity Assessment — Bosch Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/automation-test-strategy.html">Services</a></li>
+        <li><a href="/maturity-model/">Maturity Model</a></li>
+        <li><a href="/assessment/">Free Assessment</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/assessment/" class="nav-cta">Take Assessment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Assessment Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <span class="badge badge-accent">Free 5 Minutes Tool</span>
+      <h1>Test Automation Maturity Assessment</h1>
+      <p>Answer 20 questions across 5 dimensions. Get your maturity score, a radar chart, personalised recommendations, and a downloadable PDF report. These are all <span style="font-weight: bold; color: #d4af37;">FREE</span>.</p>
+    </div>
+  </section>
+
+  <!-- Assessment Tool -->
+  <section class="section">
+    <div class="container">
+      <div class="assessment-wrapper">
+
+        <!-- Progress (anchored/sticky) -->
+        <div class="sticky-progress">
+          <div class="step-indicator">
+            <span class="current-step">Step 1 of 5</span>
+            <span class="answered-count">0 of 20 answered</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Question Sections (rendered by JS) -->
+        <div id="assessment-sections"></div>
+
+        <!-- Email Gate -->
+        <div id="email-gate" class="email-gate" style="display: none;">
+          <h2>Almost There!</h2>
+          <p>Enter your details to see your personalised maturity report with recommendations.</p>
+          <div style="max-width: 400px; margin: 0 auto; text-align: left;">
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label for="gate-name" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Your Name *</label>
+              <input type="text" id="gate-name" placeholder="John Smith" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+            </div>
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label for="gate-email" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Work Email *</label>
+              <input type="email" id="gate-email" placeholder="john@company.com" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+            </div>
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label for="gate-company" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Company</label>
+              <input type="text" id="gate-company" placeholder="Acme Corp" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+            </div>
+            <button class="btn btn-accent btn-lg" style="width: 100%; justify-content: center;" onclick="assessment.submitEmail()">See My Results →</button>
+            <p style="font-size: 0.8rem; color: #6c757d; margin-top: 12px; text-align: center;">We respect your privacy. No spam, ever.</p>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="results-section">
+          <div class="overall-score">
+            <div class="score-circle">
+              <span class="score-value" id="overall-score-value">0</span>
+            </div>
+            <h2 id="overall-level-name">Level 0: Unknown</h2>
+            <p id="overall-level-desc">Complete the assessment to see your results</p>
+          </div>
+
+          <!-- Radar Chart -->
+          <div class="chart-container">
+            <canvas id="radar-chart"></canvas>
+          </div>
+
+          <!-- Dimension Breakdowns -->
+          <h3 class="mb-3">Dimension Breakdown & Recommendations</h3>
+          <div id="dimension-results" class="dimension-results"></div>
+
+          <!-- Actions -->
+          <div style="margin-top: 40px; text-align: center;">
+            <button class="btn btn-primary btn-lg" onclick="assessment.generatePDF()"><i data-lucide="file-text"></i> Download PDF Report</button>
+            <a href="/contact/" class="btn btn-accent btn-lg" style="margin-left: 12px;">Book a Consultation →</a>
+          </div>
+
+          <!-- What's Next -->
+          <div style="margin-top: 48px; padding: 32px; background: var(--gray-100); border-radius: 16px;">
+            <h3>What's Next?</h3>
+            <p>Your assessment provides a snapshot of where you stand today. To build a roadmap for improvement:</p>
+            <ul style="list-style: none; margin-top: 16px;">
+              <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Book a free consultation</strong>. We'll review your results and discuss priority actions</li>
+              <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Explore our maturity model</strong>. Understand what each level looks like in detail</li>
+              <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Share with your team</strong>. Have different team members take the assessment to compare perspectives</li>
+            </ul>
+            <div class="btn-group mt-3">
+              <a href="/contact/" class="btn btn-primary">Book Consultation</a>
+              <a href="/maturity-model/" class="btn btn-outline">View Maturity Model</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+          <p>Helping software teams ship faster with fewer defects through smart automation and expert quality engineering.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/automation-test-strategy.html">Automation Test Strategy</a></li>
+            <li><a href="/services/quality-engineering.html">Quality Engineering</a></li>
+            <li><a href="/services/training.html">Training & Enablement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/maturity-model/">Maturity Model</a></li>
+            <li><a href="/assessment/">Free Assessment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Bosch Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CDN Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/assessment-questions.js"></script>
+  <script src="/js/assessment.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

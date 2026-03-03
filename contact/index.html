@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Bosch Technologies — book a consultation, enquire about services, or discuss your test automation needs.">
+  <title>Contact Us — Bosch Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/automation-test-strategy.html">Services</a></li>
+        <li><a href="/maturity-model/">Maturity Model</a></li>
+        <li><a href="/assessment/">Free Assessment</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/assessment/" class="nav-cta">Take Assessment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <span class="badge badge-accent">Get in Touch</span>
+      <h1>Contact Us</h1>
+      <p>Ready to improve your test automation? Let's start with a conversation about your goals and challenges.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div>
+          <h2 class="mb-3">Send Us a Message</h2>
+          <form id="contact-form" class="contact-form" action="/api/submit-assessment.php" method="POST">
+            <input type="hidden" name="form_type" value="contact">
+            <div class="form-group">
+              <label for="contact-name">Full Name *</label>
+              <input type="text" id="contact-name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Work Email *</label>
+              <input type="email" id="contact-email" name="email" required placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+              <label for="contact-company">Company</label>
+              <input type="text" id="contact-company" name="company" placeholder="Your company name">
+            </div>
+            <div class="form-group">
+              <label for="contact-service">Interested In</label>
+              <select id="contact-service" name="service">
+                <option value="">Select a service...</option>
+                <option value="automation-strategy">Automation Test Strategy</option>
+                <option value="quality-engineering">Quality Engineering</option>
+                <option value="training">Training & Enablement</option>
+                <option value="maturity-assessment">Maturity Assessment (Consultative)</option>
+                <option value="other">Other / General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message *</label>
+              <textarea id="contact-message" name="message" required placeholder="Tell us about your project, challenges, or questions..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent btn-lg">Send Message →</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="contact-info-card">
+            <h3>Other Ways to Reach Us</h3>
+
+            <div class="contact-info-item">
+              <div class="ci-icon"><i data-lucide="mail"></i></div>
+              <div>
+                <h4>Email</h4>
+                <p>info@boschtechnologies.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="ci-icon"><i data-lucide="globe"></i></div>
+              <div>
+                <h4>Website</h4>
+                <p>boschtechnologies.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="ci-icon"><i data-lucide="clock"></i></div>
+              <div>
+                <h4>Response Time</h4>
+                <p>We typically respond within 24 hours on business days.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div style="margin-top: 32px; padding: 32px; background: var(--gray-100); border-radius: 16px;">
+            <h3 style="margin-bottom: 16px;">Quick Actions</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <a href="/assessment/" class="btn btn-primary" style="justify-content: center;">Take Free Maturity Assessment</a>
+              <a href="/maturity-model/" class="btn btn-outline" style="justify-content: center;">Explore Our Maturity Model</a>
+              <a href="/services/automation-test-strategy.html" class="btn btn-outline" style="justify-content: center;">View Our Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+          <p>Helping software teams ship faster with fewer defects through smart automation and expert quality engineering.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/automation-test-strategy.html">Automation Test Strategy</a></li>
+            <li><a href="/services/quality-engineering.html">Quality Engineering</a></li>
+            <li><a href="/services/training.html">Training & Enablement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/maturity-model/">Maturity Model</a></li>
+            <li><a href="/assessment/">Free Assessment</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Bosch Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="/js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
