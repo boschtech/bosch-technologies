@@ -52,19 +52,19 @@
             <input type="hidden" name="form_type" value="contact">
             <div class="form-group">
               <label for="contact-name">Full Name *</label>
-              <input type="text" id="contact-name" name="name" required placeholder="Your name">
+              <input type="text" id="contact-name" name="name" required placeholder="Your name" maxlength="50">
             </div>
             <div class="form-group">
               <label for="contact-email">Work Email *</label>
               <input type="email" id="contact-email" name="email" required placeholder="you@company.com">
             </div>
             <div class="form-group">
-              <label for="contact-company">Company</label>
-              <input type="text" id="contact-company" name="company" placeholder="Your company name">
+              <label for="contact-company">Company *</label>
+              <input type="text" id="contact-company" name="company" required placeholder="Your company name" maxlength="100">
             </div>
             <div class="form-group">
-              <label for="contact-service">Interested In</label>
-              <select id="contact-service" name="service">
+              <label for="contact-service">Interested In *</label>
+              <select id="contact-service" name="service" required>
                 <option value="">Select a service...</option>
                 <option value="automation-strategy">Automation Test Strategy</option>
                 <option value="quality-engineering">Quality Engineering</option>
@@ -75,7 +75,7 @@
             </div>
             <div class="form-group">
               <label for="contact-message">Message *</label>
-              <textarea id="contact-message" name="message" required placeholder="Tell us about your project, challenges, or questions..."></textarea>
+              <textarea id="contact-message" name="message" required maxlength="750" placeholder="Tell us about your project, challenges, or questions..."></textarea>
             </div>
             <button type="submit" class="btn btn-accent btn-lg">Send Message →</button>
           </form>
@@ -90,7 +90,7 @@
               <div class="ci-icon"><i data-lucide="mail"></i></div>
               <div>
                 <h4>Email</h4>
-                <p>info@boschtechnologies.com</p>
+                <p>admin@boschtechnologies.com</p>
               </div>
             </div>
 

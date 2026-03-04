@@ -55,6 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.textContent;
 
+      // Clear previous email error
+      const existingEmailErr = contactForm.querySelector('.email-field-error');
+      if (existingEmailErr) existingEmailErr.remove();
+
+      // Validate email
+      const emailField = contactForm.querySelector('input[type="email"]');
+      if (emailField) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailField.value)) {
+          const errEl = document.createElement('p');
+          errEl.className = 'email-field-error';
+          errEl.style.cssText = 'color: #c0392b; font-size: 0.82rem; margin-top: 4px; font-weight: 600;';
+          errEl.textContent = 'Please enter a valid email address.';
+          emailField.parentNode.appendChild(errEl);
+          emailField.focus();
+          return;
+        }
+      }
+
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
@@ -79,7 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-        alert('Something went wrong. Please try again or email us directly.');
+        // Show inline error next to submit button
+        let errorEl = contactForm.querySelector('.form-submit-error');
+        if (!errorEl) {
+          errorEl = document.createElement('p');
+          errorEl.className = 'form-submit-error';
+          errorEl.style.cssText = 'color: #c0392b; font-size: 0.85rem; margin-top: 10px; font-weight: 600;';
+          submitBtn.parentNode.insertBefore(errorEl, submitBtn.nextSibling);
+        }
+        errorEl.textContent = 'Something went wrong. Please try again or email us directly at admin@boschtechnologies.com.';
       }
     });
   }

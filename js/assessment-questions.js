@@ -9,7 +9,7 @@ const ASSESSMENT_DIMENSIONS = [
     id: 'process',
     title: 'Test Process & Governance',
     description: 'How structured and repeatable are your testing activities?',
-    icon: '📋',
+    icon: 'clipboard-list',
     questions: [
       {
         id: 'p1',
@@ -61,7 +61,7 @@ const ASSESSMENT_DIMENSIONS = [
     id: 'automation',
     title: 'Automation Coverage & Effectiveness',
     description: 'What proportion of your tests are automated, and how reliable are they?',
-    icon: '⚙️',
+    icon: 'settings',
     questions: [
       {
         id: 'a1',
@@ -113,7 +113,7 @@ const ASSESSMENT_DIMENSIONS = [
     id: 'tooling',
     title: 'Tooling & Infrastructure',
     description: 'How well integrated are your tools, CI/CD pipelines, and test environments?',
-    icon: '🔧',
+    icon: 'wrench',
     questions: [
       {
         id: 't1',
@@ -165,7 +165,7 @@ const ASSESSMENT_DIMENSIONS = [
     id: 'reporting',
     title: 'Reporting & Observability',
     description: 'How effectively do you measure, report, and act on quality metrics?',
-    icon: '📊',
+    icon: 'bar-chart-3',
     questions: [
       {
         id: 'r1',
@@ -217,7 +217,7 @@ const ASSESSMENT_DIMENSIONS = [
     id: 'culture',
     title: 'Team Skills & Culture',
     description: 'How does your team approach quality ownership, skills development, and collaboration?',
-    icon: '👥',
+    icon: 'users',
     questions: [
       {
         id: 'c1',

@@ -67,15 +67,18 @@
           <div style="max-width: 400px; margin: 0 auto; text-align: left;">
             <div class="form-group" style="margin-bottom: 16px;">
               <label for="gate-name" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Your Name *</label>
-              <input type="text" id="gate-name" placeholder="John Smith" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+              <input type="text" id="gate-name" placeholder="John Smith" maxlength="50" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+              <p class="gate-field-error" id="gate-name-error" style="display: none; color: #c0392b; font-size: 0.82rem; margin-top: 4px; font-weight: 600;">Please enter your name</p>
             </div>
             <div class="form-group" style="margin-bottom: 16px;">
               <label for="gate-email" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Work Email *</label>
               <input type="email" id="gate-email" placeholder="john@company.com" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+              <p class="gate-field-error" id="gate-email-error" style="display: none; color: #c0392b; font-size: 0.82rem; margin-top: 4px; font-weight: 600;">Please enter a valid email address</p>
             </div>
             <div class="form-group" style="margin-bottom: 24px;">
-              <label for="gate-company" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Company</label>
-              <input type="text" id="gate-company" placeholder="Acme Corp" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+              <label for="gate-company" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.93rem;">Company *</label>
+              <input type="text" id="gate-company" placeholder="Acme Corp" maxlength="100" style="width: 100%; padding: 14px 16px; border: 2px solid #dee2e6; border-radius: 6px; font-size: 1rem; font-family: inherit;">
+              <p class="gate-field-error" id="gate-company-error" style="display: none; color: #c0392b; font-size: 0.82rem; margin-top: 4px; font-weight: 600;">Please enter your company name</p>
             </div>
             <button class="btn btn-accent btn-lg" style="width: 100%; justify-content: center;" onclick="assessment.submitEmail()">See My Results →</button>
             <p style="font-size: 0.8rem; color: #6c757d; margin-top: 12px; text-align: center;">We respect your privacy. No spam, ever.</p>
@@ -172,6 +175,8 @@
   <script src="/js/main.js"></script>
   <script src="/js/assessment-questions.js"></script>
   <script src="/js/assessment.js"></script>
-  <script>lucide.createIcons();</script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
