@@ -340,20 +340,20 @@ class MaturityAssessment {
     const ctx = document.getElementById('radar-chart');
     if (!ctx) return;
 
-    // Use shorter labels on mobile to prevent cutoff
+    // Use array labels for multi-line wrapping (Chart.js renders each array element on its own line)
     const isMobile = window.innerWidth < 768;
     const shortLabels = isMobile ? {
-      'Test Process & Governance': 'Process',
-      'Automation Coverage & Effectiveness': 'Automation',
-      'Tooling & Infrastructure': 'Tooling',
-      'Reporting & Observability': 'Reporting',
-      'Team Skills & Culture': 'Skills'
+      'Test Process & Governance': ['Process &', 'Governance'],
+      'Automation Coverage & Effectiveness': ['Automation Coverage', '& Effectiveness'],
+      'Tooling & Infrastructure': ['Tooling &', 'Infrastructure'],
+      'Reporting & Observability': ['Reporting &', 'Observability'],
+      'Team Skills & Culture': ['Skills &', 'Culture']
     } : {
-      'Test Process & Governance': 'Process &\nGovernance',
-      'Automation Coverage & Effectiveness': 'Automation\nCoverage',
-      'Tooling & Infrastructure': 'Tooling &\nInfrastructure',
-      'Reporting & Observability': 'Reporting &\nObservability',
-      'Team Skills & Culture': 'Skills &\nCulture'
+      'Test Process & Governance': ['Process &', 'Governance'],
+      'Automation Coverage & Effectiveness': ['Automation Coverage', '& Effectiveness'],
+      'Tooling & Infrastructure': ['Tooling &', 'Infrastructure'],
+      'Reporting & Observability': ['Reporting &', 'Observability'],
+      'Team Skills & Culture': ['Skills &', 'Culture']
     };
 
     const labels = Object.values(results.dimensions).map(d => shortLabels[d.title] || d.title);
@@ -401,9 +401,9 @@ class MaturityAssessment {
               backdropColor: 'transparent'
             },
             pointLabels: {
-              font: { size: isMobile ? 11 : 13, weight: '600' },
+              font: { size: isMobile ? 10 : 13, weight: '600' },
               color: '#ffffff',
-              padding: isMobile ? 8 : 15
+              padding: isMobile ? 14 : 15
             },
             grid: {
               color: 'rgba(255, 255, 255, 0.08)'
