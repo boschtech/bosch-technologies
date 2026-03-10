@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   </section>
 
   <!-- Proposal Content -->
-  <section class="section" style="padding-top: 24px;">
+  <section class="section" style="padding-top: 8px;">
     <div class="container proposal-content">
 
       <!-- Objective -->
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       </div>
 
       <!-- Option 1 -->
-      <div class="proposal-section">
+      <div class="proposal-option-card">
         <h2>Option 1: Test Strategy Creation Only</h2>
 
         <h3>Scope</h3>
@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       </div>
 
       <!-- Option 2 -->
-      <div class="proposal-section">
+      <div class="proposal-option-card">
         <h2>Option 2: Test Strategy + Quality Engineering Implementation Team</h2>
 
         <h3>Scope</h3>
@@ -194,7 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       </div>
 
       <!-- Option 3 -->
-      <div class="proposal-section">
+      <div class="proposal-option-card">
         <h2>Option 3: Test Strategy + Upskill Existing Team</h2>
 
         <h3>Scope</h3>
@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       </div>
 
       <!-- Option 4 -->
-      <div class="proposal-section">
+      <div class="proposal-option-card">
         <h2>Option 4: Test Strategy + Recruitment of a Quality Engineering Team</h2>
 
         <h3>Scope</h3>
@@ -288,13 +288,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <!-- Business Benefits -->
       <div class="proposal-section">
         <h2>Business Benefits</h2>
-        <div class="proposal-benefits">
-          <div class="proposal-benefit"><i data-lucide="shield-check"></i> Reduced production defects</div>
-          <div class="proposal-benefit"><i data-lucide="rocket"></i> Faster and safer releases</div>
-          <div class="proposal-benefit"><i data-lucide="trending-up"></i> Improved engineering productivity</div>
-          <div class="proposal-benefit"><i data-lucide="settings"></i> Automation-driven testing</div>
-          <div class="proposal-benefit"><i data-lucide="bar-chart-3"></i> Clear quality metrics and reporting</div>
-          <div class="proposal-benefit"><i data-lucide="layers"></i> Scalable engineering processes</div>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+            <div>
+              <h4>Reduced Production Defects</h4>
+              <p>Catch bugs earlier in the pipeline before they reach production, reducing costly hotfixes and downtime.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="rocket"></i></div>
+            <div>
+              <h4>Faster &amp; Safer Releases</h4>
+              <p>Ship with confidence through automated quality gates and comprehensive regression coverage.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="trending-up"></i></div>
+            <div>
+              <h4>Improved Engineering Productivity</h4>
+              <p>Free your developers from manual testing so they can focus on building features that matter.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="settings"></i></div>
+            <div>
+              <h4>Automation-Driven Testing</h4>
+              <p>Scalable test automation frameworks that grow with your product and reduce repetitive effort.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+            <div>
+              <h4>Clear Quality Metrics &amp; Reporting</h4>
+              <p>Real-time dashboards and reporting that give leadership full visibility into release readiness.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i data-lucide="layers"></i></div>
+            <div>
+              <h4>Scalable Engineering Processes</h4>
+              <p>Establish repeatable, scalable quality processes that support team and product growth.</p>
+            </div>
+          </div>
         </div>
       </div>
 
