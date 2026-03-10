@@ -6,7 +6,7 @@
 session_start();
 
 // ⚠️ Set the client's access code here
-$access_code = 'TMW-2026-BT-PRO';
+$access_code = 'TMW-2026-BT-PROD-CODE-001';
 
 $authenticated = false;
 $error = '';
