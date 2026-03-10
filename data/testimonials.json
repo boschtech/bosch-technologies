@@ -11,5 +11,17 @@
     "reference_pdf": "/testimonials/Sinov8 Reference Letter - 10 March 2026.pdf",
     "approved": true,
     "date": "2026-03-10"
+  },
+  {
+    "id": "sinov8-2026-03-10-160030",
+    "name": "Veda October",
+    "role": "Quality Engineer",
+    "company": "Sinov8",
+    "email": "veda@sinov8.net",
+    "service": "Quality Engineering",
+    "testimonial": "Garth has honestly been the missing piece in our QA puzzle. His patience, guidance, and understanding have made a huge impact not only on my work but on my personal growth as well. He played a major role in setting me up on my automation journey and truly equipped me for success. Throughout the process, he never made me feel like I was asking stupid questions or being a burden. Instead, he took the time to explain everything clearly and made sure I understood every step along the way. What really stands out about Garth is his dedication. He never rushes the process or looks at the time,his focus is always on making sure you are up and running, confident, and truly understand what you're doing. Beyond just automation, Garth invests in people. He shares the life lessons and experiences he has learned along the way, helping you grow not only professionally but also as a person. That kind of mentorship is rare and incredibly valuable. Anyone fortunate enough to work with Garth is blessed",
+    "logo": "/assets/images/sinov8-logo.png",
+    "approved": true,
+    "date": "2026-03-10"
   }
 ]
