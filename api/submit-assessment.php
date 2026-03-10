@@ -123,6 +123,30 @@ if ($form_type === 'testimonial') {
         }
     }
 
+    // --- Save to testimonials.json ---
+    $json_file = __DIR__ . '/../data/testimonials.json';
+    $testimonials = file_exists($json_file) ? json_decode(file_get_contents($json_file), true) : [];
+    if (!is_array($testimonials)) $testimonials = [];
+
+    $safe_id = preg_replace('/[^a-z0-9-]/', '-', strtolower($company));
+    $safe_id = preg_replace('/-+/', '-', trim($safe_id, '-'));
+
+    $testimonials[] = [
+        'id' => $safe_id . '-' . date('Y-m-d-His'),
+        'name' => $name,
+        'role' => $role,
+        'company' => $company,
+        'email' => $email,
+        'service' => $service,
+        'testimonial' => $testimonial_text,
+        'logo' => $logo_saved,
+        'reference_pdf' => $reference_pdf_url,
+        'approved' => false,
+        'date' => date('Y-m-d'),
+    ];
+
+    file_put_contents($json_file, json_encode($testimonials, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
     $subject = "New Testimonial Submission from {$name} ({$company})";
     $ref_line = $reference_pdf_url ? "<tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Reference Letter:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'><a href='https://boschtechnologies.com{$reference_pdf_url}'>View PDF</a></td></tr>" : '';
     $logo_line = $logo_saved ? "<tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Logo:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'><a href='https://boschtechnologies.com{$logo_saved}'>View Logo</a></td></tr>" : '';

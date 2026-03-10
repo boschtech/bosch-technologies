@@ -46,31 +46,7 @@
   <section class="section" style="padding-top: 8px;">
     <div class="container">
       <div class="testimonials-grid" id="testimonials-list">
-
-        <div class="testimonial-card">
-          <div class="testimonial-quote">
-            <p>Over the past 15 months, working with Garth as a consultant Principal Quality Engineer has had a significant impact on our engineering teams at Sinov8, particularly within our RAMS and RedRabbit products.</p>
-            <p>What immediately stands out about Garth is the rare combination of deep technical expertise, strategic thinking, and genuine care for the people he works with. From the beginning, he helped us shift our thinking away from traditional manual QA toward Quality Engineering as a discipline, embedding quality into the way we design, build, and deliver software.</p>
-            <p>We initially engaged him on the recommendation of our QE lead, who had worked with him previously, where he left a very good impression on her.</p>
-            <p>Our brief was simple: we needed someone who could help us “shift left” as quickly as possible by upskilling the team and helping us establish the right pipelines, tooling, monitoring, and quality gates. Garth has delivered on all of this and more, helping us significantly improve our processes and move decisively toward automation.</p>
-            <p>Technically, he brings exceptional clarity to complex problems. Whether it's test architecture, automation strategy, or engineering practices, he doesn't just recommend ideas at a high level, he gets involved in the details and works alongside the team to make them real. He has been instrumental in helping us lay the foundations for a far more scalable and reliable approach to quality.</p>
-            <p>Where he really shines, however, is in mentorship and leadership. Our entire team genuinely loves working with him. He invests deeply in both the problems we're trying to solve and in the individuals on the team, patiently helping people understand difficult concepts and grow their confidence and capability as engineers. You can clearly see that he gets real joy from helping people develop.</p>
-            <p>Strategically, his influence has helped shift the mindset of our teams toward shared ownership of quality, empowering engineers to take pride in building robust systems rather than relying on downstream testing.</p>
-            <p style="margin-bottom: 0;">I would recommend Garth without hesitation to any organisation serious about improving engineering quality while simultaneously growing their people.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="testimonial-logo">
-              <img src="/assets/images/sinov8-logo.png" alt="Sinov8 logo">
-            </div>
-            <div>
-              <div class="author-name">Hein Hanekom</div>
-              <p class="author-role">Founder, Sinov8</p>
-            </div>
-          </div>
-          <span class="testimonial-service">Quality Engineering</span>
-          <a href="/testimonials/Sinov8 Reference Letter - 10 March 2026.pdf" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 16px; align-self: flex-start;"><i data-lucide="file-text"></i> View Full Reference Letter</a>
-        </div>
-
+        <p class="text-muted text-center" id="testimonials-loading" style="grid-column: 1 / -1;">Loading testimonials...</p>
       </div>
     </div>
   </section>
@@ -134,8 +110,17 @@
             </div>
             <p class="text-muted" style="font-size: 0.82rem; margin-top: 6px;">PDF, image, Word document, or text file — max 5 MB. Will be converted to PDF.</p>
           </div>
-          <button type="submit" class="btn btn-accent btn-lg">Submit Testimonial →</button>
+          <button type="submit" id="testimonial-submit-btn" class="btn btn-accent btn-lg">Submit Testimonial →</button>
         </form>
+        <div id="testimonial-success" style="display: none;" class="text-center">
+          <div style="padding: 48px 32px; background: #111111; border: 1px solid var(--primary); border-radius: 16px;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(39,174,96,0.12); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">&#10003;</div>
+            <h2 style="margin-bottom: 8px;">Thank You!</h2>
+            <p class="text-muted" style="max-width: 460px; margin: 0 auto 24px;">Your testimonial has been submitted successfully. We'll review it and add it to the page shortly.</p>
+            <button class="btn btn-outline" onclick="resetTestimonialForm()">Submit Another</button>
+          </div>
+        </div>
+        <div id="testimonial-error" style="display: none; margin-top: 16px; padding: 14px 20px; background: rgba(192,57,43,0.08); border: 1px solid var(--danger); border-radius: 6px; color: var(--danger); font-weight: 600; font-size: 0.93rem;"></div>
       </div>
     </div>
   </section>
@@ -193,6 +178,75 @@
   <script src="/js/main.js"></script>
   <script>lucide.createIcons();</script>
   <script>
+    // Load and render testimonials from JSON
+    (function() {
+      var grid = document.getElementById('testimonials-list');
+      var loading = document.getElementById('testimonials-loading');
+
+      fetch('/data/testimonials.json')
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          var approved = data.filter(function(t) { return t.approved; });
+          loading.remove();
+
+          if (approved.length === 0) {
+            grid.innerHTML = '<p class="text-muted text-center" style="grid-column: 1 / -1;">Testimonials coming soon \u2014 check back shortly!</p>';
+            return;
+          }
+
+          approved.forEach(function(t) {
+            var paragraphs = t.testimonial.split('\n').filter(function(p) { return p.trim(); });
+            var quoteHtml = paragraphs.map(function(p, i) {
+              var style = i === paragraphs.length - 1 ? ' style="margin-bottom: 0;"' : '';
+              return '<p' + style + '>' + escapeHtml(p) + '</p>';
+            }).join('');
+
+            var logoHtml;
+            if (t.logo) {
+              logoHtml = '<img src="' + escapeHtml(t.logo) + '" alt="' + escapeHtml(t.company) + ' logo">';
+            } else {
+              var initials = t.company.substring(0, 2).toUpperCase();
+              logoHtml = '<span class="logo-placeholder">' + initials + '</span>';
+            }
+
+            var refHtml = '';
+            if (t.reference_pdf) {
+              refHtml = '<a href="' + escapeHtml(t.reference_pdf) + '" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 16px; align-self: flex-start;"><i data-lucide="file-text"></i> View Full Reference Letter</a>';
+            }
+
+            var card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML =
+              '<div class="testimonial-quote">' + quoteHtml + '</div>' +
+              '<div class="testimonial-author">' +
+                '<div class="testimonial-logo">' + logoHtml + '</div>' +
+                '<div>' +
+                  '<div class="author-name">' + escapeHtml(t.name) + '</div>' +
+                  '<p class="author-role">' + escapeHtml(t.role) + ', ' + escapeHtml(t.company) + '</p>' +
+                '</div>' +
+              '</div>' +
+              '<span class="testimonial-service">' + escapeHtml(t.service) + '</span>' +
+              refHtml;
+
+            grid.appendChild(card);
+          });
+
+          // Re-init Lucide icons for dynamically added elements
+          if (window.lucide) lucide.createIcons();
+        })
+        .catch(function() {
+          loading.textContent = 'Testimonials coming soon \u2014 check back shortly!';
+        });
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+      }
+    })();
+
+    // File clear buttons
     document.querySelectorAll('.file-input').forEach(function(input) {
       var clearBtn = input.parentElement.querySelector('.file-clear-btn');
       if (!clearBtn) return;
@@ -204,6 +258,53 @@
         this.style.display = 'none';
       });
     });
+
+    // AJAX form submission
+    var form = document.getElementById('testimonial-form');
+    var successEl = document.getElementById('testimonial-success');
+    var errorEl = document.getElementById('testimonial-error');
+    var submitBtn = document.getElementById('testimonial-submit-btn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      var data = new FormData(form);
+
+      fetch(form.action, { method: 'POST', body: data })
+        .then(function(res) { return res.json().then(function(json) { return { ok: res.ok, body: json }; }); })
+        .then(function(result) {
+          if (result.ok && result.body.success) {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            errorEl.textContent = result.body.error || 'Something went wrong. Please try again.';
+            errorEl.style.display = 'block';
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Testimonial \u2192';
+          }
+        })
+        .catch(function() {
+          errorEl.textContent = 'Network error. Please check your connection and try again.';
+          errorEl.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Testimonial \u2192';
+        });
+    });
+
+    function resetTestimonialForm() {
+      form.reset();
+      document.querySelectorAll('.file-clear-btn').forEach(function(btn) { btn.style.display = 'none'; });
+      form.style.display = 'block';
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Testimonial \u2192';
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   </script>
 </body>
 </html>
