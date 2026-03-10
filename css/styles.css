@@ -1282,9 +1282,11 @@ p { margin-bottom: 1rem; }
 
 /* --- Testimonials --- */
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 28px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .testimonial-card {
@@ -1560,10 +1562,6 @@ p { margin-bottom: 1rem; }
   }
 
   .dimensions-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-grid {
     grid-template-columns: 1fr;
   }
 
