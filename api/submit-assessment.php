@@ -54,7 +54,99 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // --- Build email based on form type ---
-if ($form_type === 'contact') {
+if ($form_type === 'testimonial') {
+    // Testimonial submission
+    require_once __DIR__ . '/convert-to-pdf.php';
+
+    $role = clean($_POST['role'] ?? '');
+    $service = clean($_POST['service'] ?? '');
+    $testimonial_text = clean($_POST['testimonial'] ?? '');
+
+    // Handle reference letter upload and convert to PDF
+    $reference_pdf_url = '';
+    $ref_error = '';
+    if (isset($_FILES['reference_letter']) && $_FILES['reference_letter']['error'] === UPLOAD_ERR_OK) {
+        $max_size = 5 * 1024 * 1024; // 5 MB
+        if ($_FILES['reference_letter']['size'] > $max_size) {
+            $ref_error = 'Reference letter exceeds 5 MB limit.';
+        } else {
+            $allowed_ext = ['pdf', 'png', 'jpg', 'jpeg', 'doc', 'docx', 'txt'];
+            $orig_name = $_FILES['reference_letter']['name'];
+            $ext = strtolower(pathinfo($orig_name, PATHINFO_EXTENSION));
+
+            if (!in_array($ext, $allowed_ext)) {
+                $ref_error = 'Unsupported file type.';
+            } else {
+                // Build safe filename: company-name-timestamp.pdf
+                $safe_company = preg_replace('/[^a-zA-Z0-9-]/', '-', strtolower($company));
+                $safe_company = preg_replace('/-+/', '-', trim($safe_company, '-'));
+                $timestamp = date('Y-m-d');
+                $pdf_filename = "{$safe_company}-reference-{$timestamp}.pdf";
+
+                $upload_dir = __DIR__ . '/../testimonials/references/';
+                if (!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0755, true);
+                }
+
+                $out_path = $upload_dir . $pdf_filename;
+                $result = convertToPdf($_FILES['reference_letter']['tmp_name'], $orig_name, $out_path);
+
+                if ($result === true) {
+                    $reference_pdf_url = "/testimonials/references/{$pdf_filename}";
+                } else {
+                    $ref_error = $result;
+                }
+            }
+        }
+    }
+
+    // Handle company logo upload
+    $logo_saved = '';
+    if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
+        $logo_max = 2 * 1024 * 1024; // 2 MB
+        if ($_FILES['logo']['size'] <= $logo_max) {
+            $logo_ext = strtolower(pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION));
+            if (in_array($logo_ext, ['png', 'jpg', 'jpeg', 'svg'])) {
+                $safe_company = preg_replace('/[^a-zA-Z0-9-]/', '-', strtolower($company));
+                $safe_company = preg_replace('/-+/', '-', trim($safe_company, '-'));
+                $logo_filename = "{$safe_company}-logo.{$logo_ext}";
+
+                $logo_dir = __DIR__ . '/../assets/images/client-logos/';
+                if (!is_dir($logo_dir)) {
+                    mkdir($logo_dir, 0755, true);
+                }
+
+                if (move_uploaded_file($_FILES['logo']['tmp_name'], $logo_dir . $logo_filename)) {
+                    $logo_saved = "/assets/images/client-logos/{$logo_filename}";
+                }
+            }
+        }
+    }
+
+    $subject = "New Testimonial Submission from {$name} ({$company})";
+    $ref_line = $reference_pdf_url ? "<tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Reference Letter:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'><a href='https://boschtechnologies.com{$reference_pdf_url}'>View PDF</a></td></tr>" : '';
+    $logo_line = $logo_saved ? "<tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Logo:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'><a href='https://boschtechnologies.com{$logo_saved}'>View Logo</a></td></tr>" : '';
+    $err_line = $ref_error ? "<tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee; color: red;'>Upload Note:</td><td style='padding: 8px; border-bottom: 1px solid #eee; color: red;'>{$ref_error}</td></tr>" : '';
+
+    $body = "
+    <html>
+    <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>
+        <h2 style='color: #0f4c81;'>New Testimonial Submission</h2>
+        <table style='border-collapse: collapse; width: 100%; max-width: 600px;'>
+            <tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Name:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'>{$name}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Role:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'>{$role}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Company:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'>{$company}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Email:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'><a href='mailto:{$email}'>{$email}</a></td></tr>
+            <tr><td style='padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;'>Service:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'>{$service}</td></tr>
+            <tr><td style='padding: 8px; font-weight: bold; vertical-align: top; border-bottom: 1px solid #eee;'>Testimonial:</td><td style='padding: 8px; border-bottom: 1px solid #eee;'>{$testimonial_text}</td></tr>
+            {$ref_line}
+            {$logo_line}
+            {$err_line}
+        </table>
+    </body>
+    </html>";
+
+} elseif ($form_type === 'contact') {
     // Contact form submission
     $service = clean($_POST['service'] ?? '');
     $message = clean($_POST['message'] ?? '');

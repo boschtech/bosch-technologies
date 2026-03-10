@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="See what companies say about working with Bosch Technologies — real testimonials from teams we've helped transform their test automation.">
+  <title>Testimonials — Bosch Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/automation-test-strategy.html">Services</a></li>
+        <li><a href="/maturity-model/">Maturity Model</a></li>
+        <li><a href="/assessment/">Free Assessment</a></li>
+        <li><a href="/testimonials/">Testimonials</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/assessment/" class="nav-cta">Take Assessment</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="container">
+      <span class="badge badge-accent">Client Feedback</span>
+      <h1>What Our Clients Say</h1>
+      <p>Real stories from engineering teams who transformed their test automation with Bosch Technologies.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials Grid -->
+  <section class="section" style="padding-top: 8px;">
+    <div class="container">
+      <div class="testimonials-grid" id="testimonials-list">
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            <p>Over the past 15 months, working with Garth as a consultant Principal Quality Engineer has had a significant impact on our engineering teams at Sinov8, particularly within our RAMS and RedRabbit products.</p>
+            <p>What immediately stands out about Garth is the rare combination of deep technical expertise, strategic thinking, and genuine care for the people he works with. From the beginning, he helped us shift our thinking away from traditional manual QA toward Quality Engineering as a discipline, embedding quality into the way we design, build, and deliver software.</p>
+            <p>We initially engaged him on the recommendation of our QE lead, who had worked with him previously, where he left a very good impression on her.</p>
+            <p>Our brief was simple: we needed someone who could help us “shift left” as quickly as possible by upskilling the team and helping us establish the right pipelines, tooling, monitoring, and quality gates. Garth has delivered on all of this and more, helping us significantly improve our processes and move decisively toward automation.</p>
+            <p>Technically, he brings exceptional clarity to complex problems. Whether it's test architecture, automation strategy, or engineering practices, he doesn't just recommend ideas at a high level, he gets involved in the details and works alongside the team to make them real. He has been instrumental in helping us lay the foundations for a far more scalable and reliable approach to quality.</p>
+            <p>Where he really shines, however, is in mentorship and leadership. Our entire team genuinely loves working with him. He invests deeply in both the problems we're trying to solve and in the individuals on the team, patiently helping people understand difficult concepts and grow their confidence and capability as engineers. You can clearly see that he gets real joy from helping people develop.</p>
+            <p>Strategically, his influence has helped shift the mindset of our teams toward shared ownership of quality, empowering engineers to take pride in building robust systems rather than relying on downstream testing.</p>
+            <p style="margin-bottom: 0;">I would recommend Garth without hesitation to any organisation serious about improving engineering quality while simultaneously growing their people.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-logo">
+              <img src="/assets/images/sinov8-logo.png" alt="Sinov8 logo">
+            </div>
+            <div>
+              <div class="author-name">Hein Hanekom</div>
+              <p class="author-role">Founder, Sinov8</p>
+            </div>
+          </div>
+          <span class="testimonial-service">Quality Engineering</span>
+          <a href="/testimonials/Sinov8 Reference Letter - 10 March 2026.pdf" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 16px; align-self: flex-start;"><i data-lucide="file-text"></i> View Full Reference Letter</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit a Testimonial -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="testimonial-form-wrapper">
+        <div class="text-center mb-4">
+          <span class="badge badge-primary">Share Your Experience</span>
+          <h2 class="mt-2">Submit a Testimonial</h2>
+          <p class="text-muted">Worked with us? We'd love to hear about your experience.</p>
+        </div>
+        <form id="testimonial-form" class="contact-form testimonial-form" action="/api/submit-assessment.php" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="form_type" value="testimonial">
+          <div class="testimonial-form-grid">
+            <div class="form-group">
+              <label for="test-name">Your Name *</label>
+              <input type="text" id="test-name" name="name" required placeholder="Full name" maxlength="50">
+            </div>
+            <div class="form-group">
+              <label for="test-role">Job Title *</label>
+              <input type="text" id="test-role" name="role" required placeholder="e.g. Head of QA" maxlength="80">
+            </div>
+            <div class="form-group">
+              <label for="test-company">Company *</label>
+              <input type="text" id="test-company" name="company" required placeholder="Company name" maxlength="100">
+            </div>
+            <div class="form-group">
+              <label for="test-email">Work Email *</label>
+              <input type="email" id="test-email" name="email" required placeholder="you@company.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="test-service">Service Used *</label>
+            <select id="test-service" name="service" required>
+              <option value="">Select a service...</option>
+              <option value="automation-strategy">Automation Test Strategy</option>
+              <option value="quality-engineering">Quality Engineering</option>
+              <option value="training">Training & Enablement</option>
+              <option value="maturity-assessment">Maturity Assessment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="test-message">Your Testimonial *</label>
+            <textarea id="test-message" name="testimonial" required maxlength="1000" placeholder="Tell us how Bosch Technologies helped your team..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="test-logo">Company Logo (optional)</label>
+            <div class="file-input-wrapper">
+              <input type="file" id="test-logo" name="logo" accept="image/png,image/jpeg,image/svg+xml" class="file-input">
+              <button type="button" class="file-clear-btn" data-for="test-logo" style="display: none;">✕ Remove</button>
+            </div>
+            <p class="text-muted" style="font-size: 0.82rem; margin-top: 6px;">PNG, JPG, or SVG — max 2 MB</p>
+          </div>
+          <div class="form-group">
+            <label for="test-reference">Reference Letter (optional)</label>
+            <div class="file-input-wrapper">
+              <input type="file" id="test-reference" name="reference_letter" accept=".pdf,.png,.jpg,.jpeg,.doc,.docx,.txt" class="file-input">
+              <button type="button" class="file-clear-btn" data-for="test-reference" style="display: none;">✕ Remove</button>
+            </div>
+            <p class="text-muted" style="font-size: 0.82rem; margin-top: 6px;">PDF, image, Word document, or text file — max 5 MB. Will be converted to PDF.</p>
+          </div>
+          <button type="submit" class="btn btn-accent btn-lg">Submit Testimonial →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-primary text-center">
+    <div class="container">
+      <h2>Ready to Transform Your Testing?</h2>
+      <p style="max-width: 500px; margin: 1rem auto 2rem; opacity: 0.9;">Let's start with a conversation about where you are and where you want to be.</p>
+      <div class="btn-group" style="justify-content: center;">
+        <a href="/assessment/" class="btn btn-white btn-lg">Take Free Assessment</a>
+        <a href="/contact/" class="btn btn-outline" style="border-color: white; color: white;">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Bosch Technologies" class="logo-img"></a>
+          <p>Helping software teams ship faster with fewer defects through smart automation and expert quality engineering.</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services/automation-test-strategy.html">Automation Test Strategy</a></li>
+            <li><a href="/services/quality-engineering.html">Quality Engineering</a></li>
+            <li><a href="/services/training.html">Training & Enablement</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/maturity-model/">Maturity Model</a></li>
+            <li><a href="/assessment/">Free Assessment</a></li>
+            <li><a href="/testimonials/">Testimonials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/contact/">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Bosch Technologies. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="/js/main.js"></script>
+  <script>lucide.createIcons();</script>
+  <script>
+    document.querySelectorAll('.file-input').forEach(function(input) {
+      var clearBtn = input.parentElement.querySelector('.file-clear-btn');
+      if (!clearBtn) return;
+      input.addEventListener('change', function() {
+        clearBtn.style.display = this.files.length ? 'inline-block' : 'none';
+      });
+      clearBtn.addEventListener('click', function() {
+        input.value = '';
+        this.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
