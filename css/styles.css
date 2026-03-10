@@ -1426,6 +1426,140 @@ p { margin-bottom: 1rem; }
   color: #ffffff;
 }
 
+/* --- Client Proposal Pages --- */
+.proposal-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.proposal-section {
+  padding: 32px 0;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.proposal-section:last-child {
+  border-bottom: none;
+}
+
+.proposal-section h2 {
+  margin-bottom: 16px;
+  color: var(--primary);
+}
+
+.proposal-section h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.proposal-section ul {
+  list-style: none;
+  margin: 8px 0 0;
+}
+
+.proposal-section ul li {
+  padding: 6px 0;
+  font-size: 0.95rem;
+  color: #cccccc;
+}
+
+.proposal-section ul li::before {
+  content: '→ ';
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.proposal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.proposal-table th,
+.proposal-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 0.95rem;
+}
+
+.proposal-table th {
+  background: #111111;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.proposal-table td {
+  color: #cccccc;
+}
+
+.proposal-table tfoot td {
+  border-top: 2px solid var(--primary);
+  border-bottom: none;
+  color: #ffffff;
+}
+
+.proposal-highlight {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgba(184, 150, 28, 0.1);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.proposal-recommendation {
+  background: #111111;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-top: 12px;
+}
+
+.proposal-recommendation h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.proposal-recommendation p {
+  margin-bottom: 0;
+  color: #cccccc;
+}
+
+.proposal-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.proposal-benefit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #111111;
+  border: 1px solid #1a1a1a;
+  border-radius: var(--radius-sm);
+  color: #cccccc;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.proposal-benefit .lucide {
+  width: 20px;
+  height: 20px;
+  stroke: var(--primary);
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
 /* --- Service Detail Page --- */
 .service-hero {
   padding: 170px 0 48px;
