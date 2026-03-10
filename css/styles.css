@@ -1459,29 +1459,34 @@ p { margin-bottom: 1rem; }
   border-bottom: none;
 }
 
-.proposal-section h2 {
+.proposal-section h2,
+.proposal-option-card h2 {
   margin-bottom: 16px;
   color: var(--primary);
 }
 
-.proposal-section h3 {
+.proposal-section h3,
+.proposal-option-card h3 {
   margin-top: 24px;
   margin-bottom: 10px;
   font-size: 1.1rem;
 }
 
-.proposal-section ul {
+.proposal-section ul,
+.proposal-option-card ul {
   list-style: none;
   margin: 8px 0 0;
 }
 
-.proposal-section ul li {
+.proposal-section ul li,
+.proposal-option-card ul li {
   padding: 6px 0;
   font-size: 0.95rem;
   color: #cccccc;
 }
 
-.proposal-section ul li::before {
+.proposal-section ul li::before,
+.proposal-option-card ul li::before {
   content: '→ ';
   color: var(--accent);
   font-weight: 700;
