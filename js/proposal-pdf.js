@@ -165,13 +165,10 @@ async function generateProposalPDF() {
     y += 4;
   }
 
-  // --- Helper: separator line ---
-  function separator() {
-    checkPage(6);
-    doc.setDrawColor(220, 220, 220);
-    doc.setLineWidth(0.3);
-    doc.line(marginL, y, pageWidth - marginR, y);
-    y += 6;
+  // --- Helper: start a new page ---
+  function newPage() {
+    doc.addPage();
+    y = 20;
   }
 
   // ==========================================
@@ -207,7 +204,6 @@ async function generateProposalPDF() {
   heading('Objective');
   paragraph('Establish a structured Quality Engineering capability that enables reliable software delivery, improved release confidence, and reduced production defects.');
   paragraph('The proposal outlines four engagement options depending on the level of support required.');
-  separator();
 
   // ==========================================
   //  Option 1
@@ -245,11 +241,11 @@ async function generateProposalPDF() {
 
   subheading('Investment');
   highlightBox('R240,000');
-  separator();
 
   // ==========================================
-  //  Option 2
+  //  Option 2 (new page)
   // ==========================================
+  newPage();
   heading('Option 2: Test Strategy + Quality Engineering Implementation Team');
 
   subheading('Scope');
@@ -291,11 +287,11 @@ async function generateProposalPDF() {
 
   subheading('Estimated 6-Month Investment');
   highlightBox('R2,310,000');
-  separator();
 
   // ==========================================
-  //  Option 3
+  //  Option 3 (new page)
   // ==========================================
+  newPage();
   heading('Option 3: Test Strategy + Upskill Existing Team');
 
   subheading('Scope');
@@ -332,11 +328,11 @@ async function generateProposalPDF() {
     ],
     ['Total Investment', 'R420,000']
   );
-  separator();
 
   // ==========================================
-  //  Option 4
+  //  Option 4 (new page)
   // ==========================================
+  newPage();
   heading('Option 4: Test Strategy + Recruitment of a Quality Engineering Team');
 
   subheading('Scope');
@@ -373,11 +369,11 @@ async function generateProposalPDF() {
   subheading('Example Recruitment Cost (4 hires)');
   paragraph('1 Lead Quality Engineer, 2 Quality Automation Engineers, 1 Quality Engineer');
   highlightBox('Total Investment: R520,000');
-  separator();
 
   // ==========================================
-  //  Recommendation
+  //  Recommendation (new page)
   // ==========================================
+  newPage();
   heading('Recommended Engagement');
   paragraph('For organisations with no current quality function, we recommend:');
   checkPage(20);
@@ -393,7 +389,6 @@ async function generateProposalPDF() {
   doc.text('This approach ensures the strategy is not only defined but successfully embedded', marginL + 6, y + 11);
   doc.text('into the engineering culture and delivery pipeline.', marginL + 6, y + 15);
   y += 24;
-  separator();
 
   // ==========================================
   //  Business Benefits
@@ -407,7 +402,6 @@ async function generateProposalPDF() {
     'Clear quality metrics and reporting',
     'Scalable engineering processes'
   ]);
-  separator();
 
   // ==========================================
   //  Engagement Model
@@ -419,7 +413,6 @@ async function generateProposalPDF() {
     'Monthly reporting and governance',
     'Close collaboration with engineering leadership'
   ]);
-  separator();
 
   // ==========================================
   //  Next Steps

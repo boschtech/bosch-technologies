@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 <?php else: ?>
 
   <!-- Proposal Hero -->
-  <section class="service-hero">
+  <section class="service-hero" style="padding-bottom: 24px;">
     <div class="container">
       <span class="badge badge-accent">Confidential Proposal</span>
       <h1>Quality Engineering &amp; Testing Transformation</h1>
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   </section>
 
   <!-- Proposal Content -->
-  <section class="section" style="padding-top: 8px;">
+  <section class="section" style="padding-top: 0;">
     <div class="container proposal-content">
 
       <!-- Objective -->
