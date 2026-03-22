@@ -184,7 +184,7 @@ async function generateProposalPDF() {
   wrappedHeading('Improvement Engagement');
 
   subheading('Overview');
-  paragraph('Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process Discovery and High-level Measure of QE Skill Level engagement (Section 1) has been concluded.');
+  paragraph('Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process & Assess Skill Level engagement has been concluded.');
   paragraph('The findings and recommendations from the discovery phase will directly inform the scope, activities, and investment required for the improvement engagement, ensuring a tailored approach that addresses the specific needs identified during the assessment.');
 
   // ==========================================

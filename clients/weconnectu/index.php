@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Improvement Engagement</h2>
 
         <h3>Overview</h3>
-        <p>Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process Discovery and High-level Measure of QE Skill Level engagement (Section 1) has been concluded.</p>
+        <p>Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process & Assess Skill Level engagement has been concluded.</p>
         <p>The findings and recommendations from the discovery phase will directly inform the scope, activities, and investment required for the improvement engagement, ensuring a tailored approach that addresses the specific needs identified during the assessment.</p>
       </div>
 
