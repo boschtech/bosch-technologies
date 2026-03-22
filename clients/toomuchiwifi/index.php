@@ -264,14 +264,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
             <tr><th>Role</th><th>Placement Fee</th></tr>
           </thead>
           <tbody>
-            <tr><td>QA Lead</td><td>R120,000</td></tr>
-            <tr><td>Automation Engineer</td><td>R90,000</td></tr>
-            <tr><td>QA Analyst</td><td>R70,000</td></tr>
+            <tr><td>Lead Quality Engineer</td><td>R120,000</td></tr>
+            <tr><td>Quality Automation Engineer</td><td>R90,000</td></tr>
+            <tr><td>Quality Engineer</td><td>R70,000</td></tr>
           </tbody>
         </table>
 
-        <h3>Example Recruitment Cost (4 hires)</h3>
-        <p>1 Lead Quality Engineer, 2 Quality Automation Engineers, 1 Quality Engineer</p>
+        <h3>Example Recruitment Cost (3 hires)</h3>
+        <p>1 Lead Quality Engineer, 1 Quality Automation Engineers, 1 Quality Engineer</p>
         <div class="proposal-highlight">Total Investment: R520,000</div>
       </div>
 

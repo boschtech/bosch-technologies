@@ -359,15 +359,15 @@ async function generateProposalPDF() {
   table(
     ['Role', 'Placement Fee'],
     [
-      ['QA Lead', 'R120,000'],
-      ['Automation Engineer', 'R90,000'],
-      ['QA Analyst', 'R70,000']
+      ['Lead Quality Engineer', 'R120,000'],
+      ['Quality Automation Engineer', 'R90,000'],
+      ['Quality Engineer', 'R70,000']
     ],
     null
   );
 
-  subheading('Example Recruitment Cost (4 hires)');
-  paragraph('1 Lead Quality Engineer, 2 Quality Automation Engineers, 1 Quality Engineer');
+  subheading('Example Recruitment Cost (3 hires)');
+  paragraph('1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer');
   highlightBox('Total Investment: R520,000');
 
   // ==========================================
