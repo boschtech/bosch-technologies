@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <section class="service-hero" style="padding-bottom: 24px;">
     <div class="container">
       <span class="badge badge-accent">Confidential Proposal</span>
-      <h1>Quality Engineering Process Discovery, High-level Measure of QE Skill Levels and Improvement Engagement Proposal</h1>
+      <h1>Quality Engineering Process Discovery, Skill Assessment & Improvement Proposal</h1>
       <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
     </div>
   </section>
@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
       <!-- Section 1: Understand Quality Engineering Process and High-level Measure of QE Skill Level -->
       <div class="proposal-option-card">
-        <h2>Section 1: Understand Quality Engineering Process and High-level Measure of QE Skill Level</h2>
+        <h2>Understand Quality Engineering Process & Assess Skill Level</h2>
 
         <h3>Objective</h3>
         <p>Gain a thorough understanding of the current Quality Engineering processes in place and conduct a high-level assessment of the QE team's skill levels. This discovery phase will provide the foundation for identifying gaps, strengths, and areas of improvement.</p>
@@ -118,11 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           <li>A comprehensive report detailing all findings from the Quality Engineering Process Discovery.</li>
           <li>A High-level Measure of QE Skill Levels across the team, highlighting current capabilities, skill gaps, and recommendations.</li>
         </ul>
+
+        <h3>Investment</h3>
+        <div class="proposal-highlight">R7,000</div>
       </div>
 
       <!-- Section 2: Improvement Engagement -->
       <div class="proposal-option-card">
-        <h2>Section 2: Improvement Engagement</h2>
+        <h2>Improvement Engagement</h2>
 
         <h3>Overview</h3>
         <p>Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process Discovery and High-level Measure of QE Skill Level engagement (Section 1) has been concluded.</p>

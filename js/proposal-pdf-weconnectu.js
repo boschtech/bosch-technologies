@@ -134,7 +134,7 @@ async function generateProposalPDF() {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(13);
   doc.setFont(undefined, 'bold');
-  var titleLines = doc.splitTextToSize('Quality Engineering Process Discovery, High-level Measure of QE Skill Levels and Improvement Engagement Proposal', pageWidth - 40);
+  var titleLines = doc.splitTextToSize('Quality Engineering Process Discovery, Skill Assessment & Improvement Proposal', pageWidth - 40);
   doc.text(titleLines, pageWidth / 2, 36, { align: 'center' });
 
   doc.setFontSize(10);
@@ -150,7 +150,7 @@ async function generateProposalPDF() {
   // ==========================================
   //  Section 1: Understand QE Process & Skill Level
   // ==========================================
-  wrappedHeading('Section 1: Understand Quality Engineering Process and High-level Measure of QE Skill Level');
+  wrappedHeading('Understand Quality Engineering Process & Assess Skill Level');
 
   subheading('Objective');
   paragraph("Gain a thorough understanding of the current Quality Engineering processes in place and conduct a high-level assessment of the QE team's skill levels. This discovery phase will provide the foundation for identifying gaps, strengths, and areas of improvement.");
@@ -167,11 +167,21 @@ async function generateProposalPDF() {
     'A High-level Measure of QE Skill Levels across the team, highlighting current capabilities, skill gaps, and recommendations.'
   ]);
 
+  subheading('Investment');
+  checkPage(14);
+  doc.setFillColor(...gold);
+  doc.roundedRect(marginL, y - 1, contentW, 12, 3, 3, 'F');
+  doc.setFontSize(12);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(255, 255, 255);
+  doc.text('R7,000', pageWidth / 2, y + 6, { align: 'center' });
+  y += 16;
+
   // ==========================================
   //  Section 2: Improvement Engagement
   // ==========================================
   newPage();
-  wrappedHeading('Section 2: Improvement Engagement');
+  wrappedHeading('Improvement Engagement');
 
   subheading('Overview');
   paragraph('Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process Discovery and High-level Measure of QE Skill Level engagement (Section 1) has been concluded.');
