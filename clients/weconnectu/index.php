@@ -233,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
       <!-- CTA -->
       <div class="proposal-section text-center" style="padding-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <button onclick="generateAssessmentReportPDF()" class="btn btn-primary btn-lg"><i data-lucide="download"></i> Download Quality Engineering Assessment Report</button>
+        <button type="button" onclick="generateAssessmentReportPDF()" class="btn btn-primary btn-lg"><i data-lucide="download"></i> Download Quality Engineering Assessment Report</button>
         <a href="/contact/" class="btn btn-accent btn-lg">Get in Touch to Discuss →</a>
       </div>
 
