@@ -172,8 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h3>Suggested Team</h3>
         <ul>
           <li>1 Quality Engineering Lead</li>
-          <li>2 Automation Engineers</li>
-          <li>1 QA Analyst</li>
+          <li>1 Quality Automation Engineer</li>
+          <li>1 Quality Engineer</li>
         </ul>
 
         <h3>Duration</h3>
@@ -186,17 +186,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           </thead>
           <tbody>
             <tr><td>Quality Engineering Lead</td><td>R120,000</td></tr>
-            <tr><td>Quality Automation Engineer (x2)</td><td>R95,000 each</td></tr>
+            <tr><td>Quality Automation Engineer</td><td>R95,000</td></tr>
             <tr><td>Quality Engineer</td><td>R75,000</td></tr>
           </tbody>
           <tfoot>
-            <tr><td><strong>Total Monthly Cost</strong></td><td><strong>R385,000 per month</strong></td></tr>
+            <tr><td><strong>Total Monthly Cost</strong></td><td><strong>R290,000 per month</strong></td></tr>
           </tfoot>
         </table>
 
         <h3>Estimated 6-Month Investment</h3>
         <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">
-          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R2,310,000</span>
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R1,740,000</span>
         </div>
       </div>
 
@@ -575,13 +575,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     paragraph('Everything in Option 1 plus:');
     bulletList(['Automation framework implementation', 'CI/CD integration', 'API testing framework', 'UI automation framework', 'Test reporting dashboards', 'Integration test strategy', 'Quality engineering process implementation', 'Mentoring development teams']);
     subheading('Suggested Team');
-    bulletList(['1 Quality Engineering Lead', '2 Automation Engineers', '1 QA Analyst']);
+    bulletList(['1 Quality Engineering Lead', '1 Quality Automation Engineer', '1 Quality Engineer']);
     subheading('Duration');
     paragraph('Initial implementation: 4 to 6 months');
     subheading('Monthly Investment');
-    table(['Role', 'Monthly Cost'], [['Quality Engineering Lead', 'R120,000'], ['Quality Automation Engineer (x2)', 'R95,000 each'], ['Quality Engineer', 'R75,000']], ['Total Monthly Cost', 'R385,000 per month']);
+    table(['Role', 'Monthly Cost'], [['Quality Engineering Lead', 'R120,000'], ['Quality Automation Engineer', 'R95,000'], ['Quality Engineer', 'R75,000']], ['Total Monthly Cost', 'R290,000 per month']);
     subheading('Estimated 6-Month Investment');
-    highlightBox('R2,310,000');
+    highlightBox('R1,740,000');
 
     // Option 3
     newPage();
