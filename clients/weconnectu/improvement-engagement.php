@@ -144,7 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <p>3 to 4 weeks</p>
 
         <h3>Investment</h3>
-        <div class="proposal-highlight">R240,000</div>
+        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R240,000</span>
+        </div>
       </div>
 
       <!-- Option 2 -->
@@ -193,7 +195,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         </table>
 
         <h3>Estimated 6-Month Investment</h3>
-        <div class="proposal-highlight">R2,310,000</div>
+        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R2,310,000</span>
+        </div>
       </div>
 
       <!-- Option 3 -->
@@ -233,8 +237,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           </tbody>
         </table>
 
-        <h3>Total Investment</h3>
-        <div class="proposal-highlight">R420,000</div>
+        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center; margin-top: 16px;">
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R420,000</span>
+        </div>
       </div>
 
       <!-- Option 4 -->
@@ -275,7 +280,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
         <h3>Example Recruitment Cost (3 hires)</h3>
         <p>1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer</p>
-        <div class="proposal-highlight">Total Investment: R520,000</div>
+        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center; margin-top: 16px;">
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R520,000</span>
+        </div>
       </div>
 
       <!-- Recommended Engagement -->
