@@ -183,9 +183,286 @@ async function generateProposalPDF() {
   newPage();
   wrappedHeading('Improvement Engagement');
 
-  subheading('Overview');
-  paragraph('Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process & Assess Skill Level engagement has been concluded.');
-  paragraph('The findings and recommendations from the discovery phase will directly inform the scope, activities, and investment required for the improvement engagement, ensuring a tailored approach that addresses the specific needs identified during the assessment.');
+  subheading('Objective');
+  paragraph('Establish a structured Quality Engineering capability that enables reliable software delivery, improved release confidence, and reduced production defects.');
+  paragraph('The proposal outlines four engagement options depending on the level of support required.');
+
+  // ==========================================
+  //  Option 1
+  // ==========================================
+  y += 4;
+  heading('Option 1: Test Strategy Creation Only');
+
+  subheading('Scope');
+  paragraph("Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.");
+
+  subheading('Activities');
+  bulletList([
+    'Stakeholder interviews (Engineering, Product, Leadership)',
+    'Review of current SDLC and release processes',
+    'Architecture review',
+    'Risk assessment',
+    'Quality maturity assessment',
+    'Define testing pyramid and automation strategy',
+    'Define environments and test data strategy',
+    'CI/CD quality gate recommendations',
+    'Test reporting and metrics framework'
+  ]);
+
+  subheading('Deliverables');
+  bulletList([
+    'Quality Engineering Test Strategy Document',
+    'Automation framework recommendations',
+    'Tooling recommendations',
+    'Test environment strategy',
+    'Release quality gate framework',
+    '6 to 12 month quality roadmap'
+  ]);
+
+  subheading('Duration');
+  paragraph('3 to 4 weeks');
+
+  subheading('Investment');
+  checkPage(14);
+  doc.setFillColor(...gold);
+  doc.roundedRect(marginL, y - 1, contentW, 12, 3, 3, 'F');
+  doc.setFontSize(12);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(255, 255, 255);
+  doc.text('R240,000', pageWidth / 2, y + 6, { align: 'center' });
+  y += 16;
+
+  // ==========================================
+  //  Option 2
+  // ==========================================
+  newPage();
+  heading('Option 2: Test Strategy + Quality Engineering Implementation Team');
+
+  subheading('Scope');
+  paragraph('Creation of the test strategy and deployment of a Quality Engineering team to implement it.');
+
+  subheading('Activities');
+  paragraph('Everything in Option 1 plus:');
+  bulletList([
+    'Automation framework implementation',
+    'CI/CD integration',
+    'API testing framework',
+    'UI automation framework',
+    'Test reporting dashboards',
+    'Integration test strategy',
+    'Quality engineering process implementation',
+    'Mentoring development teams'
+  ]);
+
+  subheading('Suggested Team');
+  bulletList([
+    '1 Quality Engineering Lead',
+    '2 Automation Engineers',
+    '1 QA Analyst'
+  ]);
+
+  subheading('Duration');
+  paragraph('Initial implementation: 4 to 6 months');
+
+  subheading('Monthly Investment');
+  // Table helper
+  function table(headers, rows, footerRow) {
+    var cols = headers ? headers.length : (rows[0] ? rows[0].length : 2);
+    var colW = contentW / cols;
+    var rowH = 8;
+    if (headers) {
+      checkPage(rowH + 2);
+      doc.setFillColor(28, 28, 28);
+      doc.rect(marginL, y, contentW, rowH, 'F');
+      doc.setFontSize(8);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(255, 255, 255);
+      headers.forEach(function(h, i) {
+        doc.text(h, marginL + i * colW + 4, y + 5.5);
+      });
+      y += rowH;
+    }
+    rows.forEach(function(row, idx) {
+      checkPage(rowH + 2);
+      if (idx % 2 === 0) {
+        doc.setFillColor(245, 245, 245);
+        doc.rect(marginL, y, contentW, rowH, 'F');
+      }
+      doc.setFontSize(8);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(...dark);
+      row.forEach(function(cell, i) {
+        doc.text(cell, marginL + i * colW + 4, y + 5.5);
+      });
+      y += rowH;
+    });
+    if (footerRow) {
+      checkPage(rowH + 2);
+      doc.setFillColor(28, 28, 28);
+      doc.rect(marginL, y, contentW, rowH, 'F');
+      doc.setFontSize(8);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor(...gold);
+      footerRow.forEach(function(cell, i) {
+        doc.text(cell, marginL + i * colW + 4, y + 5.5);
+      });
+      y += rowH;
+    }
+    y += 4;
+  }
+
+  table(
+    ['Role', 'Monthly Cost'],
+    [
+      ['Quality Engineering Lead', 'R120,000'],
+      ['Quality Automation Engineer (x2)', 'R95,000 each'],
+      ['Quality Engineer', 'R75,000']
+    ],
+    ['Total Monthly Cost', 'R385,000 per month']
+  );
+
+  subheading('Estimated 6-Month Investment');
+  checkPage(14);
+  doc.setFillColor(...gold);
+  doc.roundedRect(marginL, y - 1, contentW, 12, 3, 3, 'F');
+  doc.setFontSize(12);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(255, 255, 255);
+  doc.text('R2,310,000', pageWidth / 2, y + 6, { align: 'center' });
+  y += 16;
+
+  // ==========================================
+  //  Option 3
+  // ==========================================
+  newPage();
+  heading('Option 3: Test Strategy + Upskill Existing Team');
+
+  subheading('Scope');
+  paragraph('Create the test strategy and train existing developers or testers to adopt Quality Engineering practices.');
+
+  subheading('Activities');
+  paragraph('Everything in Option 1 plus:');
+  bulletList([
+    'Quality engineering workshops',
+    'Automation training',
+    'CI/CD testing integration',
+    'Coaching during implementation',
+    'Code review for automation',
+    'Testing best practices training'
+  ]);
+
+  subheading('Deliverables');
+  bulletList([
+    'Test Strategy',
+    'Training sessions',
+    'Automation framework templates',
+    '3 months of coaching support'
+  ]);
+
+  subheading('Duration');
+  paragraph('8 to 10 weeks');
+
+  subheading('Investment');
+  table(
+    null,
+    [
+      ['Strategy Creation', 'R240,000'],
+      ['Training & Coaching', 'R180,000']
+    ],
+    ['Total Investment', 'R420,000']
+  );
+
+  // ==========================================
+  //  Option 4
+  // ==========================================
+  newPage();
+  heading('Option 4: Test Strategy + Recruitment of a Quality Engineering Team');
+
+  subheading('Scope');
+  paragraph('Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.');
+
+  subheading('Activities');
+  paragraph('Everything in Option 1 plus:');
+  bulletList([
+    'Define QA organisational structure',
+    'Define job descriptions',
+    'Candidate screening and technical interviews',
+    'Hiring recommendations',
+    'Onboarding guidance'
+  ]);
+
+  subheading('Suggested Team Structure');
+  bulletList([
+    'Quality Engineering Lead',
+    'Quality Automation Engineers',
+    'Quality Engineer'
+  ]);
+
+  subheading('Recruitment Fees');
+  table(
+    ['Role', 'Placement Fee'],
+    [
+      ['Lead Quality Engineer', 'R120,000'],
+      ['Quality Automation Engineer', 'R90,000'],
+      ['Quality Engineer', 'R70,000']
+    ],
+    null
+  );
+
+  subheading('Example Recruitment Cost (3 hires)');
+  paragraph('1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer');
+  checkPage(14);
+  doc.setFillColor(...gold);
+  doc.roundedRect(marginL, y - 1, contentW, 12, 3, 3, 'F');
+  doc.setFontSize(12);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(255, 255, 255);
+  doc.text('Total Investment: R520,000', pageWidth / 2, y + 6, { align: 'center' });
+  y += 16;
+
+  // ==========================================
+  //  Recommendation
+  // ==========================================
+  newPage();
+  heading('Recommended Engagement');
+  paragraph('For organisations with limited current quality function, we recommend:');
+  checkPage(20);
+  doc.setFillColor(245, 245, 245);
+  doc.roundedRect(marginL, y - 1, contentW, 18, 3, 3, 'F');
+  doc.setFontSize(11);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(...gold);
+  doc.text('Option 2: Strategy + Implementation Team', marginL + 6, y + 5);
+  doc.setFontSize(8);
+  doc.setFont(undefined, 'normal');
+  doc.setTextColor(...grey);
+  doc.text('This approach ensures the strategy is not only defined but successfully embedded', marginL + 6, y + 11);
+  doc.text('into the engineering culture and delivery pipeline.', marginL + 6, y + 15);
+  y += 24;
+
+  // ==========================================
+  //  Business Benefits
+  // ==========================================
+  heading('Business Benefits');
+  bulletList([
+    'Reduced production defects',
+    'Faster and safer releases',
+    'Improved engineering productivity',
+    'Automation-driven testing',
+    'Clear quality metrics and reporting',
+    'Scalable engineering processes'
+  ]);
+
+  // ==========================================
+  //  Engagement Model
+  // ==========================================
+  heading('Engagement Model');
+  bulletList([
+    'Remote-first delivery',
+    'Flexible scaling of engineering resources',
+    'Monthly reporting and governance',
+    'Close collaboration with engineering leadership'
+  ]);
 
   // ==========================================
   //  Next Steps
