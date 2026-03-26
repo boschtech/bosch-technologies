@@ -90,265 +90,155 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <!-- Proposal Hero -->
   <section class="service-hero" style="padding-bottom: 24px;">
     <div class="container">
-      <span class="badge badge-accent">Confidential Proposal</span>
-      <h1>Quality Engineering Process Discovery, Skill Assessment & Improvement Proposal</h1>
+      <span class="badge badge-accent">Confidential Assessment Report</span>
+      <h1>Quality Engineering Assessment: Findings & Improvement Opportunities</h1>
       <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p class="text-muted">27 March 2026</p>
     </div>
   </section>
 
-  <!-- Proposal Content -->
+  <!-- Assessment Report Content -->
   <section class="section" style="padding-top: 0;">
     <div class="container proposal-content">
 
-      <!-- Section 1: Understand Quality Engineering Process and High-level Measure of QE Skill Level -->
+      <!-- Executive Summary -->
       <div class="proposal-option-card">
-        <h2>Understand Quality Engineering Process & Assess Skill Level</h2>
+        <h2>Executive Summary</h2>
 
-        <h3>Objective</h3>
-        <p>Gain a thorough understanding of the current Quality Engineering processes in place and conduct a high-level assessment of the QE team's skill levels. This discovery phase will provide the foundation for identifying gaps, strengths, and areas of improvement.</p>
-
-        <h3>Activities</h3>
+        <h3>Current State</h3>
         <ul>
-          <li><strong>Meeting the Team</strong> — Introductory sessions with the Quality Engineering team members to understand roles, responsibilities, and current ways of working.</li>
-          <li><strong>Stakeholder Engagement</strong> — Conduct 1-hour meetings over 5 consecutive days with important stakeholders across Engineering, Product, and Leadership to gather insights into the current QE process, challenges, and expectations.</li>
+          <li>Quality Engineering practices are largely manual and reactive.</li>
+          <li>Limited integration between testing and delivery pipelines. Small amount of Unit Test within the CICD pipelines.</li>
+          <li>Quality risks are identified late in the development lifecycle.</li>
+          <li>Testing is heavily dependent on Quality Engineers with a lot of domain knowledge.</li>
+          <li>No structured onboarding and upskilling programs for new employees.</li>
         </ul>
 
-        <h3>Outcomes</h3>
+        <h3>Business Impact</h3>
         <ul>
-          <li>A comprehensive report detailing all findings from the Quality Engineering Process Discovery.</li>
-          <li>A High-level Measure of QE Skill Levels across the team, highlighting current capabilities, skill gaps, and recommendations.</li>
+          <li>Slower release cycles impacting time-to-market.</li>
+          <li>Increased production risk due to late defect detection.</li>
+          <li>Higher cost of rework and defect resolution.</li>
+          <li>Very high risk of Intellectual Property loss if any of the Quality Engineers leave the company.</li>
         </ul>
 
-        <h3>Investment</h3>
-        <div class="proposal-highlight">R7,000</div>
+        <h3>Recommendation</h3>
+        <ul>
+          <li>Implement a structured Quality Engineering Test Strategy.</li>
+          <li>Focus on automation testing, shift-left testing, and CI/CD integration.</li>
+          <li>Continuous upskilling of Development and Quality Engineers on domain knowledge.</li>
+        </ul>
       </div>
 
-      <!-- Section 2: Improvement Engagement -->
+      <!-- Engagement Objectives -->
       <div class="proposal-option-card">
-        <h2>Improvement Engagement</h2>
-
-        <h3>Objective</h3>
-        <p>Establish a structured Quality Engineering capability that enables reliable software delivery, improved release confidence, and reduced production defects.</p>
-        <p>The proposal outlines four engagement options depending on the level of support required.</p>
+        <h2>Engagement Objectives</h2>
+        <ul>
+          <li>Assess current QE processes, tools, and capabilities.</li>
+          <li>Identify risks impacting delivery speed and product quality.</li>
+          <li>Define a scalable and modern QE operating model.</li>
+          <li>Provide a practical roadmap for transformation.</li>
+        </ul>
       </div>
 
-      <!-- Option 1 -->
+      <!-- Current State Overview -->
       <div class="proposal-option-card">
-        <h2>Option 1: Test Strategy Creation Only</h2>
+        <h2>Current State Overview</h2>
 
-        <h3>Scope</h3>
-        <p>Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.</p>
-
-        <h3>Activities</h3>
+        <h3>Test Strategy</h3>
         <ul>
-          <li>Stakeholder interviews (Engineering, Product, Leadership)</li>
-          <li>Review of current SDLC and release processes</li>
-          <li>Architecture review</li>
-          <li>Risk assessment</li>
-          <li>Quality maturity assessment</li>
-          <li>Define testing pyramid and automation strategy</li>
-          <li>Define environments and test data strategy</li>
-          <li>CI/CD quality gate recommendations</li>
-          <li>Test reporting and metrics framework</li>
+          <li>Heavily dependence on manual testing with domain experts.</li>
+          <li>Regression testing efforts are a lot hence the team identified a resource capacity issue.</li>
+          <li>Development Test Environment (DTA) creates inconsistency in testing specific features.</li>
         </ul>
 
-        <h3>Deliverables</h3>
+        <h3>Automation</h3>
         <ul>
-          <li>Quality Engineering Test Strategy Document</li>
-          <li>Automation framework recommendations</li>
-          <li>Tooling recommendations</li>
-          <li>Test environment strategy</li>
-          <li>Release quality gate framework</li>
-          <li>6 to 12 month quality roadmap</li>
+          <li>Developers started writing unit tests. The code coverage is very low.</li>
+          <li>There is no integration tests.</li>
+          <li>There are some Selenium UI automation tests but this is not integrated into the CICD pipelines.</li>
         </ul>
 
-        <h3>Duration</h3>
-        <p>3 to 4 weeks</p>
+        <h3>CI/CD Integration</h3>
+        <ul>
+          <li>Only a low percentage of Unit tests are integrated into delivery pipelines, nothing else.</li>
+        </ul>
 
-        <h3>Investment</h3>
-        <div class="proposal-highlight">R240,000</div>
+        <h3>Environments</h3>
+        <ul>
+          <li>Staging environment is closely aligned with the Production environment.</li>
+          <li>The DEV environment can become inconsistent when features are deployed by multiple teams.</li>
+        </ul>
+
+        <h3>Test Data</h3>
+        <ul>
+          <li>Manual and not centrally managed.</li>
+        </ul>
       </div>
 
-      <!-- Option 2 -->
+      <!-- Key Findings -->
       <div class="proposal-option-card">
-        <h2>Option 2: Test Strategy + Quality Engineering Implementation Team</h2>
-
-        <h3>Scope</h3>
-        <p>Creation of the test strategy and deployment of a Quality Engineering team to implement it.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
+        <h2>Key Findings</h2>
         <ul>
-          <li>Automation framework implementation</li>
-          <li>CI/CD integration</li>
-          <li>API testing framework</li>
-          <li>UI automation framework</li>
-          <li>Test reporting dashboards</li>
-          <li>Integration test strategy</li>
-          <li>Quality engineering process implementation</li>
-          <li>Mentoring development teams</li>
+          <li>Limited automation is creating a regression bottleneck.</li>
+          <li>Testing occurs late in the lifecycle, increasing defect leakage risk.</li>
+          <li>Lack of standardised QE Test Strategy.</li>
+          <li>Manual regression cycles are slowing release velocity.</li>
+          <li>Limited visibility into quality metrics and reporting. Only manual test cases on the test management tool.</li>
         </ul>
+      </div>
 
-        <h3>Suggested Team</h3>
+      <!-- Business Impact -->
+      <div class="proposal-option-card">
+        <h2>Business Impact</h2>
         <ul>
-          <li>1 Quality Engineering Lead</li>
-          <li>2 Automation Engineers</li>
-          <li>1 QA Analyst</li>
+          <li>Regression cycles delay releases by multiple days per cycle.</li>
+          <li>Late defect detection significantly increases cost of fixes.</li>
+          <li>Lack of automation limits scalability of delivery.</li>
+          <li>Inconsistent environments increase production risk.</li>
+          <li>Reduced confidence in release quality, because with manual testing it becomes impossible to do regression testing for every release.</li>
         </ul>
+      </div>
 
-        <h3>Duration</h3>
-        <p>Initial implementation: 4 to 6 months</p>
+      <!-- QE Maturity Position -->
+      <div class="proposal-option-card">
+        <h2>QE Maturity Position</h2>
+        <p class="text-muted">Refer to the <strong>Bosch-Maturity-Assessment-WeConnectU.pdf</strong> for detailed maturity assessment data.</p>
+      </div>
 
-        <h3>Monthly Investment</h3>
+      <!-- Target State Vision -->
+      <div class="proposal-option-card">
+        <h2>Target State Vision</h2>
+        <ul>
+          <li>Automated regression fully integrated into CI/CD pipelines.</li>
+          <li>Shift-left testing embedded within development workflows.</li>
+          <li>Stable, production-like environments.</li>
+          <li>Scalable and reusable automation frameworks.</li>
+          <li>Real-time quality metrics and visibility.</li>
+        </ul>
+      </div>
+
+      <!-- Gap Analysis -->
+      <div class="proposal-option-card">
+        <h2>Gap Analysis</h2>
         <table class="proposal-table">
           <thead>
-            <tr><th>Role</th><th>Monthly Cost</th></tr>
+            <tr><th>Area</th><th>Current State</th><th>Target State</th><th>Gap</th></tr>
           </thead>
           <tbody>
-            <tr><td>Quality Engineering Lead</td><td>R120,000</td></tr>
-            <tr><td>Quality Automation Engineer (x2)</td><td>R95,000 each</td></tr>
-            <tr><td>Quality Engineer</td><td>R75,000</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td><strong>Total Monthly Cost</strong></td><td><strong>R385,000 per month</strong></td></tr>
-          </tfoot>
-        </table>
-
-        <h3>Estimated 6-Month Investment</h3>
-        <div class="proposal-highlight">R2,310,000</div>
-      </div>
-
-      <!-- Option 3 -->
-      <div class="proposal-option-card">
-        <h2>Option 3: Test Strategy + Upskill Existing Team</h2>
-
-        <h3>Scope</h3>
-        <p>Create the test strategy and train existing developers or testers to adopt Quality Engineering practices.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
-        <ul>
-          <li>Quality engineering workshops</li>
-          <li>Automation training</li>
-          <li>CI/CD testing integration</li>
-          <li>Coaching during implementation</li>
-          <li>Code review for automation</li>
-          <li>Testing best practices training</li>
-        </ul>
-
-        <h3>Deliverables</h3>
-        <ul>
-          <li>Test Strategy</li>
-          <li>Training sessions</li>
-          <li>Automation framework templates</li>
-          <li>3 months of coaching support</li>
-        </ul>
-
-        <h3>Duration</h3>
-        <p>8 to 10 weeks</p>
-
-        <h3>Investment</h3>
-        <table class="proposal-table">
-          <tbody>
-            <tr><td>Strategy Creation</td><td>R240,000</td></tr>
-            <tr><td>Training & Coaching</td><td>R180,000</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td><strong>Total Investment</strong></td><td><strong>R420,000</strong></td></tr>
-          </tfoot>
-        </table>
-      </div>
-
-      <!-- Option 4 -->
-      <div class="proposal-option-card">
-        <h2>Option 4: Test Strategy + Recruitment of a Quality Engineering Team</h2>
-
-        <h3>Scope</h3>
-        <p>Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
-        <ul>
-          <li>Define QA organisational structure</li>
-          <li>Define job descriptions</li>
-          <li>Candidate screening and technical interviews</li>
-          <li>Hiring recommendations</li>
-          <li>Onboarding guidance</li>
-        </ul>
-
-        <h3>Suggested Team Structure</h3>
-        <ul>
-          <li>Quality Engineering Lead</li>
-          <li>Quality Automation Engineers</li>
-          <li>Quality Engineer</li>
-        </ul>
-
-        <h3>Recruitment Fees</h3>
-        <table class="proposal-table">
-          <thead>
-            <tr><th>Role</th><th>Placement Fee</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lead Quality Engineer</td><td>R120,000</td></tr>
-            <tr><td>Quality Automation Engineer</td><td>R90,000</td></tr>
-            <tr><td>Quality Engineer</td><td>R70,000</td></tr>
+            <tr><td>Automation</td><td>Limited</td><td>CI/CD Integrated</td><td><span style="color: #c0392b; font-weight: 600;">High</span></td></tr>
+            <tr><td>Test Strategy</td><td>Informal</td><td>Standardised</td><td><span style="color: #f39c12; font-weight: 600;">Medium</span></td></tr>
+            <tr><td>Environments</td><td>Unstable</td><td>Reliable</td><td><span style="color: #c0392b; font-weight: 600;">High</span></td></tr>
+            <tr><td>Test Data</td><td>Manual</td><td>Managed</td><td><span style="color: #f39c12; font-weight: 600;">Medium</span></td></tr>
           </tbody>
         </table>
-
-        <h3>Example Recruitment Cost (3 hires)</h3>
-        <p>1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer</p>
-        <div class="proposal-highlight">Total Investment: R520,000</div>
       </div>
 
-      <!-- Recommended Engagement -->
-      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05);">
-        <h2>Recommended Engagement</h2>
-        <p>For organisations with limited current quality function, we recommend:</p>
-        <div class="proposal-highlight" style="margin-top: 16px;">Option 2: Strategy + Implementation Team</div>
-        <p style="margin-top: 16px;">This approach ensures the strategy is not only defined but successfully embedded into the engineering culture and delivery pipeline.</p>
-      </div>
-
-      <!-- Business Benefits -->
-      <div class="proposal-section">
-        <h2>Business Benefits</h2>
-        <ul>
-          <li>Reduced production defects</li>
-          <li>Faster and safer releases</li>
-          <li>Improved engineering productivity</li>
-          <li>Automation-driven testing</li>
-          <li>Clear quality metrics and reporting</li>
-          <li>Scalable engineering processes</li>
-        </ul>
-      </div>
-
-      <!-- Engagement Model -->
-      <div class="proposal-section">
-        <h2>Engagement Model</h2>
-        <ul>
-          <li>Remote-first delivery</li>
-          <li>Flexible scaling of engineering resources</li>
-          <li>Monthly reporting and governance</li>
-          <li>Close collaboration with engineering leadership</li>
-        </ul>
-      </div>
-
-      <!-- Next Steps -->
-      <div class="proposal-section">
-        <h2>Next Steps</h2>
-        <div class="process-steps" style="grid-template-columns: repeat(3, 1fr);">
-          <div class="process-step">
-            <h4>Discovery</h4>
-            <p>5-day stakeholder engagement and team assessment</p>
-          </div>
-          <div class="process-step">
-            <h4>Report</h4>
-            <p>Delivery of QE Process and Skill Level findings</p>
-          </div>
-          <div class="process-step">
-            <h4>Improvement</h4>
-            <p>Tailored improvement engagement proposal</p>
-          </div>
-        </div>
+      <!-- Link to Improvement Engagement -->
+      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
+        <h2>Ready to Transform Your QE Practice?</h2>
+        <p>Based on our assessment findings, we have prepared a detailed Improvement Engagement proposal with multiple options tailored to WeConnectU's needs.</p>
+        <a href="/clients/weconnectu/improvement-engagement.php" class="btn btn-accent btn-lg" style="margin-top: 16px;">View Improvement Engagement Options →</a>
       </div>
 
       <!-- CTA -->
