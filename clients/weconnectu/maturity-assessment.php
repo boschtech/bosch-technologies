@@ -501,22 +501,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       y += gaugeH + 10;
 
       // --- Dimension Scores ---
-      doc.setFontSize(15);
+      doc.setFontSize(13);
       doc.setTextColor(26, 26, 46);
       doc.setFont(undefined, 'bold');
       doc.text('Dimension Scores', 15, y);
-      y += 9;
+      y += 8;
 
-      // Calculate available space for dimensions (before CTA)
+      const barWidth = pageWidth - 30;
       const ctaH = 28;
       const ctaY = pageHeight - ctaH;
-      const availableH = ctaY - y - 6;
-      const dimSpacing = Math.min(availableH / dimensions.length, 32);
-      const barWidth = pageWidth - 30;
 
-      dimensions.forEach(dim => {
+      dimensions.forEach((dim, idx) => {
         const fillWidth = (dim.score / 5) * barWidth;
         const barColor = dim.score < 2.5 ? [192, 57, 43] : dim.score < 3.5 ? [212, 160, 23] : [184, 150, 28];
+
+        // Check if we need a new page
+        if (y > ctaY - 35) {
+          // Add CTA to current page first
+          doc.setFillColor(0, 0, 0);
+          doc.rect(0, ctaY, pageWidth, ctaH, 'F');
+          doc.setTextColor(255, 255, 255);
+          doc.setFontSize(14);
+          doc.setFont(undefined, 'bold');
+          doc.text('Ready to Level Up?', 15, ctaY + 10);
+          doc.setFontSize(9);
+          doc.setFont(undefined, 'normal');
+          doc.setTextColor(200, 200, 200);
+          doc.text('Book a free consultation with Bosch Technologies to build your improvement roadmap.', 15, ctaY + 17);
+          doc.setTextColor(184, 150, 28);
+          doc.setFont(undefined, 'bold');
+          doc.text('boschtechnologies.com/contact', 15, ctaY + 24);
+          
+          doc.addPage();
+          y = 20;
+        }
 
         // Dimension name and score
         doc.setFontSize(10);
@@ -524,9 +542,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.setTextColor(26, 26, 46);
         doc.text(dim.name, 15, y);
         doc.setTextColor(...barColor);
-        doc.text(dim.score.toFixed(1) + ' / 5.0', pageWidth - 35, y);
+        doc.text(dim.score.toFixed(1) + ' / 5.0', pageWidth - 15, y, { align: 'right' });
 
-        y += 6;
+        y += 5;
 
         // Full-width score bar
         doc.setFillColor(222, 226, 230);
@@ -534,15 +552,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.setFillColor(...barColor);
         doc.roundedRect(15, y, fillWidth, 4, 2, 2, 'F');
 
-        y += 10;
+        y += 8;
 
-        // Recommendation
+        // Recommendation (shortened)
         doc.setFontSize(8);
         doc.setFont(undefined, 'normal');
         doc.setTextColor(73, 80, 87);
-        const recLines = doc.splitTextToSize('Recommendation: ' + dim.rec, pageWidth - 30);
+        const shortRec = dim.rec.length > 120 ? dim.rec.substring(0, 120) + '...' : dim.rec;
+        const recLines = doc.splitTextToSize('Recommendation: ' + shortRec, pageWidth - 30);
         doc.text(recLines, 15, y);
-        y += recLines.length * 4 + (dimSpacing - 18);
+        y += recLines.length * 3.5 + 6;
       });
 
       // --- CTA Footer ---
