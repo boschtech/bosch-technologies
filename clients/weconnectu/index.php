@@ -127,9 +127,209 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <div class="proposal-option-card">
         <h2>Improvement Engagement</h2>
 
-        <h3>Overview</h3>
-        <p>Detailed information regarding the Improvement Engagement will be provided after the Quality Engineering Process & Assess Skill Level engagement has been concluded.</p>
-        <p>The findings and recommendations from the discovery phase will directly inform the scope, activities, and investment required for the improvement engagement, ensuring a tailored approach that addresses the specific needs identified during the assessment.</p>
+        <h3>Objective</h3>
+        <p>Establish a structured Quality Engineering capability that enables reliable software delivery, improved release confidence, and reduced production defects.</p>
+        <p>The proposal outlines four engagement options depending on the level of support required.</p>
+      </div>
+
+      <!-- Option 1 -->
+      <div class="proposal-option-card">
+        <h2>Option 1: Test Strategy Creation Only</h2>
+
+        <h3>Scope</h3>
+        <p>Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.</p>
+
+        <h3>Activities</h3>
+        <ul>
+          <li>Stakeholder interviews (Engineering, Product, Leadership)</li>
+          <li>Review of current SDLC and release processes</li>
+          <li>Architecture review</li>
+          <li>Risk assessment</li>
+          <li>Quality maturity assessment</li>
+          <li>Define testing pyramid and automation strategy</li>
+          <li>Define environments and test data strategy</li>
+          <li>CI/CD quality gate recommendations</li>
+          <li>Test reporting and metrics framework</li>
+        </ul>
+
+        <h3>Deliverables</h3>
+        <ul>
+          <li>Quality Engineering Test Strategy Document</li>
+          <li>Automation framework recommendations</li>
+          <li>Tooling recommendations</li>
+          <li>Test environment strategy</li>
+          <li>Release quality gate framework</li>
+          <li>6 to 12 month quality roadmap</li>
+        </ul>
+
+        <h3>Duration</h3>
+        <p>3 to 4 weeks</p>
+
+        <h3>Investment</h3>
+        <div class="proposal-highlight">R240,000</div>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="proposal-option-card">
+        <h2>Option 2: Test Strategy + Quality Engineering Implementation Team</h2>
+
+        <h3>Scope</h3>
+        <p>Creation of the test strategy and deployment of a Quality Engineering team to implement it.</p>
+
+        <h3>Activities</h3>
+        <p>Everything in Option 1 plus:</p>
+        <ul>
+          <li>Automation framework implementation</li>
+          <li>CI/CD integration</li>
+          <li>API testing framework</li>
+          <li>UI automation framework</li>
+          <li>Test reporting dashboards</li>
+          <li>Integration test strategy</li>
+          <li>Quality engineering process implementation</li>
+          <li>Mentoring development teams</li>
+        </ul>
+
+        <h3>Suggested Team</h3>
+        <ul>
+          <li>1 Quality Engineering Lead</li>
+          <li>2 Automation Engineers</li>
+          <li>1 QA Analyst</li>
+        </ul>
+
+        <h3>Duration</h3>
+        <p>Initial implementation: 4 to 6 months</p>
+
+        <h3>Monthly Investment</h3>
+        <table class="proposal-table">
+          <thead>
+            <tr><th>Role</th><th>Monthly Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quality Engineering Lead</td><td>R120,000</td></tr>
+            <tr><td>Quality Automation Engineer (x2)</td><td>R95,000 each</td></tr>
+            <tr><td>Quality Engineer</td><td>R75,000</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td><strong>Total Monthly Cost</strong></td><td><strong>R385,000 per month</strong></td></tr>
+          </tfoot>
+        </table>
+
+        <h3>Estimated 6-Month Investment</h3>
+        <div class="proposal-highlight">R2,310,000</div>
+      </div>
+
+      <!-- Option 3 -->
+      <div class="proposal-option-card">
+        <h2>Option 3: Test Strategy + Upskill Existing Team</h2>
+
+        <h3>Scope</h3>
+        <p>Create the test strategy and train existing developers or testers to adopt Quality Engineering practices.</p>
+
+        <h3>Activities</h3>
+        <p>Everything in Option 1 plus:</p>
+        <ul>
+          <li>Quality engineering workshops</li>
+          <li>Automation training</li>
+          <li>CI/CD testing integration</li>
+          <li>Coaching during implementation</li>
+          <li>Code review for automation</li>
+          <li>Testing best practices training</li>
+        </ul>
+
+        <h3>Deliverables</h3>
+        <ul>
+          <li>Test Strategy</li>
+          <li>Training sessions</li>
+          <li>Automation framework templates</li>
+          <li>3 months of coaching support</li>
+        </ul>
+
+        <h3>Duration</h3>
+        <p>8 to 10 weeks</p>
+
+        <h3>Investment</h3>
+        <table class="proposal-table">
+          <tbody>
+            <tr><td>Strategy Creation</td><td>R240,000</td></tr>
+            <tr><td>Training & Coaching</td><td>R180,000</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td><strong>Total Investment</strong></td><td><strong>R420,000</strong></td></tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Option 4 -->
+      <div class="proposal-option-card">
+        <h2>Option 4: Test Strategy + Recruitment of a Quality Engineering Team</h2>
+
+        <h3>Scope</h3>
+        <p>Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.</p>
+
+        <h3>Activities</h3>
+        <p>Everything in Option 1 plus:</p>
+        <ul>
+          <li>Define QA organisational structure</li>
+          <li>Define job descriptions</li>
+          <li>Candidate screening and technical interviews</li>
+          <li>Hiring recommendations</li>
+          <li>Onboarding guidance</li>
+        </ul>
+
+        <h3>Suggested Team Structure</h3>
+        <ul>
+          <li>Quality Engineering Lead</li>
+          <li>Quality Automation Engineers</li>
+          <li>Quality Engineer</li>
+        </ul>
+
+        <h3>Recruitment Fees</h3>
+        <table class="proposal-table">
+          <thead>
+            <tr><th>Role</th><th>Placement Fee</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lead Quality Engineer</td><td>R120,000</td></tr>
+            <tr><td>Quality Automation Engineer</td><td>R90,000</td></tr>
+            <tr><td>Quality Engineer</td><td>R70,000</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Example Recruitment Cost (3 hires)</h3>
+        <p>1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer</p>
+        <div class="proposal-highlight">Total Investment: R520,000</div>
+      </div>
+
+      <!-- Recommended Engagement -->
+      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05);">
+        <h2>Recommended Engagement</h2>
+        <p>For organisations with limited current quality function, we recommend:</p>
+        <div class="proposal-highlight" style="margin-top: 16px;">Option 2: Strategy + Implementation Team</div>
+        <p style="margin-top: 16px;">This approach ensures the strategy is not only defined but successfully embedded into the engineering culture and delivery pipeline.</p>
+      </div>
+
+      <!-- Business Benefits -->
+      <div class="proposal-section">
+        <h2>Business Benefits</h2>
+        <ul>
+          <li>Reduced production defects</li>
+          <li>Faster and safer releases</li>
+          <li>Improved engineering productivity</li>
+          <li>Automation-driven testing</li>
+          <li>Clear quality metrics and reporting</li>
+          <li>Scalable engineering processes</li>
+        </ul>
+      </div>
+
+      <!-- Engagement Model -->
+      <div class="proposal-section">
+        <h2>Engagement Model</h2>
+        <ul>
+          <li>Remote-first delivery</li>
+          <li>Flexible scaling of engineering resources</li>
+          <li>Monthly reporting and governance</li>
+          <li>Close collaboration with engineering leadership</li>
+        </ul>
       </div>
 
       <!-- Next Steps -->
