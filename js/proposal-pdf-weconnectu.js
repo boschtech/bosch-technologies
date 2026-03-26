@@ -3,6 +3,319 @@
    WeConnectU: QE Process Discovery & Improvement
    ============================================ */
 
+// Assessment Report PDF Generator
+async function generateAssessmentReportPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF('p', 'mm', 'a4');
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const marginL = 15;
+  const marginR = 15;
+  const contentW = pageWidth - marginL - marginR;
+  const bottomMargin = 20;
+  let y = 0;
+
+  // Colours
+  const gold = [184, 150, 28];
+  const dark = [26, 26, 46];
+  const grey = [108, 117, 125];
+  const red = [192, 57, 43];
+  const orange = [243, 156, 18];
+
+  // --- Load logo ---
+  let logoDataUrl = null;
+  let logoAspect = 1;
+  try {
+    const logoImg = new Image();
+    logoImg.crossOrigin = 'anonymous';
+    await new Promise((resolve, reject) => {
+      logoImg.onload = resolve;
+      logoImg.onerror = reject;
+      logoImg.src = '/assets/images/logo.png';
+    });
+    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
+    const canvas = document.createElement('canvas');
+    canvas.width = logoImg.naturalWidth;
+    canvas.height = logoImg.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(logoImg, 0, 0);
+    logoDataUrl = canvas.toDataURL('image/png');
+  } catch (e) {
+    console.log('Logo load skipped:', e.message);
+  }
+
+  // Helpers
+  function checkPage(needed) {
+    if (y + needed > pageHeight - bottomMargin) {
+      doc.addPage();
+      y = 20;
+    }
+  }
+
+  function heading(text, size) {
+    size = size || 14;
+    checkPage(14);
+    doc.setFontSize(size);
+    doc.setFont(undefined, 'bold');
+    doc.setTextColor(...dark);
+    doc.text(text, marginL, y);
+    y += size === 14 ? 8 : 7;
+  }
+
+  function subheading(text) {
+    checkPage(10);
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'bold');
+    doc.setTextColor(...gold);
+    doc.text(text, marginL, y);
+    y += 6;
+  }
+
+  function paragraph(text) {
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.setTextColor(...grey);
+    const lines = doc.splitTextToSize(text, contentW);
+    checkPage(lines.length * 4 + 2);
+    doc.text(lines, marginL, y);
+    y += lines.length * 4 + 3;
+  }
+
+  function bulletList(items) {
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.setTextColor(...grey);
+    items.forEach(function(item) {
+      const lines = doc.splitTextToSize(item, contentW - 8);
+      checkPage(lines.length * 4 + 2);
+      doc.text('•', marginL + 2, y);
+      doc.text(lines, marginL + 8, y);
+      y += lines.length * 4 + 1.5;
+    });
+    y += 2;
+  }
+
+  function newPage() {
+    doc.addPage();
+    y = 20;
+  }
+
+  // ==========================================
+  //  Header
+  // ==========================================
+  const headerH = 68;
+  doc.setFillColor(28, 28, 28);
+  doc.rect(0, 0, pageWidth, headerH, 'F');
+
+  if (logoDataUrl) {
+    const logoH = 28;
+    const logoW = logoH * logoAspect;
+    doc.addImage(logoDataUrl, 'PNG', (pageWidth - logoW) / 2, 3, logoW, logoH);
+  }
+
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(13);
+  doc.setFont(undefined, 'bold');
+  const titleLines = doc.splitTextToSize('Quality Engineering Assessment: Findings & Improvement Opportunities', pageWidth - 40);
+  doc.text(titleLines, pageWidth / 2, 36, { align: 'center' });
+
+  doc.setFontSize(10);
+  doc.setFont(undefined, 'normal');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 54, { align: 'center' });
+  doc.setFontSize(8);
+  doc.setTextColor(150, 150, 150);
+  doc.text('27 March 2026', pageWidth / 2, 62, { align: 'center' });
+
+  y = headerH + 10;
+
+  // ==========================================
+  //  Executive Summary
+  // ==========================================
+  heading('Executive Summary');
+
+  subheading('Current State');
+  bulletList([
+    'Quality Engineering practices are largely manual and reactive.',
+    'Limited integration between testing and delivery pipelines. Small amount of Unit Test within the CICD pipelines.',
+    'Quality risks are identified late in the development lifecycle.',
+    'Testing is heavily dependent on Quality Engineers with a lot of domain knowledge.',
+    'No structured onboarding and upskilling programs for new employees.'
+  ]);
+
+  subheading('Business Impact');
+  bulletList([
+    'Slower release cycles impacting time-to-market.',
+    'Increased production risk due to late defect detection.',
+    'Higher cost of rework and defect resolution.',
+    'Very high risk of Intellectual Property loss if any of the Quality Engineers leave the company.'
+  ]);
+
+  subheading('Recommendation');
+  bulletList([
+    'Implement a structured Quality Engineering Test Strategy.',
+    'Focus on automation testing, shift-left testing, and CI/CD integration.',
+    'Continuous upskilling of Development and Quality Engineers on domain knowledge.'
+  ]);
+
+  // ==========================================
+  //  Current State Overview
+  // ==========================================
+  newPage();
+  heading('Current State Overview');
+
+  subheading('Test Strategy');
+  bulletList([
+    'Heavily dependence on manual testing with domain experts.',
+    'Regression testing efforts are a lot hence the team identified a resource capacity issue.',
+    'Development Test Environment (DTA) creates inconsistency in testing specific features.'
+  ]);
+
+  subheading('Automation');
+  bulletList([
+    'Developers started writing unit tests. The code coverage is very low.',
+    'There is no integration tests.',
+    'There are some Selenium UI automation tests but this is not integrated into the CICD pipelines.'
+  ]);
+
+  subheading('CI/CD Integration');
+  bulletList([
+    'Only a low percentage of Unit tests are integrated into delivery pipelines, nothing else.'
+  ]);
+
+  subheading('Environments');
+  bulletList([
+    'Staging environment is closely aligned with the Production environment.',
+    'The DEV environment can become inconsistent when features are deployed by multiple teams.'
+  ]);
+
+  subheading('Test Data');
+  bulletList([
+    'Manual and not centrally managed.'
+  ]);
+
+  // ==========================================
+  //  Key Findings
+  // ==========================================
+  heading('Key Findings');
+  bulletList([
+    'Limited automation is creating a regression bottleneck.',
+    'Testing occurs late in the lifecycle, increasing defect leakage risk.',
+    'Lack of standardised QE Test Strategy.',
+    'Manual regression cycles are slowing release velocity.',
+    'Limited visibility into quality metrics and reporting. Only manual test cases on the test management tool.'
+  ]);
+
+  // ==========================================
+  //  Business Impact
+  // ==========================================
+  heading('Business Impact');
+  bulletList([
+    'Regression cycles delay releases by multiple days per cycle.',
+    'Late defect detection significantly increases cost of fixes.',
+    'Lack of automation limits scalability of delivery.',
+    'Inconsistent environments increase production risk.',
+    'Reduced confidence in release quality, because with manual testing it becomes impossible to do regression testing for every release.'
+  ]);
+
+  // ==========================================
+  //  Target State Vision
+  // ==========================================
+  newPage();
+  heading('Target State Vision');
+  bulletList([
+    'Automated regression fully integrated into CI/CD pipelines.',
+    'Shift-left testing embedded within development workflows.',
+    'Stable, production-like environments.',
+    'Scalable and reusable automation frameworks.',
+    'Real-time quality metrics and visibility.'
+  ]);
+
+  // ==========================================
+  //  Gap Analysis
+  // ==========================================
+  heading('Gap Analysis');
+
+  // Table
+  const tableHeaders = ['Area', 'Current State', 'Target State', 'Gap'];
+  const tableRows = [
+    ['Automation', 'Limited', 'CI/CD Integrated', 'High'],
+    ['Test Strategy', 'Informal', 'Standardised', 'Medium'],
+    ['Environments', 'Unstable', 'Reliable', 'High'],
+    ['Test Data', 'Manual', 'Managed', 'Medium']
+  ];
+
+  const colW = contentW / 4;
+  const rowH = 8;
+
+  // Header row
+  checkPage(rowH * (tableRows.length + 1) + 10);
+  doc.setFillColor(28, 28, 28);
+  doc.rect(marginL, y, contentW, rowH, 'F');
+  doc.setFontSize(8);
+  doc.setFont(undefined, 'bold');
+  doc.setTextColor(255, 255, 255);
+  tableHeaders.forEach((h, i) => {
+    doc.text(h, marginL + i * colW + 4, y + 5.5);
+  });
+  y += rowH;
+
+  // Body rows
+  tableRows.forEach((row, idx) => {
+    if (idx % 2 === 0) {
+      doc.setFillColor(245, 245, 245);
+      doc.rect(marginL, y, contentW, rowH, 'F');
+    }
+    doc.setFontSize(8);
+    doc.setFont(undefined, 'normal');
+    doc.setTextColor(...dark);
+    row.forEach((cell, i) => {
+      if (i === 3) {
+        // Gap column - color coded
+        if (cell === 'High') {
+          doc.setTextColor(...red);
+          doc.setFont(undefined, 'bold');
+        } else if (cell === 'Medium') {
+          doc.setTextColor(...orange);
+          doc.setFont(undefined, 'bold');
+        }
+      }
+      doc.text(cell, marginL + i * colW + 4, y + 5.5);
+      doc.setTextColor(...dark);
+      doc.setFont(undefined, 'normal');
+    });
+    y += rowH;
+  });
+  y += 10;
+
+  // ==========================================
+  //  Footer CTA
+  // ==========================================
+  const ctaH = 24;
+  const ctaY = pageHeight - ctaH;
+  if (y > ctaY - 10) {
+    doc.addPage();
+  }
+  doc.setFillColor(28, 28, 28);
+  doc.rect(0, pageHeight - ctaH, pageWidth, ctaH, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(12);
+  doc.setFont(undefined, 'bold');
+  doc.text('Ready to Transform Your QE Practice?', marginL, pageHeight - ctaH + 9);
+  doc.setFontSize(8);
+  doc.setFont(undefined, 'normal');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Contact Bosch Technologies to discuss improvement engagement options.', marginL, pageHeight - ctaH + 15);
+  doc.setTextColor(...gold);
+  doc.setFont(undefined, 'bold');
+  doc.text('boschtechnologies.com/contact', marginL, pageHeight - ctaH + 21);
+
+  // Save
+  doc.save('WeConnectU-QE-Assessment-Report.pdf');
+}
+
+// Original Proposal PDF Generator
 async function generateProposalPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF('p', 'mm', 'a4');

@@ -130,17 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         </ul>
       </div>
 
-      <!-- Engagement Objectives -->
-      <div class="proposal-option-card">
-        <h2>Engagement Objectives</h2>
-        <ul>
-          <li>Assess current QE processes, tools, and capabilities.</li>
-          <li>Identify risks impacting delivery speed and product quality.</li>
-          <li>Define a scalable and modern QE operating model.</li>
-          <li>Provide a practical roadmap for transformation.</li>
-        </ul>
-      </div>
-
       <!-- Current State Overview -->
       <div class="proposal-option-card">
         <h2>Current State Overview</h2>
@@ -201,9 +190,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       </div>
 
       <!-- QE Maturity Position -->
-      <div class="proposal-option-card">
+      <div class="proposal-option-card" style="text-align: center;">
         <h2>QE Maturity Position</h2>
-        <p class="text-muted">Refer to the <strong>Bosch-Maturity-Assessment-WeConnectU.pdf</strong> for detailed maturity assessment data.</p>
+        <p>View the detailed maturity assessment results including scores across all 5 dimensions, radar chart visualisation, and specific recommendations.</p>
+        <a href="/clients/weconnectu/maturity-assessment.php" class="btn btn-primary btn-lg" style="margin-top: 16px;"><i data-lucide="bar-chart-3"></i> View Maturity Assessment Results →</a>
       </div>
 
       <!-- Target State Vision -->
@@ -243,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
       <!-- CTA -->
       <div class="proposal-section text-center" style="padding-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <button onclick="generateProposalPDF()" class="btn btn-primary btn-lg"><i data-lucide="download"></i> Download PDF</button>
+        <button onclick="generateAssessmentReportPDF()" class="btn btn-primary btn-lg"><i data-lucide="download"></i> Download Quality Engineering Assessment Report</button>
         <a href="/contact/" class="btn btn-accent btn-lg">Get in Touch to Discuss →</a>
       </div>
 
