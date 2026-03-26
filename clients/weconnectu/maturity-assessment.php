@@ -342,23 +342,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       });
     }
 
-    // PDF Generation
+    // PDF Generation - matches Bosch-Maturity-Assessment style
     async function generateMaturityPDF() {
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF('p', 'mm', 'a4');
 
       const pageWidth = doc.internal.pageSize.getWidth();
       const pageHeight = doc.internal.pageSize.getHeight();
-      const marginL = 15;
-      const marginR = 15;
-      const contentW = pageWidth - marginL - marginR;
-      const bottomMargin = 20;
-      let y = 0;
+      const contactUrl = 'https://boschtechnologies.com/contact/';
+      let y = 20;
 
-      // Colours
-      const gold = [184, 150, 28];
-      const dark = [26, 26, 46];
-      const grey = [108, 117, 125];
+      // WeConnectU assessment data
+      const overallScore = 2.0;
+      const overallLevel = 2;
+      const levelName = 'Managed';
+      const levelTagline = 'Some processes exist but are inconsistently applied. Basic automation covers critical paths but is fragile.';
+
+      const dimensions = [
+        { name: 'Test Process & Governance', score: 2.0, rec: 'Establish formal test case management in a dedicated tool. Create a basic test strategy document. Implement a defect tracking workflow with severity classification.' },
+        { name: 'Automation Coverage & Effectiveness', score: 1.8, rec: 'Prioritise automating critical regression paths. Build a simple, maintainable framework using industry-standard tools. Focus on API tests before UI automation.' },
+        { name: 'Tooling & Infrastructure', score: 2.2, rec: 'Integrate automated tests into CI/CD pipelines. Implement environment provisioning scripts. Establish basic test data management practices.' },
+        { name: 'Reporting & Observability', score: 1.8, rec: 'Implement automated test reporting with trend visualisation. Track code coverage metrics. Create dashboards for test execution status and defect trends.' },
+        { name: 'Team Skills & Culture', score: 2.2, rec: 'Implement structured knowledge sharing sessions. Train developers on testing fundamentals. Begin shift-left initiatives by involving QE earlier in the development process.' }
+      ];
 
       // --- Load logo ---
       let logoDataUrl = null;
@@ -375,118 +381,191 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         const canvas = document.createElement('canvas');
         canvas.width = logoImg.naturalWidth;
         canvas.height = logoImg.naturalHeight;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(logoImg, 0, 0);
+        canvas.getContext('2d').drawImage(logoImg, 0, 0);
         logoDataUrl = canvas.toDataURL('image/png');
       } catch (e) {
         console.log('Logo load skipped:', e.message);
       }
 
-      // Helpers
-      function checkPage(needed) {
-        if (y + needed > pageHeight - bottomMargin) {
-          doc.addPage();
-          y = 20;
-        }
+      // --- Render gauge to data URL ---
+      function renderGaugeToDataUrl(score, max) {
+        const size = 400;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size * 0.62;
+        const ctx = canvas.getContext('2d');
+
+        const cx = size / 2;
+        const cy = size * 0.48;
+        const outerR = size * 0.4;
+        const arcW = 24;
+        const pct = Math.min(score / max, 1);
+
+        // Score-based colour
+        const scoreColor = score < 1.5 ? '#c0392b'
+          : score < 2.5 ? '#e67e22'
+          : score < 3.5 ? '#d4a017'
+          : score < 4.5 ? '#b8961c'
+          : '#27ae60';
+
+        // Track (subtle light grey)
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, Math.PI, 2 * Math.PI, false);
+        ctx.strokeStyle = '#e9ecef';
+        ctx.lineWidth = arcW;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // Fill arc
+        const endAngle = Math.PI + pct * Math.PI;
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, Math.PI, endAngle, false);
+        ctx.strokeStyle = scoreColor;
+        ctx.lineWidth = arcW;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // Glow on the tip
+        const tipX = cx + Math.cos(endAngle) * outerR;
+        const tipY = cy + Math.sin(endAngle) * outerR;
+        const glow = ctx.createRadialGradient(tipX, tipY, 0, tipX, tipY, arcW * 1.2);
+        glow.addColorStop(0, 'rgba(255, 255, 255, 0.35)');
+        glow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.beginPath();
+        ctx.arc(tipX, tipY, arcW * 1.2, 0, 2 * Math.PI);
+        ctx.fillStyle = glow;
+        ctx.fill();
+
+        // Score text
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = 'bold 52px sans-serif';
+        ctx.fillStyle = scoreColor;
+        ctx.fillText(score.toFixed(1), cx, cy - 8);
+
+        ctx.font = '600 18px sans-serif';
+        ctx.fillStyle = '#6c757d';
+        ctx.fillText('out of ' + max, cx, cy + 22);
+
+        // Scale labels
+        ctx.font = '600 14px sans-serif';
+        ctx.fillStyle = '#b8961c';
+        ctx.textAlign = 'center';
+        ctx.fillText('0', cx - outerR - 4, cy + arcW + 10);
+        ctx.fillText(String(max), cx + outerR + 4, cy + arcW + 10);
+
+        return canvas.toDataURL('image/png');
       }
 
-      function heading(text, size) {
-        size = size || 14;
-        checkPage(14);
-        doc.setFontSize(size);
-        doc.setFont(undefined, 'bold');
-        doc.setTextColor(...dark);
-        doc.text(text, marginL, y);
-        y += size === 14 ? 8 : 7;
-      }
-
-      function paragraph(text) {
-        doc.setFontSize(9);
-        doc.setFont(undefined, 'normal');
-        doc.setTextColor(...grey);
-        const lines = doc.splitTextToSize(text, contentW);
-        checkPage(lines.length * 4 + 2);
-        doc.text(lines, marginL, y);
-        y += lines.length * 4 + 3;
-      }
-
-      // Header
-      const headerH = 60;
+      // --- Header ---
+      const headerH = 66;
       doc.setFillColor(28, 28, 28);
       doc.rect(0, 0, pageWidth, headerH, 'F');
 
+      // Logo centred in header
       if (logoDataUrl) {
-        const logoH = 28;
+        const logoH = 32;
         const logoW = logoH * logoAspect;
         doc.addImage(logoDataUrl, 'PNG', (pageWidth - logoW) / 2, 3, logoW, logoH);
       }
 
       doc.setTextColor(255, 255, 255);
-      doc.setFontSize(16);
-      doc.setFont(undefined, 'bold');
-      doc.text('QE Maturity Assessment', pageWidth / 2, 38, { align: 'center' });
-      doc.setFontSize(10);
-      doc.setFont(undefined, 'normal');
-      doc.setTextColor(200, 200, 200);
-      doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 46, { align: 'center' });
-      doc.setFontSize(8);
-      doc.setTextColor(150, 150, 150);
-      doc.text('27 March 2026', pageWidth / 2, 53, { align: 'center' });
-
-      y = headerH + 10;
-
-      // Overall Score
-      heading('Overall Maturity Score');
-      checkPage(20);
-      doc.setFillColor(...gold);
-      doc.roundedRect(marginL, y - 1, contentW, 16, 3, 3, 'F');
       doc.setFontSize(14);
       doc.setFont(undefined, 'bold');
-      doc.setTextColor(255, 255, 255);
-      doc.text('Level 2: Managed — Score: 2.0 / 5.0', pageWidth / 2, y + 9, { align: 'center' });
-      y += 22;
+      doc.text('Test Automation Maturity Assessment', pageWidth / 2, 40, { align: 'center' });
+      doc.setFontSize(14);
+      doc.text('Overall Maturity Score', pageWidth / 2, 48, { align: 'center' });
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      doc.text('Prepared for: WeConnectU  |  27 March 2026', pageWidth / 2, 56, { align: 'center' });
 
-      paragraph('Some processes exist but are inconsistently applied. Basic automation covers critical paths but is fragile.');
+      y = headerH + 4;
 
-      // Dimension Scores
-      heading('Dimension Breakdown');
-      const dimensions = [
-        { name: 'Test Process & Governance', score: 2.0, rec: 'Establish formal test case management. Create a basic test strategy document.' },
-        { name: 'Automation Coverage & Effectiveness', score: 1.8, rec: 'Prioritise automating critical regression paths. Focus on API tests before UI automation.' },
-        { name: 'Tooling & Infrastructure', score: 2.2, rec: 'Integrate automated tests into CI/CD pipelines. Implement environment provisioning scripts.' },
-        { name: 'Reporting & Observability', score: 1.8, rec: 'Implement automated test reporting with trend visualisation. Track code coverage metrics.' },
-        { name: 'Team Skills & Culture', score: 2.2, rec: 'Implement structured knowledge sharing sessions. Begin shift-left initiatives.' }
-      ];
+      // --- Speed dial gauge ---
+      const gaugeDataUrl = renderGaugeToDataUrl(overallScore, 5);
+      const gaugeW = 60;
+      const gaugeH = 35;
+      doc.addImage(gaugeDataUrl, 'PNG', 18, y, gaugeW, gaugeH);
+
+      // Level info to the right of gauge
+      const infoX = 85;
+      doc.setFontSize(15);
+      doc.setTextColor(150, 121, 15);
+      doc.setFont(undefined, 'bold');
+      doc.text('Level ' + overallLevel + ': ' + levelName, infoX, y + 16);
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(108, 117, 125);
+      doc.text(levelTagline.substring(0, 80) + '...', infoX, y + 24);
+
+      y += gaugeH + 10;
+
+      // --- Dimension Scores ---
+      doc.setFontSize(15);
+      doc.setTextColor(26, 26, 46);
+      doc.setFont(undefined, 'bold');
+      doc.text('Dimension Scores', 15, y);
+      y += 9;
+
+      // Calculate available space for dimensions (before CTA)
+      const ctaH = 28;
+      const ctaY = pageHeight - ctaH;
+      const availableH = ctaY - y - 6;
+      const dimSpacing = Math.min(availableH / dimensions.length, 32);
+      const barWidth = pageWidth - 30;
 
       dimensions.forEach(dim => {
-        checkPage(20);
+        const fillWidth = (dim.score / 5) * barWidth;
+        const barColor = dim.score < 2.5 ? [192, 57, 43] : dim.score < 3.5 ? [212, 160, 23] : [184, 150, 28];
+
+        // Dimension name and score
         doc.setFontSize(10);
         doc.setFont(undefined, 'bold');
-        doc.setTextColor(...dark);
-        doc.text(dim.name, marginL, y);
-        doc.setTextColor(...gold);
-        doc.text(dim.score.toFixed(1) + ' / 5.0', pageWidth - marginR, y, { align: 'right' });
-        y += 5;
+        doc.setTextColor(26, 26, 46);
+        doc.text(dim.name, 15, y);
+        doc.setTextColor(...barColor);
+        doc.text(dim.score.toFixed(1) + ' / 5.0', pageWidth - 35, y);
 
-        // Score bar
-        const barWidth = contentW;
-        const fillWidth = (dim.score / 5) * barWidth;
-        doc.setFillColor(230, 230, 230);
-        doc.roundedRect(marginL, y, barWidth, 4, 1, 1, 'F');
-        doc.setFillColor(192, 57, 43);
-        doc.roundedRect(marginL, y, fillWidth, 4, 1, 1, 'F');
-        y += 7;
+        y += 6;
 
+        // Full-width score bar
+        doc.setFillColor(222, 226, 230);
+        doc.roundedRect(15, y, barWidth, 4, 2, 2, 'F');
+        doc.setFillColor(...barColor);
+        doc.roundedRect(15, y, fillWidth, 4, 2, 2, 'F');
+
+        y += 10;
+
+        // Recommendation
         doc.setFontSize(8);
         doc.setFont(undefined, 'normal');
-        doc.setTextColor(...grey);
-        const recLines = doc.splitTextToSize('Recommendation: ' + dim.rec, contentW);
-        doc.text(recLines, marginL, y);
-        y += recLines.length * 3.5 + 6;
+        doc.setTextColor(73, 80, 87);
+        const recLines = doc.splitTextToSize('Recommendation: ' + dim.rec, pageWidth - 30);
+        doc.text(recLines, 15, y);
+        y += recLines.length * 4 + (dimSpacing - 18);
       });
 
-      // Save
-      doc.save('WeConnectU-QE-Maturity-Assessment.pdf');
+      // --- CTA Footer ---
+      doc.setFillColor(0, 0, 0);
+      doc.rect(0, ctaY, pageWidth, ctaH, 'F');
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(14);
+      doc.setFont(undefined, 'bold');
+      doc.text('Ready to Level Up?', 15, ctaY + 10);
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(200, 200, 200);
+      doc.text('Book a free consultation with Bosch Technologies to build your improvement roadmap.', 15, ctaY + 17);
+      // Clickable link text
+      doc.setTextColor(184, 150, 28);
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'bold');
+      const linkText = 'Click here to book a consultation';
+      doc.text(linkText, 15, ctaY + 24);
+      const linkW = doc.getTextWidth(linkText);
+      doc.link(15, ctaY + 21, linkW, 5, { url: contactUrl });
+
+      doc.save('Bosch-Maturity-Assessment-WeConnectU.pdf');
     }
     <?php endif; ?>
   </script>
