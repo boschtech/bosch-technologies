@@ -196,6 +196,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <a href="/clients/weconnectu/maturity-assessment.php" class="btn btn-primary btn-lg" style="margin-top: 16px;"><i data-lucide="bar-chart-3"></i> View Maturity Assessment Results →</a>
       </div>
 
+      <!-- High-level QE Skills Assessment -->
+      <div class="proposal-option-card">
+        <h2>High-level QE Skills Assessment</h2>
+        <p>The current Quality Engineering capability is heavily reliant on manual testing, despite the team possessing strong domain expertise. While one Quality Engineer has implemented UI automation using Selenium and Java, these tests are executed locally and are not integrated into the CI/CD pipeline, limiting their effectiveness as quality gates.</p>
+        <p>This over-reliance on manual processes, combined with concentrated domain knowledge, introduces significant business risk. The potential loss of key individuals would result in a substantial loss of intellectual property and continuity challenges. Furthermore, existing resource and time constraints make it difficult for the team to onboard and upskill new Quality Engineers effectively.</p>
+        <p>Introducing a robust automation strategy, specifically by integrating automated tests into the CI/CD pipeline as enforceable quality gates, will reduce this dependency on individuals, improve scalability, and significantly mitigate operational risk.</p>
+      </div>
+
       <!-- Target State Vision -->
       <div class="proposal-option-card">
         <h2>Target State Vision</h2>
