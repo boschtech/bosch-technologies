@@ -220,6 +220,14 @@ async function generateAssessmentReportPDF() {
   ]);
 
   // ==========================================
+  //  High-level QE Skills Assessment
+  // ==========================================
+  heading('High-level QE Skills Assessment');
+  paragraph('The current Quality Engineering capability is heavily reliant on manual testing, despite the team possessing strong domain expertise. While one Quality Engineer has implemented UI automation using Selenium and Java, these tests are executed locally and are not integrated into the CI/CD pipeline, limiting their effectiveness as quality gates.');
+  paragraph('This over-reliance on manual processes, combined with concentrated domain knowledge, introduces significant business risk. The potential loss of key individuals would result in a substantial loss of intellectual property and continuity challenges. Furthermore, existing resource and time constraints make it difficult for the team to onboard and upskill new Quality Engineers effectively.');
+  paragraph('Introducing a robust automation strategy, specifically by integrating automated tests into the CI/CD pipeline as enforceable quality gates, will reduce this dependency on individuals, improve scalability, and significantly mitigate operational risk.');
+
+  // ==========================================
   //  Target State Vision
   // ==========================================
   newPage();
