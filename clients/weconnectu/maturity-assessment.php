@@ -492,6 +492,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
       // Level info to the right of gauge
       const infoX = 85;
+      const infoMaxWidth = pageWidth - infoX - 15;
       doc.setFontSize(15);
       doc.setTextColor(150, 121, 15);
       doc.setFont(undefined, 'bold');
@@ -499,9 +500,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
       doc.setTextColor(108, 117, 125);
-      doc.text(levelTagline.substring(0, 80) + '...', infoX, y + 24);
+      const taglineLines = doc.splitTextToSize(levelTagline, infoMaxWidth);
+      doc.text(taglineLines, infoX, y + 24);
 
-      y += gaugeH + 10;
+      y += gaugeH + (taglineLines.length > 1 ? taglineLines.length * 4 : 0) + 10;
 
       // --- Dimension Scores ---
       doc.setFontSize(13);
