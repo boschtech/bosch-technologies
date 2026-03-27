@@ -111,7 +111,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
               <span class="score-value">2.0</span>
             </div>
             <h2>Level 2: Managed</h2>
-            <p>Some processes exist but are inconsistently applied. Basic automation covers critical paths but is fragile.</p>
+            <p>
+              Some processes exist but are inconsistently applied. 
+              Basic automation covers critical paths but is fragile.
+            </p>
           </div>
 
           <!-- Radar Chart -->
