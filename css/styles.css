@@ -295,7 +295,7 @@ p { margin-bottom: 1rem; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 18px;
   list-style: none;
 }
 
