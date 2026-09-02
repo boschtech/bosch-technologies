@@ -236,7 +236,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
         <h2>Ready to Transform Your QE Practice?</h2>
         <p>Based on our assessment findings, we have prepared a detailed Improvement Engagement proposal with multiple options tailored to WeConnectU's needs.</p>
-        <a href="/clients/weconnectu/improvement-engagement.php" class="btn btn-accent btn-lg" style="margin-top: 16px;">View Improvement Engagement Options →</a>
+        <div style="margin-top: 16px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="/clients/weconnectu/improvement-engagement.php" class="btn btn-accent btn-lg">View Improvement Engagement Options →</a>
+          <a href="/clients/weconnectu/alternative-engagement.php" class="btn btn-outline btn-lg">View Alternative Engagement Proposal →</a>
+        </div>
       </div>
 
       <!-- CTA -->

@@ -340,6 +340,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         </div>
       </div>
 
+      <!-- Link to Alternative Engagement -->
+      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
+        <h2>Looking for a Leaner Alternative?</h2>
+        <p>We have also prepared an alternative engagement proposal covering a hands-on 6-month test strategy implementation with recruitment, or a standalone Quality Assurance Engineer placement.</p>
+        <a href="/clients/weconnectu/alternative-engagement.php" class="btn btn-accent btn-lg" style="margin-top: 16px;">View Alternative Engagement Proposal →</a>
+      </div>
+
       <!-- CTA -->
       <div class="proposal-section text-center" style="padding-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <button type="button" onclick="generateImprovementEngagementPDF()" class="btn btn-primary btn-lg"><i data-lucide="file-text"></i> Download PDF Report</button>
