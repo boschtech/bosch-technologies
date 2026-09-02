@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h3>Assessment &amp; Tooling</h3>
         <ul>
           <li><strong>Technical Assessment Tool:</strong> Bosch Technologies' own HackerRank platform</li>
-          <li><strong>Assessment Coverage:</strong> Technical QA competencies and AI usage proficiency</li>
+          <li><strong>Assessment Coverage:</strong> Based on WeConnectU's Job Description, Technical QA competencies and AI usage proficiency</li>
           <li><strong>ATS Integration:</strong> HackerRank is integrated with WeConnectU's ATS (Workable) so candidate results are tracked in one place</li>
         </ul>
 
@@ -190,15 +190,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <!-- Investment Summary -->
       <div class="proposal-option-card">
         <h2>Investment Summary</h2>
-        <table class="proposal-table">
-          <thead>
-            <tr><th>Option</th><th>Cost</th><th>Duration</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Option 1 — Test Strategy Implementation &amp; Recruitment (Garth)</td><td>R100,000/month × 6 months = <strong>R600,000</strong></td><td>6 months</td></tr>
-            <tr><td>Option 2 — Quality Assurance Engineer Recruitment Only</td><td><strong>R144,000</strong> on offer acceptance</td><td>~45 days</td></tr>
-          </tbody>
-        </table>
+        <div style="overflow-x: auto;">
+          <table class="proposal-table" style="min-width: 520px;">
+            <thead>
+              <tr><th>Option</th><th>Cost</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Option 1 — Test Strategy Implementation &amp; Recruitment (Garth)</td><td>R100,000/month × 6 months = <strong>R600,000</strong></td><td>6 months</td></tr>
+              <tr><td>Option 2 — Quality Assurance Engineer Recruitment Only</td><td><strong>R144,000</strong> on offer acceptance</td><td>~45 days</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Value Proposition -->
@@ -227,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <!-- Next Steps -->
       <div class="proposal-section">
         <h2>Next Steps</h2>
-        <div class="process-steps" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="process-steps" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
           <div class="process-step">
             <h4>Review</h4>
             <p>Review and discuss the proposal details</p>
@@ -242,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           </div>
           <div class="process-step">
             <h4>Kick-off</h4>
-            <p>Start test strategy and recruitment</p>
+            <p>Start engagement</p>
           </div>
         </div>
       </div>
@@ -303,7 +305,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <script>
   async function generateAlternativeEngagementPDF() {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF('p', 'mm', 'a4');
+    const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4', compress: true });
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
@@ -328,10 +330,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         logoImg.src = '/assets/images/logo.png';
       });
       logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
+      // Downscale to roughly 300 DPI at the 28mm print height so the embedded
+      // bitmap stays small — the source asset is ~2675x1569 and would otherwise
+      // be embedded as a multi-megabyte uncompressed RGBA image.
+      const targetH = 340;
+      const targetW = Math.round(targetH * logoAspect);
       const canvas = document.createElement('canvas');
-      canvas.width = logoImg.naturalWidth;
-      canvas.height = logoImg.naturalHeight;
-      canvas.getContext('2d').drawImage(logoImg, 0, 0);
+      canvas.width = targetW;
+      canvas.height = targetH;
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(logoImg, 0, 0, targetW, targetH);
       logoDataUrl = canvas.toDataURL('image/png');
     } catch (e) { console.log('Logo skipped'); }
 
@@ -469,10 +478,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     bulletList(["Comprehensive test strategy document aligned with WeConnectU's needs", 'Automated test frameworks implementation (tools, infrastructure, processes)', 'Training and mentoring of the permanent Quality Assurance Engineering resource', 'Documentation and best practices guides', 'Transition plan and knowledge transfer completion']);
     subheading('Key Terms');
     bulletList(['Flexibility: Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeConnectU.', 'Recruitment & Transition: Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality Assurance Engineer for WeConnectU.', 'Knowledge Transfer: Full upskilling and handover of the test strategy and automation frameworks to the recruited permanent team member.']);
-    subheading('Duration');
-    paragraph('6 months');
-    subheading('Investment');
-    table(null, [['Monthly Fee', 'R100,000 per month'], ['Engagement Length', '6 months']], null);
+    subheading('Duration & Investment');
+    paragraph('6-month engagement at a monthly fee of R100,000 per month.');
     highlightBox('Total Investment: R600,000');
 
     // Option 2
@@ -483,7 +490,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     subheading('Position Details');
     bulletList(['Role: Quality Assurance Engineer', 'Employment Type: Permanent, full-time at WeConnectU', 'Remuneration: Maximum of R80,000 per month', 'Benefits: Full WeConnectU employee benefits package']);
     subheading('Assessment & Tooling');
-    bulletList(["Technical Assessment Tool: Bosch Technologies' own HackerRank platform", 'Assessment Coverage: Technical QA competencies and AI usage proficiency', "ATS Integration: HackerRank is integrated with WeConnectU's ATS (Workable) so candidate results are tracked in one place"]);
+    bulletList(["Technical Assessment Tool: Bosch Technologies' own HackerRank platform", "Assessment Coverage: Based on WeConnectU's Job Description, Technical QA competencies and AI usage proficiency", "ATS Integration: HackerRank is integrated with WeConnectU's ATS (Workable) so candidate results are tracked in one place"]);
     subheading('Timeline');
     paragraph('Approximately 45 days');
     subheading('Investment');
