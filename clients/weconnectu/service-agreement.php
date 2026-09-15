@@ -251,10 +251,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     const bottomMargin = 20;
     let y = 0;
 
-    const gold = [184, 150, 28];
     const dark = [26, 26, 46];
     const grey = [108, 117, 125];
     const lightGrey = [160, 160, 160];
+    const ruleGrey = [200, 200, 200];
 
     // Fixed, known facts (not editable on-page since they are already known)
     const SP_REG = '2013/003965/07';
@@ -281,20 +281,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       if (y + needed > pageHeight - bottomMargin) { doc.addPage(); y = 20; }
     }
 
+    // Fixed height consumed by heading(): 6mm space-before + 3mm text-to-rule gap + 6mm space-after.
+    // Kept in sync with heading()'s own y increments so clauseSection() can pre-measure sections.
+    const HEADING_H = 15;
+
     function heading(text) {
-      checkPage(14);
+      checkPage(22);
+      y += 6;
       doc.setFontSize(13);
       doc.setFont(undefined, 'bold');
       doc.setTextColor(...dark);
       doc.text(text, marginL, y);
-      y += 7;
+      y += 3;
+      doc.setDrawColor(...ruleGrey);
+      doc.setLineWidth(0.3);
+      doc.line(marginL, y, pageWidth - marginL, y);
+      y += 6;
     }
 
     function subheading(text) {
       checkPage(10);
       doc.setFontSize(10.5);
       doc.setFont(undefined, 'bold');
-      doc.setTextColor(...gold);
+      doc.setTextColor(...dark);
       doc.text(text, marginL, y);
       y += 5.5;
     }
@@ -391,7 +400,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.rect(marginL, y, contentW, rowH, 'F');
         doc.setFontSize(8);
         doc.setFont(undefined, 'bold');
-        doc.setTextColor(...gold);
+        doc.setTextColor(255, 255, 255);
         footerRow.forEach((cell, i) => doc.text(cell, marginL + i * colW + 4, y + 5.5));
         y += rowH;
       }
@@ -400,26 +409,92 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
     function newPage() { doc.addPage(); y = 20; }
 
-    // --- Letterhead (both logos) ---
-    const headerH = 42;
-    doc.setFillColor(28, 28, 28);
+    // --- Measurement helpers (mirror the render functions' arithmetic exactly, without drawing) ---
+    function measureParagraph(text) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      const lines = doc.splitTextToSize(text, contentW);
+      return lines.length * 4 + 3;
+    }
+    function measureBulletList(items) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      let h = 0;
+      items.forEach(item => { h += doc.splitTextToSize(item, contentW - 8).length * 4 + 1.5; });
+      return h + 2;
+    }
+    function measureClauseItems(items) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      let h = 0;
+      items.forEach(item => { h += doc.splitTextToSize(item, contentW).length * 4 + 2; });
+      return h + 2;
+    }
+    function measureFieldRow(label, value) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'bold');
+      const labelW = doc.getTextWidth(label + ': ');
+      if (!value) return 5;
+      doc.setFont(undefined, 'normal');
+      return doc.splitTextToSize(value, contentW - labelW).length * 5;
+    }
+
+    // Renders a numbered clause as a single unit: if the whole section (heading + body)
+    // doesn't fit in the remaining space on the current page, it starts on a fresh page
+    // instead of splitting mid-clause.
+    function clauseSection(title, blocks) {
+      let estH = HEADING_H;
+      blocks.forEach(b => {
+        if (b.type === 'clauseItems') estH += measureClauseItems(b.args);
+        else if (b.type === 'paragraph') estH += measureParagraph(b.args);
+        else if (b.type === 'bulletList') estH += measureBulletList(b.args);
+        else if (b.type === 'fieldRow') estH += measureFieldRow(b.args[0], b.args[1]);
+        else if (b.type === 'gap') estH += b.args;
+      });
+      const maxPageContent = pageHeight - bottomMargin - 20;
+      if (estH <= maxPageContent) checkPage(estH);
+      heading(title);
+      blocks.forEach(b => {
+        if (b.type === 'clauseItems') clauseItems(b.args);
+        else if (b.type === 'paragraph') paragraph(b.args);
+        else if (b.type === 'bulletList') bulletList(b.args);
+        else if (b.type === 'fieldRow') fieldRow(b.args[0], b.args[1]);
+        else if (b.type === 'gap') y += b.args;
+      });
+    }
+
+    function splitNameTitle(str) {
+      if (!str) return { name: '', title: '' };
+      const idx = str.indexOf(',');
+      if (idx === -1) return { name: str.trim(), title: '' };
+      return { name: str.slice(0, idx).trim(), title: str.slice(idx + 1).trim() };
+    }
+
+    // --- Letterhead (both logos, white background) ---
+    const headerH = 56;
+    doc.setFillColor(255, 255, 255);
     doc.rect(0, 0, pageWidth, headerH, 'F');
-    const logoH = 14;
+    const boschLogoH = 24;
+    const wcuLogoH = 15;
+    const logoCenterY = 22;
     if (boschLogo) {
-      doc.addImage(boschLogo.dataUrl, 'PNG', marginL, 6, logoH * boschLogo.aspect, logoH);
+      doc.addImage(boschLogo.dataUrl, 'PNG', marginL, logoCenterY - boschLogoH / 2, boschLogoH * boschLogo.aspect, boschLogoH);
     }
     if (wcuLogo) {
-      const w = logoH * wcuLogo.aspect;
-      doc.addImage(wcuLogo.dataUrl, 'PNG', pageWidth - marginL - w, 6, w, logoH);
+      const w = wcuLogoH * wcuLogo.aspect;
+      doc.addImage(wcuLogo.dataUrl, 'PNG', pageWidth - marginL - w, logoCenterY - wcuLogoH / 2, w, wcuLogoH);
     }
-    doc.setTextColor(255, 255, 255);
+    doc.setTextColor(...dark);
     doc.setFontSize(15);
     doc.setFont(undefined, 'bold');
-    doc.text('MASTER SERVICES AGREEMENT', pageWidth / 2, 28, { align: 'center' });
+    doc.text('MASTER SERVICES AGREEMENT', pageWidth / 2, 42, { align: 'center' });
     doc.setFontSize(9);
     doc.setFont(undefined, 'normal');
-    doc.setTextColor(200, 200, 200);
-    doc.text('Test Strategy Implementation & Quality Assurance Recruitment Engagement', pageWidth / 2, 35, { align: 'center' });
+    doc.setTextColor(...grey);
+    doc.text('Test Strategy Implementation & Quality Assurance Recruitment Engagement', pageWidth / 2, 49, { align: 'center' });
+    doc.setDrawColor(...dark);
+    doc.setLineWidth(0.6);
+    doc.line(0, headerH, pageWidth, headerH);
     y = headerH + 10;
 
     // --- Parties ---
@@ -428,7 +503,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     fieldRow('Registration No', SP_REG);
     fieldRow('Address', SP_ADDRESS);
     fieldRow('Represented by', sp.rep);
-    paragraph('Email: admin@boschtechnologies.com');
+    paragraph('Email: garth@boschtechnologies.com');
     paragraph('("Bosch Technologies" or "the Service Provider")');
 
     heading('The Client');
@@ -443,157 +518,176 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     fieldRow('Effective Date', effectiveDate);
 
     // --- 1. Background ---
-    heading('1. Background');
-    clauseItems([
-      '1.1 The Client wishes to establish a structured software test strategy, implement automation test frameworks, and build a permanent, in-house Quality Assurance capability.',
-      '1.2 The Service Provider is a quality engineering consultancy that specialises in automation test strategy, test framework implementation, and quality engineering enablement.',
-      '1.3 The Client has engaged the Service Provider to design and implement a test strategy, stand up automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer at the Client to take ownership of the capability at the end of the engagement.',
-      '1.4 The Parties wish to record the terms on which these services will be provided in this Agreement.'
+    clauseSection('1. Background', [
+      { type: 'clauseItems', args: [
+        '1.1 The Client wishes to establish a structured software test strategy, implement automation test frameworks, and build a permanent, in-house Quality Assurance capability.',
+        '1.2 The Service Provider is a quality engineering consultancy that specialises in automation test strategy, test framework implementation, and quality engineering enablement.',
+        '1.3 The Client has engaged the Service Provider to design and implement a test strategy, stand up automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer at the Client to take ownership of the capability at the end of the engagement.',
+        '1.4 The Parties wish to record the terms on which these services will be provided in this Agreement.'
+      ] }
     ]);
 
     // --- 2. Definitions ---
-    heading('2. Definitions and Interpretation');
-    clauseItems([
-      '2.1 "Deliverables" means the test strategy document, automation test frameworks, documentation, and other work product produced by the Service Provider under this Agreement, as further described in Schedule A.',
-      '2.2 "Key Consultant" means Garth Bosch, the individual through whom the Service Provider will principally perform the Services.',
-      '2.3 "Permanent Hire" means the Quality Assurance Engineer recruited by the Service Provider under clause 6 to be permanently employed by the Client.',
-      '2.4 "Services" means the services described in Schedule A.',
-      '2.5 "Term" means the period described in clause 4.',
-      '2.6 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
+    clauseSection('2. Definitions and Interpretation', [
+      { type: 'clauseItems', args: [
+        '2.1 "Deliverables" means the test strategy document, automation test frameworks, documentation, and other work product produced by the Service Provider under this Agreement, as further described in Schedule A.',
+        '2.2 "Key Consultant" means Garth Bosch, the individual through whom the Service Provider will principally perform the Services.',
+        '2.3 "Permanent Hire" means the Quality Assurance Engineer recruited by the Service Provider under clause 6 to be permanently employed by the Client.',
+        '2.4 "Services" means the services described in Schedule A.',
+        '2.5 "Term" means the period described in clause 4.',
+        '2.6 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
+      ] }
     ]);
 
     // --- 3. Scope ---
-    heading('3. Scope of Services');
-    paragraph('The Service Provider shall provide the following Services to the Client during the Term, as more fully described in Schedule A:');
-    bulletList([
-      'Design and implementation of a comprehensive quality engineering test strategy tailored to the Client;',
-      'Set-up and configuration of automation test frameworks and supporting tooling;',
-      'Ongoing leadership of quality assurance initiatives during the Term; and',
-      'Recruitment, training, and upskilling of a Permanent Hire to take over the test strategy and automation frameworks at the end of the Term, in accordance with clauses 6 and 7.'
+    clauseSection('3. Scope of Services', [
+      { type: 'paragraph', args: 'The Service Provider shall provide the following Services to the Client during the Term, as more fully described in Schedule A:' },
+      { type: 'bulletList', args: [
+        'Design and implementation of a comprehensive quality engineering test strategy tailored to the Client;',
+        'Set-up and configuration of automation test frameworks and supporting tooling;',
+        'Ongoing leadership of quality assurance initiatives during the Term; and',
+        'Recruitment, training, and upskilling of a Permanent Hire to take over the test strategy and automation frameworks at the end of the Term, in accordance with clauses 6 and 7.'
+      ] }
     ]);
 
     // --- 4. Term ---
-    heading('4. Term');
-    clauseItems([
-      '4.1 This Agreement commences on the Effective Date and continues for a fixed period of six (6) months (the "Term"), unless terminated earlier in accordance with clause 14.',
-      '4.2 The Parties may agree in writing to extend or renew the Term on the same or varied terms.'
+    clauseSection('4. Term', [
+      { type: 'clauseItems', args: [
+        '4.1 This Agreement commences on the Effective Date and continues for a fixed period of six (6) months (the "Term"), unless terminated earlier in accordance with clause 14.',
+        '4.2 The Parties may agree in writing to extend or renew the Term on the same or varied terms.'
+      ] }
     ]);
 
     // --- 5. Fees ---
-    heading('5. Fees and Payment');
-    fieldRow('Monthly Fee', 'R100,000.00 (one hundred thousand Rand) per month, inclusive of VAT');
-    fieldRow('Total Contract Value', 'R600,000.00 (six hundred thousand Rand) over the 6-month Term, inclusive of VAT');
-    fieldRow('Invoicing', 'On the 25th day of each month of the Term. Where the 25th falls on a Saturday or Sunday, the invoice shall be issued on the preceding Friday.');
-    fieldRow('Payment Terms', 'Payable within 5 days of invoice date, by electronic funds transfer to the bank account nominated by the Service Provider.');
-    fieldRow('Expenses', 'No travel, accommodation, or third-party tooling expenses are included unless separately agreed in writing in advance.');
-    y += 2;
-    paragraph("The Permanent Hire's recruitment under clause 6 is included in the Monthly Fee and carries no separate placement fee, provided the recruitment is completed within the Term.");
+    clauseSection('5. Fees and Payment', [
+      { type: 'fieldRow', args: ['Monthly Fee', 'R100,000.00 (one hundred thousand Rand) per month, inclusive of VAT'] },
+      { type: 'fieldRow', args: ['Total Contract Value', 'R600,000.00 (six hundred thousand Rand) over the 6-month Term, inclusive of VAT'] },
+      { type: 'fieldRow', args: ['Invoicing', 'On the 25th day of each month of the Term. Where the 25th falls on a Saturday or Sunday, the invoice shall be issued on the preceding Friday.'] },
+      { type: 'fieldRow', args: ['Payment Terms', 'Payable within 5 days of invoice date, by electronic funds transfer to the bank account nominated by the Service Provider.'] },
+      { type: 'fieldRow', args: ['Expenses', 'No travel, accommodation, or third-party tooling expenses are included unless separately agreed in writing in advance.'] },
+      { type: 'gap', args: 2 },
+      { type: 'paragraph', args: "The Permanent Hire's recruitment under clause 6 is included in the Monthly Fee and carries no separate placement fee, provided the recruitment is completed within the Term." }
+    ]);
 
     // --- 6. Recruitment ---
-    heading('6. Recruitment of the Permanent Hire');
-    clauseItems([
-      '6.1 The Service Provider shall identify, screen, and recruit a Quality Assurance Engineer to be employed permanently and directly by the Client (the Permanent Hire), with recruitment to be substantially completed before the end of the Term.',
-      '6.2 The employment relationship, remuneration, benefits, and employment contract between the Client and the Permanent Hire are matters solely between the Client and that individual. The Service Provider is not a party to, and accepts no liability arising from, that employment relationship.',
-      "6.3 The Client remains responsible for final selection and hiring decisions. The Service Provider's role is to source, screen, and recommend candidates and to support the interview process.",
-      "6.4 If recruitment of the Permanent Hire is delayed due to the Client's unavailability for interviews, the Client's rejection of suitably qualified candidates presented by the Service Provider, or a shortage of suitably qualified candidates in the market despite the Service Provider's reasonable efforts, such delay shall not constitute a breach of this Agreement by the Service Provider. In that event, the Parties shall discuss in good faith a reasonable extension of the recruitment timeline."
+    clauseSection('6. Recruitment of the Permanent Hire', [
+      { type: 'clauseItems', args: [
+        '6.1 The Service Provider shall identify, screen, and recruit a Quality Assurance Engineer to be employed permanently and directly by the Client (the Permanent Hire), with recruitment to be substantially completed before the end of the Term.',
+        '6.2 The employment relationship, remuneration, benefits, and employment contract between the Client and the Permanent Hire are matters solely between the Client and that individual. The Service Provider is not a party to, and accepts no liability arising from, that employment relationship.',
+        "6.3 The Client remains responsible for final selection and hiring decisions. The Service Provider's role is to source, screen, and recommend candidates and to support the interview process.",
+        "6.4 If recruitment of the Permanent Hire is delayed due to the Client's unavailability for interviews, the Client's rejection of suitably qualified candidates presented by the Service Provider, or a shortage of suitably qualified candidates in the market despite the Service Provider's reasonable efforts, such delay shall not constitute a breach of this Agreement by the Service Provider. In that event, the Parties shall discuss in good faith a reasonable extension of the recruitment timeline."
+      ] }
     ]);
 
     // --- 7. Training ---
-    heading('7. Training, Upskilling and Knowledge Transfer');
-    clauseItems([
-      '7.1 The Service Provider shall train and mentor the Permanent Hire (once appointed) on the test strategy, automation frameworks, and associated processes and tooling developed under this Agreement.',
-      '7.2 The Service Provider shall prepare a transition plan and supporting documentation sufficient to enable the Permanent Hire to independently operate and evolve the test strategy and automation frameworks after the end of the Term.',
-      '7.3 Knowledge transfer is deemed complete upon delivery of the documentation referred to in clause 7.2 and joint sign-off by both Parties of the transition checklist in Schedule A.'
+    clauseSection('7. Training, Upskilling and Knowledge Transfer', [
+      { type: 'clauseItems', args: [
+        '7.1 The Service Provider shall train and mentor the Permanent Hire (once appointed) on the test strategy, automation frameworks, and associated processes and tooling developed under this Agreement.',
+        '7.2 The Service Provider shall prepare a transition plan and supporting documentation sufficient to enable the Permanent Hire to independently operate and evolve the test strategy and automation frameworks after the end of the Term.',
+        '7.3 Knowledge transfer is deemed complete upon delivery of the documentation referred to in clause 7.2 and joint sign-off by both Parties of the transition checklist in Schedule A.'
+      ] }
     ]);
 
     // --- 8. Working Arrangements ---
-    heading('8. Working Arrangements and Non-Exclusivity');
-    clauseItems([
-      "8.1 Location. The Key Consultant may perform the Services from any location of his choosing and is not required to work on-site at the Client's premises, save where the Parties agree that a specific activity requires an on-site presence.",
-      "8.2 Non-Exclusivity. This engagement is non-exclusive. The Service Provider (including the Key Consultant) is free to provide services to other clients during the Term, provided this does not materially impair the Service Provider's ability to perform its obligations under this Agreement.",
-      '8.3 Effort Commitment. Notwithstanding clause 8.2, the Service Provider shall dedicate sufficient time and attention to the Client to deliver the Services in accordance with the timelines agreed under Schedule A.',
-      "8.4 Key Person. The Service Provider shall ensure that the Services are principally performed by the Key Consultant, and shall not substitute the Key Consultant for another individual without the Client's prior written consent (not to be unreasonably withheld), save where substitution is necessary due to the Key Consultant's illness, incapacity, or unavailability arising from circumstances beyond the Service Provider's reasonable control."
+    clauseSection('8. Working Arrangements and Non-Exclusivity', [
+      { type: 'clauseItems', args: [
+        "8.1 Location. The Key Consultant may perform the Services from any location of his choosing and is not required to work on-site at the Client's premises, save where the Parties agree that a specific activity requires an on-site presence.",
+        "8.2 Non-Exclusivity. This engagement is non-exclusive. The Service Provider (including the Key Consultant) is free to provide services to other clients during the Term, provided this does not materially impair the Service Provider's ability to perform its obligations under this Agreement.",
+        '8.3 Effort Commitment. Notwithstanding clause 8.2, the Service Provider shall dedicate sufficient time and attention to the Client to deliver the Services in accordance with the timelines agreed under Schedule A.',
+        "8.4 Key Person. The Service Provider shall ensure that the Services are principally performed by the Key Consultant, and shall not substitute the Key Consultant for another individual without the Client's prior written consent (not to be unreasonably withheld), save where substitution is necessary due to the Key Consultant's illness, incapacity, or unavailability arising from circumstances beyond the Service Provider's reasonable control."
+      ] }
     ]);
 
     // --- 9. Independent Contractor ---
-    heading('9. Independent Contractor Status');
-    clauseItems([
-      '9.1 The Service Provider is an independent contractor. Nothing in this Agreement creates an employment, partnership, joint venture, or agency relationship between the Parties, or between the Client and the Key Consultant.',
-      "9.2 The Service Provider is solely responsible for its own tax, statutory, and regulatory obligations (including income tax, VAT, and any applicable South African Revenue Service filings) arising from amounts received under this Agreement. The Client shall not withhold employees' tax (PAYE), make UIF or Skills Development Levy contributions, or provide employee benefits in respect of the Service Provider or the Key Consultant.",
-      '9.3 The Service Provider has the right to determine the manner, method, and means by which the Services are performed, subject to the deliverables and timelines agreed under Schedule A.'
+    clauseSection('9. Independent Contractor Status', [
+      { type: 'clauseItems', args: [
+        '9.1 The Service Provider is an independent contractor. Nothing in this Agreement creates an employment, partnership, joint venture, or agency relationship between the Parties, or between the Client and the Key Consultant.',
+        "9.2 The Service Provider is solely responsible for its own tax, statutory, and regulatory obligations (including income tax, VAT, and any applicable South African Revenue Service filings) arising from amounts received under this Agreement. The Client shall not withhold employees' tax (PAYE), make UIF or Skills Development Levy contributions, or provide employee benefits in respect of the Service Provider or the Key Consultant.",
+        '9.3 The Service Provider has the right to determine the manner, method, and means by which the Services are performed, subject to the deliverables and timelines agreed under Schedule A.'
+      ] }
     ]);
 
     // --- 10. IP ---
-    heading('10. Intellectual Property');
-    clauseItems([
-      '10.1 Subject to clause 10.2 and full payment of all Fees due under this Agreement, all Deliverables created specifically for the Client under this Agreement (including the test strategy document and any bespoke automation test scripts) shall vest in and become the property of the Client upon creation.',
-      '10.2 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
-      "10.3 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
+    clauseSection('10. Intellectual Property', [
+      { type: 'clauseItems', args: [
+        '10.1 Subject to clause 10.2 and full payment of all Fees due under this Agreement, all Deliverables created specifically for the Client under this Agreement (including the test strategy document and any bespoke automation test scripts) shall vest in and become the property of the Client upon creation.',
+        '10.2 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
+        "10.3 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
+      ] }
     ]);
 
     // --- 11. Confidentiality ---
-    heading('11. Confidentiality');
-    clauseItems([
-      '11.1 Each Party shall keep confidential all non-public information disclosed by the other Party in connection with this Agreement and shall use it only for the purposes of this Agreement.',
-      '11.2 This obligation does not apply to information that is public, was already known to the receiving Party, is independently developed, or must be disclosed by law or regulation.',
-      '11.3 This clause survives termination or expiry of this Agreement for a period of three (3) years.'
+    clauseSection('11. Confidentiality', [
+      { type: 'clauseItems', args: [
+        '11.1 Each Party shall keep confidential all non-public information disclosed by the other Party in connection with this Agreement and shall use it only for the purposes of this Agreement.',
+        '11.2 This obligation does not apply to information that is public, was already known to the receiving Party, is independently developed, or must be disclosed by law or regulation.',
+        '11.3 This clause survives termination or expiry of this Agreement for a period of three (3) years.'
+      ] }
     ]);
 
     // --- 12. Data Protection ---
-    heading('12. Data Protection');
-    clauseItems([
-      '12.1 To the extent the Service Provider processes any personal information on behalf of the Client in the course of performing the Services (including candidate personal information gathered during recruitment under clause 6), it shall do so in accordance with the Protection of Personal Information Act 4 of 2013 ("POPIA") and only for the purposes of this Agreement.',
-      '12.2 Each Party shall implement reasonable technical and organisational measures to safeguard personal information in its possession or control against loss, unauthorised access, or disclosure.'
+    clauseSection('12. Data Protection', [
+      { type: 'clauseItems', args: [
+        '12.1 To the extent the Service Provider processes any personal information on behalf of the Client in the course of performing the Services (including candidate personal information gathered during recruitment under clause 6), it shall do so in accordance with the Protection of Personal Information Act 4 of 2013 ("POPIA") and only for the purposes of this Agreement.',
+        '12.2 Each Party shall implement reasonable technical and organisational measures to safeguard personal information in its possession or control against loss, unauthorised access, or disclosure.'
+      ] }
     ]);
 
     // --- 13. Warranties ---
-    heading('13. Warranties');
-    clauseItems([
-      '13.1 The Service Provider warrants that it shall perform the Services with reasonable skill, care, and diligence consistent with generally accepted industry standards for quality engineering consulting.',
-      '13.2 Save as expressly stated in this Agreement, all other warranties, conditions, or representations, whether express or implied by law, are excluded to the maximum extent permitted by law.'
+    clauseSection('13. Warranties', [
+      { type: 'clauseItems', args: [
+        '13.1 The Service Provider warrants that it shall perform the Services with reasonable skill, care, and diligence consistent with generally accepted industry standards for quality engineering consulting.',
+        '13.2 Save as expressly stated in this Agreement, all other warranties, conditions, or representations, whether express or implied by law, are excluded to the maximum extent permitted by law.'
+      ] }
     ]);
 
     // --- 14. Termination ---
-    heading('14. Termination');
-    clauseItems([
-      "14.1 For Convenience. Either Party may terminate this Agreement by giving the other Party not less than thirty (30) days' prior written notice.",
-      '14.2 For Cause. Either Party may terminate this Agreement with immediate effect on written notice if the other Party commits a material breach of this Agreement that is not remedied within fourteen (14) days of receiving written notice of the breach.',
-      "14.3 Effect of Termination. On termination, the Client shall pay the Service Provider for Services properly performed and Fees accrued up to the effective date of termination, on a pro-rata basis for any partial month. If this Agreement is terminated before the Permanent Hire's recruitment and knowledge transfer under clauses 6 and 7 are complete, the Parties shall discuss in good faith a reasonable arrangement to complete or hand over that process.",
-      '14.4 Clauses 9, 10, 11, 12, 15, 16, 18, and 19 survive termination or expiry of this Agreement.'
+    clauseSection('14. Termination', [
+      { type: 'clauseItems', args: [
+        "14.1 For Convenience. Either Party may terminate this Agreement by giving the other Party not less than thirty (30) days' prior written notice.",
+        '14.2 For Cause. Either Party may terminate this Agreement with immediate effect on written notice if the other Party commits a material breach of this Agreement that is not remedied within fourteen (14) days of receiving written notice of the breach.',
+        "14.3 Effect of Termination. On termination, the Client shall pay the Service Provider for Services properly performed and Fees accrued up to the effective date of termination, on a pro-rata basis for any partial month. If this Agreement is terminated before the Permanent Hire's recruitment and knowledge transfer under clauses 6 and 7 are complete, the Parties shall discuss in good faith a reasonable arrangement to complete or hand over that process.",
+        '14.4 Clauses 9, 10, 11, 12, 15, 16, 18, and 19 survive termination or expiry of this Agreement.'
+      ] }
     ]);
 
     // --- 15. Limitation of Liability ---
-    heading('15. Limitation of Liability');
-    clauseItems([
-      '15.1 Neither Party shall be liable to the other for any indirect, special, or consequential loss, or loss of profits, revenue, or business opportunity, arising out of or in connection with this Agreement.',
-      "15.2 The Service Provider's aggregate liability arising out of or in connection with this Agreement, whether in contract, delict, or otherwise, shall not exceed the total Fees paid by the Client under this Agreement in the six (6) months preceding the event giving rise to the claim.",
-      '15.3 Nothing in this Agreement limits liability for gross negligence, wilful misconduct, or fraud, to the extent such limitation is not permitted by law.'
+    clauseSection('15. Limitation of Liability', [
+      { type: 'clauseItems', args: [
+        '15.1 Neither Party shall be liable to the other for any indirect, special, or consequential loss, or loss of profits, revenue, or business opportunity, arising out of or in connection with this Agreement.',
+        "15.2 The Service Provider's aggregate liability arising out of or in connection with this Agreement, whether in contract, delict, or otherwise, shall not exceed the total Fees paid by the Client under this Agreement in the six (6) months preceding the event giving rise to the claim.",
+        '15.3 Nothing in this Agreement limits liability for gross negligence, wilful misconduct, or fraud, to the extent such limitation is not permitted by law.'
+      ] }
     ]);
 
     // --- 16. Non-Solicitation ---
-    heading('16. Non-Solicitation');
-    paragraph("Neither Party shall, during the Term and for twelve (12) months thereafter, directly solicit for employment any employee or contractor of the other Party who was materially involved in the performance of this Agreement, without that Party's prior written consent. This clause does not restrict the Client's right to permanently employ the Permanent Hire recruited under clause 6, which is the intended and agreed purpose of this Agreement.");
+    clauseSection('16. Non-Solicitation', [
+      { type: 'paragraph', args: "Neither Party shall, during the Term and for twelve (12) months thereafter, directly solicit for employment any employee or contractor of the other Party who was materially involved in the performance of this Agreement, without that Party's prior written consent. This clause does not restrict the Client's right to permanently employ the Permanent Hire recruited under clause 6, which is the intended and agreed purpose of this Agreement." }
+    ]);
 
     // --- 17. Force Majeure ---
-    heading('17. Force Majeure');
-    paragraph('Neither Party shall be liable for any delay or failure to perform its obligations (other than payment obligations) resulting from causes beyond its reasonable control, including acts of God, load-shedding or extended power outages, internet or telecommunications failures, or governmental action, provided the affected Party notifies the other Party promptly and uses reasonable efforts to mitigate the impact.');
+    clauseSection('17. Force Majeure', [
+      { type: 'paragraph', args: 'Neither Party shall be liable for any delay or failure to perform its obligations (other than payment obligations) resulting from causes beyond its reasonable control, including acts of God, load-shedding or extended power outages, internet or telecommunications failures, or governmental action, provided the affected Party notifies the other Party promptly and uses reasonable efforts to mitigate the impact.' }
+    ]);
 
     // --- 18. Governing Law ---
-    heading('18. Governing Law and Dispute Resolution');
-    clauseItems([
-      '18.1 This Agreement is governed by the laws of the Republic of South Africa.',
-      '18.2 The Parties shall first attempt to resolve any dispute arising out of this Agreement through good-faith negotiation between senior representatives. If unresolved within thirty (30) days, either Party may refer the dispute to the courts of South Africa having jurisdiction, or to mediation/arbitration if the Parties so agree in writing.'
+    clauseSection('18. Governing Law and Dispute Resolution', [
+      { type: 'clauseItems', args: [
+        '18.1 This Agreement is governed by the laws of the Republic of South Africa.',
+        '18.2 The Parties shall first attempt to resolve any dispute arising out of this Agreement through good-faith negotiation between senior representatives. If unresolved within thirty (30) days, either Party may refer the dispute to the courts of South Africa having jurisdiction, or to mediation/arbitration if the Parties so agree in writing.'
+      ] }
     ]);
 
     // --- 19. General ---
-    heading('19. General');
-    clauseItems([
-      '19.1 Entire Agreement. This Agreement, including its Schedules, constitutes the entire agreement between the Parties regarding its subject matter and supersedes all prior discussions, proposals, and understandings, save to the extent expressly incorporated by reference.',
-      '19.2 Amendment. No amendment or variation of this Agreement is effective unless in writing and signed by authorised representatives of both Parties.',
-      "19.3 Assignment. Neither Party may assign or delegate its rights or obligations under this Agreement without the other Party's prior written consent, save that the Service Provider may subcontract elements of the Services with the Client's prior written consent, not to be unreasonably withheld.",
-      '19.4 Notices. Notices under this Agreement must be given in writing and delivered by email to the representatives named on the signature page, or such other address as either Party notifies to the other.',
-      '19.5 Severability. If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force and effect.',
-      '19.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.'
+    clauseSection('19. General', [
+      { type: 'clauseItems', args: [
+        '19.1 Entire Agreement. This Agreement, including its Schedules, constitutes the entire agreement between the Parties regarding its subject matter and supersedes all prior discussions, proposals, and understandings, save to the extent expressly incorporated by reference.',
+        '19.2 Amendment. No amendment or variation of this Agreement is effective unless in writing and signed by authorised representatives of both Parties.',
+        "19.3 Assignment. Neither Party may assign or delegate its rights or obligations under this Agreement without the other Party's prior written consent, save that the Service Provider may subcontract elements of the Services with the Client's prior written consent, not to be unreasonably withheld.",
+        '19.4 Notices. Notices under this Agreement must be given in writing and delivered by email to the representatives named on the signature page, or such other address as either Party notifies to the other.',
+        '19.5 Severability. If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force and effect.',
+        '19.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.'
+      ] }
     ]);
 
     // --- Schedule A ---
@@ -631,64 +725,86 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     newPage();
     heading('Signatures');
     paragraph('Signed by the duly authorised representatives of the Parties:');
+    y += 4;
 
-    const sigColW = (contentW - 10) / 2;
-    const sigStartY = y + 4;
+    const spSplit = splitNameTitle(sp.rep);
+    const clientSplit = splitNameTitle(client.rep);
 
-    if (boschLogo) {
-      const h = 9, w = h * boschLogo.aspect;
-      doc.addImage(boschLogo.dataUrl, 'PNG', marginL, sigStartY, w, h);
-    }
-    if (wcuLogo) {
-      const h = 9, w = h * wcuLogo.aspect;
-      doc.addImage(wcuLogo.dataUrl, 'PNG', marginL + sigColW + 10, sigStartY, w, h);
-    }
-    y = sigStartY + 15;
+    const colW = contentW / 2;
+    const leftX = marginL;
+    const rightX = marginL + colW;
+    const sigRows = [
+      { h: 22, type: 'logo' },
+      { h: 9, type: 'label', left: 'Service Provider', right: 'Client' },
+      { h: 18, type: 'signature' },
+      { h: 10, type: 'field', label: 'Name', leftVal: spSplit.name, rightVal: clientSplit.name },
+      { h: 10, type: 'field', label: 'Title', leftVal: spSplit.title, rightVal: clientSplit.title },
+      { h: 10, type: 'field', label: 'Date', leftVal: '', rightVal: '' }
+    ];
 
-    doc.setFontSize(9);
-    doc.setFont(undefined, 'bold');
-    doc.setTextColor(...dark);
-    doc.text('For and on behalf of the Service Provider', marginL, y);
-    doc.text('For and on behalf of the Client', marginL + sigColW + 10, y);
-    y += 12;
+    const tableTop = y;
+    let ry = y;
+    doc.setDrawColor(...dark);
+    doc.setLineWidth(0.4);
 
-    doc.setDrawColor(...lightGrey);
-    doc.line(marginL, y, marginL + sigColW, y);
-    doc.line(marginL + sigColW + 10, y, marginL + sigColW + 10 + sigColW, y);
-    doc.setFont(undefined, 'normal');
-    doc.setFontSize(8);
-    doc.setTextColor(...grey);
-    doc.text('Signature', marginL, y + 4);
-    doc.text('Signature', marginL + sigColW + 10, y + 4);
-    y += 12;
-
-    function sigField(label, leftValue, rightValue) {
-      doc.setFontSize(9);
-      doc.setFont(undefined, 'bold');
-      doc.setTextColor(...dark);
-      const labelText = label + ': ';
-      const labelW = doc.getTextWidth(labelText);
-      doc.text(labelText, marginL, y);
-      doc.text(labelText, marginL + sigColW + 10, y);
-      doc.setFont(undefined, 'normal');
-      doc.setTextColor(...grey);
-      if (leftValue) {
-        doc.text(leftValue, marginL + labelW, y);
-      } else {
-        doc.setDrawColor(...lightGrey);
-        doc.line(marginL + labelW, y - 1, marginL + sigColW, y - 1);
+    sigRows.forEach(row => {
+      doc.line(leftX, ry, rightX + colW, ry);
+      if (row.type === 'logo') {
+        if (boschLogo) {
+          const h = 17, w = h * boschLogo.aspect;
+          doc.addImage(boschLogo.dataUrl, 'PNG', leftX + (colW - w) / 2, ry + (row.h - h) / 2, w, h);
+        }
+        if (wcuLogo) {
+          const h = 11, w = h * wcuLogo.aspect;
+          doc.addImage(wcuLogo.dataUrl, 'PNG', rightX + (colW - w) / 2, ry + (row.h - h) / 2, w, h);
+        }
+      } else if (row.type === 'label') {
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(...dark);
+        doc.text(row.left, leftX + colW / 2, ry + row.h / 2 + 1.5, { align: 'center' });
+        doc.text(row.right, rightX + colW / 2, ry + row.h / 2 + 1.5, { align: 'center' });
+      } else if (row.type === 'signature') {
+        doc.setFontSize(8);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(...grey);
+        doc.text('Signature', leftX + 4, ry + 5);
+        doc.text('Signature', rightX + 4, ry + 5);
+      } else if (row.type === 'field') {
+        const midY = ry + row.h / 2 + 1.5;
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(...dark);
+        doc.text(row.label + ':', leftX + 4, midY);
+        doc.text(row.label + ':', rightX + 4, midY);
+        const lw = doc.getTextWidth(row.label + ': ');
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(...grey);
+        if (row.leftVal) {
+          doc.text(row.leftVal, leftX + 4 + lw, midY);
+        } else {
+          doc.setDrawColor(...lightGrey);
+          doc.line(leftX + 4 + lw, midY - 1, leftX + colW - 4, midY - 1);
+          doc.setDrawColor(...dark);
+        }
+        if (row.rightVal) {
+          doc.text(row.rightVal, rightX + 4 + lw, midY);
+        } else {
+          doc.setDrawColor(...lightGrey);
+          doc.line(rightX + 4 + lw, midY - 1, rightX + colW - 4, midY - 1);
+          doc.setDrawColor(...dark);
+        }
       }
-      if (rightValue) {
-        doc.text(rightValue, marginL + sigColW + 10 + labelW, y);
-      } else {
-        doc.setDrawColor(...lightGrey);
-        doc.line(marginL + sigColW + 10 + labelW, y - 1, marginL + sigColW + 10 + sigColW, y - 1);
-      }
-      y += 9;
-    }
+      ry += row.h;
+    });
 
-    sigField('Full Name & Title', sp.rep, client.rep);
-    sigField('Date', '', '');
+    doc.setDrawColor(...dark);
+    doc.setLineWidth(0.4);
+    doc.line(leftX, ry, rightX + colW, ry);
+    doc.line(leftX, tableTop, leftX, ry);
+    doc.line(rightX, tableTop, rightX, ry);
+    doc.line(rightX + colW, tableTop, rightX + colW, ry);
+    y = ry + 6;
 
     doc.save('WeConnectU-Master-Services-Agreement.pdf');
   }
