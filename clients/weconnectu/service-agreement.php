@@ -251,10 +251,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     const bottomMargin = 20;
     let y = 0;
 
-    const dark = [26, 26, 46];
-    const grey = [108, 117, 125];
-    const lightGrey = [160, 160, 160];
-    const ruleGrey = [200, 200, 200];
+    // All text, underlines, and blank fillable lines use pure black.
+    const dark = [0, 0, 0];
 
     // Fixed, known facts (not editable on-page since they are already known)
     const SP_REG = '2013/003965/07';
@@ -293,7 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.setTextColor(...dark);
       doc.text(text, marginL, y);
       y += 3;
-      doc.setDrawColor(...ruleGrey);
+      doc.setDrawColor(...dark);
       doc.setLineWidth(0.3);
       doc.line(marginL, y, pageWidth - marginL, y);
       y += 6;
@@ -311,7 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     function paragraph(text) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
-      doc.setTextColor(...grey);
+      doc.setTextColor(...dark);
       const lines = doc.splitTextToSize(text, contentW);
       checkPage(lines.length * 4 + 2);
       doc.text(lines, marginL, y);
@@ -321,7 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     function bulletList(items) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
-      doc.setTextColor(...grey);
+      doc.setTextColor(...dark);
       items.forEach(item => {
         const lines = doc.splitTextToSize(item, contentW - 8);
         checkPage(lines.length * 4 + 2);
@@ -332,15 +330,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       y += 2;
     }
 
-    // Numbered legal sub-clauses (e.g. "6.1 ..."); items already include their own numbering
+    // Numbered legal sub-clauses (e.g. "6.1 The Service Provider shall..."). Uses a hanging
+    // indent: the "X.Y " number prefix sits in its own column, and every wrapped line
+    // (including continuation lines) aligns under the text, not under the number.
     function clauseItems(items) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
-      doc.setTextColor(...grey);
+      doc.setTextColor(...dark);
       items.forEach(item => {
-        const lines = doc.splitTextToSize(item, contentW);
+        const match = item.match(/^(\d+\.\d+)\s+(.*)$/s);
+        const prefix = match ? match[1] + ' ' : '';
+        const body = match ? match[2] : item;
+        const indent = prefix ? doc.getTextWidth(prefix) : 0;
+        const lines = doc.splitTextToSize(body, contentW - indent);
         checkPage(lines.length * 4 + 2);
-        doc.text(lines, marginL, y);
+        if (prefix) doc.text(prefix, marginL, y);
+        doc.text(lines, marginL + indent, y);
         y += lines.length * 4 + 2;
       });
       y += 2;
@@ -357,12 +362,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       const labelW = doc.getTextWidth(labelText);
       if (value) {
         doc.setFont(undefined, 'normal');
-        doc.setTextColor(...grey);
+        doc.setTextColor(...dark);
         const lines = doc.splitTextToSize(value, contentW - labelW);
         doc.text(lines, marginL + labelW, y);
         y += lines.length * 5;
       } else {
-        doc.setDrawColor(...lightGrey);
+        doc.setDrawColor(...dark);
         doc.line(marginL + labelW, y - 1, marginL + contentW, y - 1);
         y += 5;
       }
@@ -427,7 +432,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
       let h = 0;
-      items.forEach(item => { h += doc.splitTextToSize(item, contentW).length * 4 + 2; });
+      items.forEach(item => {
+        const match = item.match(/^(\d+\.\d+)\s+(.*)$/s);
+        const prefix = match ? match[1] + ' ' : '';
+        const body = match ? match[2] : item;
+        const indent = prefix ? doc.getTextWidth(prefix) : 0;
+        h += doc.splitTextToSize(body, contentW - indent).length * 4 + 2;
+      });
       return h + 2;
     }
     function measureFieldRow(label, value) {
@@ -437,6 +448,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       if (!value) return 5;
       doc.setFont(undefined, 'normal');
       return doc.splitTextToSize(value, contentW - labelW).length * 5;
+    }
+
+    // Bordered fee table: bold label column (~30%) + wrapping value column, light grey
+    // row shading and grid lines. Row height auto-grows to fit the wrapped value text.
+    const FEE_LABEL_FRACTION = 0.3;
+    const FEE_PAD = 4;
+    const FEE_LINE_H = 4.6;
+    function computeFeeRowHeights(rows) {
+      const labelColW = contentW * FEE_LABEL_FRACTION;
+      const valueColW = contentW - labelColW;
+      doc.setFontSize(9);
+      return rows.map(([label, value]) => {
+        doc.setFont(undefined, 'bold');
+        const labelLines = doc.splitTextToSize(label, labelColW - FEE_PAD * 2);
+        doc.setFont(undefined, 'normal');
+        const valueLines = doc.splitTextToSize(value, valueColW - FEE_PAD * 2);
+        const lineCount = Math.max(labelLines.length, valueLines.length);
+        return { h: Math.max(lineCount * FEE_LINE_H + FEE_PAD * 2, 14), labelLines, valueLines };
+      });
+    }
+    function measureFeeTable(rows) {
+      return computeFeeRowHeights(rows).reduce((s, r) => s + r.h, 0) + 4;
+    }
+    function feeTable(rows) {
+      const labelColW = contentW * FEE_LABEL_FRACTION;
+      const rowHeights = computeFeeRowHeights(rows);
+      const tableTop = y;
+      let ry = y;
+      const leftX = marginL;
+      doc.setDrawColor(...dark);
+      doc.setLineWidth(0.3);
+      rowHeights.forEach(({ h, labelLines, valueLines }) => {
+        doc.setFillColor(248, 248, 248);
+        doc.rect(leftX, ry, contentW, h, 'F');
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor(...dark);
+        doc.text(labelLines, leftX + FEE_PAD, ry + FEE_PAD + 3.2);
+        doc.setFont(undefined, 'normal');
+        doc.text(valueLines, leftX + labelColW + FEE_PAD, ry + FEE_PAD + 3.2);
+        doc.line(leftX, ry, leftX + contentW, ry);
+        ry += h;
+      });
+      doc.line(leftX, ry, leftX + contentW, ry);
+      doc.line(leftX, tableTop, leftX, ry);
+      doc.line(leftX + labelColW, tableTop, leftX + labelColW, ry);
+      doc.line(leftX + contentW, tableTop, leftX + contentW, ry);
+      y = ry + 4;
     }
 
     // Renders a numbered clause as a single unit: if the whole section (heading + body)
@@ -449,6 +508,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         else if (b.type === 'paragraph') estH += measureParagraph(b.args);
         else if (b.type === 'bulletList') estH += measureBulletList(b.args);
         else if (b.type === 'fieldRow') estH += measureFieldRow(b.args[0], b.args[1]);
+        else if (b.type === 'feeTable') estH += measureFeeTable(b.args);
         else if (b.type === 'gap') estH += b.args;
       });
       const maxPageContent = pageHeight - bottomMargin - 20;
@@ -459,6 +519,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         else if (b.type === 'paragraph') paragraph(b.args);
         else if (b.type === 'bulletList') bulletList(b.args);
         else if (b.type === 'fieldRow') fieldRow(b.args[0], b.args[1]);
+        else if (b.type === 'feeTable') feeTable(b.args);
         else if (b.type === 'gap') y += b.args;
       });
     }
@@ -490,7 +551,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.text('MASTER SERVICES AGREEMENT', pageWidth / 2, 42, { align: 'center' });
     doc.setFontSize(9);
     doc.setFont(undefined, 'normal');
-    doc.setTextColor(...grey);
+    doc.setTextColor(...dark);
     doc.text('Test Strategy Implementation & Quality Assurance Recruitment Engagement', pageWidth / 2, 49, { align: 'center' });
     doc.setDrawColor(...dark);
     doc.setLineWidth(0.6);
@@ -511,7 +572,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     fieldRow('Registration No', CLIENT_REG);
     fieldRow('Address', CLIENT_ADDRESS);
     fieldRow('Represented by', client.rep);
-    paragraph('Tel: +27 86 999 0756');
+    paragraph('Email: danie@weconnectu.co.za');
     paragraph('("WeConnectU" or "the Client")');
 
     paragraph('Bosch Technologies and WeConnectU are each referred to individually as a "Party" and collectively as the "Parties".');
@@ -560,11 +621,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
     // --- 5. Fees ---
     clauseSection('5. Fees and Payment', [
-      { type: 'fieldRow', args: ['Monthly Fee', 'R100,000.00 (one hundred thousand Rand) per month, inclusive of VAT'] },
-      { type: 'fieldRow', args: ['Total Contract Value', 'R600,000.00 (six hundred thousand Rand) over the 6-month Term, inclusive of VAT'] },
-      { type: 'fieldRow', args: ['Invoicing', 'On the 25th day of each month of the Term. Where the 25th falls on a Saturday or Sunday, the invoice shall be issued on the preceding Friday.'] },
-      { type: 'fieldRow', args: ['Payment Terms', 'Payable within 5 days of invoice date, by electronic funds transfer to the bank account nominated by the Service Provider.'] },
-      { type: 'fieldRow', args: ['Expenses', 'No travel, accommodation, or third-party tooling expenses are included unless separately agreed in writing in advance.'] },
+      { type: 'feeTable', args: [
+        ['Monthly Fee', 'R100,000.00 (one hundred thousand Rand) per month, inclusive of VAT'],
+        ['Total Contract Value', 'R600,000.00 (six hundred thousand Rand) over the 6-month Term, inclusive of VAT'],
+        ['Invoicing', 'On the 25th day of each month of the Term. Where the 25th falls on a Saturday or Sunday, the invoice shall be issued on the preceding Friday.'],
+        ['Payment Terms', 'Payable within 5 days of invoice date, by electronic funds transfer to the bank account nominated by the Service Provider.'],
+        ['Expenses', 'No travel, accommodation, or third-party tooling expenses are included unless separately agreed in writing in advance.']
+      ] },
       { type: 'gap', args: 2 },
       { type: 'paragraph', args: "The Permanent Hire's recruitment under clause 6 is included in the Monthly Fee and carries no separate placement fee, provided the recruitment is completed within the Term." }
     ]);
@@ -733,13 +796,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     const colW = contentW / 2;
     const leftX = marginL;
     const rightX = marginL + colW;
+    // Signature/Name/Title/Date rows all share the logo row's height; only the
+    // "Service Provider"/"Client" label row keeps its own (smaller) height.
+    const SIG_LOGO_H = 22;
     const sigRows = [
-      { h: 22, type: 'logo' },
+      { h: SIG_LOGO_H, type: 'logo' },
       { h: 9, type: 'label', left: 'Service Provider', right: 'Client' },
-      { h: 18, type: 'signature' },
-      { h: 10, type: 'field', label: 'Name', leftVal: spSplit.name, rightVal: clientSplit.name },
-      { h: 10, type: 'field', label: 'Title', leftVal: spSplit.title, rightVal: clientSplit.title },
-      { h: 10, type: 'field', label: 'Date', leftVal: '', rightVal: '' }
+      { h: SIG_LOGO_H, type: 'signature' },
+      { h: SIG_LOGO_H, type: 'field', label: 'Name', leftVal: spSplit.name, rightVal: clientSplit.name },
+      { h: SIG_LOGO_H, type: 'field', label: 'Title', leftVal: spSplit.title, rightVal: clientSplit.title },
+      { h: SIG_LOGO_H, type: 'field', label: 'Date', leftVal: '', rightVal: '', noBlankLine: true }
     ];
 
     const tableTop = y;
@@ -767,7 +833,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       } else if (row.type === 'signature') {
         doc.setFontSize(8);
         doc.setFont(undefined, 'normal');
-        doc.setTextColor(...grey);
+        doc.setTextColor(...dark);
         doc.text('Signature', leftX + 4, ry + 5);
         doc.text('Signature', rightX + 4, ry + 5);
       } else if (row.type === 'field') {
@@ -779,20 +845,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.text(row.label + ':', rightX + 4, midY);
         const lw = doc.getTextWidth(row.label + ': ');
         doc.setFont(undefined, 'normal');
-        doc.setTextColor(...grey);
+        doc.setTextColor(...dark);
         if (row.leftVal) {
           doc.text(row.leftVal, leftX + 4 + lw, midY);
-        } else {
-          doc.setDrawColor(...lightGrey);
+        } else if (!row.noBlankLine) {
           doc.line(leftX + 4 + lw, midY - 1, leftX + colW - 4, midY - 1);
-          doc.setDrawColor(...dark);
         }
         if (row.rightVal) {
           doc.text(row.rightVal, rightX + 4 + lw, midY);
-        } else {
-          doc.setDrawColor(...lightGrey);
+        } else if (!row.noBlankLine) {
           doc.line(rightX + 4 + lw, midY - 1, rightX + colW - 4, midY - 1);
-          doc.setDrawColor(...dark);
         }
       }
       ry += row.h;
