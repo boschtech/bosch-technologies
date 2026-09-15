@@ -249,6 +249,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         </div>
       </div>
 
+      <!-- Link to Service Agreement -->
+      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
+        <h2>Ready to Proceed?</h2>
+        <p>Option 1 has been accepted. The Master Services Agreement for this engagement is ready for review and signature.</p>
+        <a href="/clients/weconnectu/service-agreement.php" class="btn btn-accent btn-lg" style="margin-top: 16px;">View Service Agreement →</a>
+      </div>
+
       <!-- CTA -->
       <div class="proposal-section text-center" style="padding-top: 20px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <button type="button" onclick="generateAlternativeEngagementPDF()" class="btn btn-primary btn-lg"><i data-lucide="file-text"></i> Download PDF Report</button>
