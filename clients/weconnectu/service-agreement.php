@@ -116,7 +116,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           <li><strong>Invoicing:</strong> On the 25th of each month (or the preceding Friday if the 25th falls on a weekend)</li>
           <li><strong>Payment Terms:</strong> Within 5 days of invoice date, by EFT</li>
           <li><strong>Working Arrangement:</strong> Remote and non-exclusive</li>
-          <li><strong>Included:</strong> Recruitment, training, and upskilling of a permanent Quality Assurance Engineer</li>
+          <li><strong>Included:</strong> Recruitment, training, and upskilling of a permanent Quality Assurance Engineer, plus upskilling of the existing 2 Quality Assurance Testers</li>
+          <li><strong>Success Measures:</strong> Quality Engineer hired, automation test frameworks implemented, quality gates implemented in the deployment pipelines, and upskilling of the Quality Engineer and existing QA Testers</li>
         </ul>
       </div>
 
@@ -594,9 +595,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         '2.1 "Deliverables" means the test strategy document, automation test frameworks, documentation, and other work product produced by the Service Provider under this Agreement, as further described in Schedule A.',
         '2.2 "Key Consultant" means Garth Bosch, the individual through whom the Service Provider will principally perform the Services.',
         '2.3 "Permanent Hire" means the Quality Assurance Engineer recruited by the Service Provider under clause 6 to be permanently employed by the Client.',
-        '2.4 "Services" means the services described in Schedule A.',
-        '2.5 "Term" means the period described in clause 4.',
-        '2.6 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
+        '2.4 "Existing QA Testers" means the two Quality Assurance Testers employed by the Client as at the Effective Date, who will receive training and upskilling from the Service Provider in accordance with clause 7.',
+        '2.5 "Services" means the services described in Schedule A.',
+        '2.6 "Term" means the period described in clause 4.',
+        '2.7 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
       ] }
     ]);
 
@@ -606,15 +608,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       { type: 'bulletList', args: [
         'Design and implementation of a comprehensive quality engineering test strategy tailored to the Client;',
         'Set-up and configuration of automation test frameworks and supporting tooling;',
-        'Ongoing leadership of quality assurance initiatives during the Term; and',
-        'Recruitment, training, and upskilling of a Permanent Hire to take over the test strategy and automation frameworks at the end of the Term, in accordance with clauses 6 and 7.'
+        'Ongoing leadership of quality assurance initiatives during the Term;',
+        'Recruitment, training, and upskilling of a Permanent Hire to take over the test strategy and automation frameworks at the end of the Term, in accordance with clauses 6 and 7; and',
+        'Training and upskilling of the Existing QA Testers on the test strategy and automation frameworks, in accordance with clause 7.'
       ] }
     ]);
 
     // --- 4. Term ---
     clauseSection('4. Term', [
       { type: 'clauseItems', args: [
-        '4.1 This Agreement commences on the Effective Date and continues for a fixed period of six (6) months (the "Term"), unless terminated earlier in accordance with clause 14.',
+        '4.1 This Agreement commences on the Effective Date and continues for a fixed period of six (6) months (the "Term"), unless terminated earlier in accordance with clause 15.',
         '4.2 The Parties may agree in writing to extend or renew the Term on the same or varied terms.'
       ] }
     ]);
@@ -645,111 +648,119 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     // --- 7. Training ---
     clauseSection('7. Training, Upskilling and Knowledge Transfer', [
       { type: 'clauseItems', args: [
-        '7.1 The Service Provider shall train and mentor the Permanent Hire (once appointed) on the test strategy, automation frameworks, and associated processes and tooling developed under this Agreement.',
-        '7.2 The Service Provider shall prepare a transition plan and supporting documentation sufficient to enable the Permanent Hire to independently operate and evolve the test strategy and automation frameworks after the end of the Term.',
+        '7.1 The Service Provider shall train and mentor the Permanent Hire (once appointed) and the Existing QA Testers on the test strategy, automation frameworks, and associated processes and tooling developed under this Agreement.',
+        '7.2 The Service Provider shall prepare a transition plan and supporting documentation sufficient to enable the Permanent Hire and the Existing QA Testers to independently operate and evolve the test strategy and automation frameworks after the end of the Term.',
         '7.3 Knowledge transfer is deemed complete upon delivery of the documentation referred to in clause 7.2 and joint sign-off by both Parties of the transition checklist in Schedule A.'
       ] }
     ]);
 
-    // --- 8. Working Arrangements ---
-    clauseSection('8. Working Arrangements and Non-Exclusivity', [
+    // --- 8. Success Measures ---
+    clauseSection('8. Success Measures', [
       { type: 'clauseItems', args: [
-        "8.1 Location. The Key Consultant may perform the Services from any location of his choosing and is not required to work on-site at the Client's premises, save where the Parties agree that a specific activity requires an on-site presence.",
-        "8.2 Non-Exclusivity. This engagement is non-exclusive. The Service Provider (including the Key Consultant) is free to provide services to other clients during the Term, provided this does not materially impair the Service Provider's ability to perform its obligations under this Agreement.",
-        '8.3 Effort Commitment. Notwithstanding clause 8.2, the Service Provider shall dedicate sufficient time and attention to the Client to deliver the Services in accordance with the timelines agreed under Schedule A.',
-        "8.4 Key Person. The Service Provider shall ensure that the Services are principally performed by the Key Consultant, and shall not substitute the Key Consultant for another individual without the Client's prior written consent (not to be unreasonably withheld), save where substitution is necessary due to the Key Consultant's illness, incapacity, or unavailability arising from circumstances beyond the Service Provider's reasonable control."
+        "8.1 The success of the engagement will be assessed against the following measures: (a) the hiring of a Quality Engineer (the Permanent Hire) by the Client; (b) the implementation of automation test frameworks; (c) the implementation of quality gates within the Client's deployment pipelines; and (d) the upskilling of the Permanent Hire and the Existing QA Testers.",
+        '8.2 The success measures set out in clause 8.1 describe the intended outcomes of the engagement and do not, of themselves, create payment obligations, warranties, or conditions precedent beyond those expressly set out elsewhere in this Agreement.'
       ] }
     ]);
 
-    // --- 9. Independent Contractor ---
-    clauseSection('9. Independent Contractor Status', [
+    // --- 9. Working Arrangements ---
+    clauseSection('9. Working Arrangements and Non-Exclusivity', [
       { type: 'clauseItems', args: [
-        '9.1 The Service Provider is an independent contractor. Nothing in this Agreement creates an employment, partnership, joint venture, or agency relationship between the Parties, or between the Client and the Key Consultant.',
-        "9.2 The Service Provider is solely responsible for its own tax, statutory, and regulatory obligations (including income tax, VAT, and any applicable South African Revenue Service filings) arising from amounts received under this Agreement. The Client shall not withhold employees' tax (PAYE), make UIF or Skills Development Levy contributions, or provide employee benefits in respect of the Service Provider or the Key Consultant.",
-        '9.3 The Service Provider has the right to determine the manner, method, and means by which the Services are performed, subject to the deliverables and timelines agreed under Schedule A.'
+        "9.1 Location. The Key Consultant may perform the Services from any location of his choosing and is not required to work on-site at the Client's premises, save where the Parties agree that a specific activity requires an on-site presence.",
+        "9.2 Non-Exclusivity. This engagement is non-exclusive. The Service Provider (including the Key Consultant) is free to provide services to other clients during the Term, provided this does not materially impair the Service Provider's ability to perform its obligations under this Agreement.",
+        '9.3 Effort Commitment. Notwithstanding clause 9.2, the Service Provider shall dedicate sufficient time and attention to the Client to deliver the Services in accordance with the timelines agreed under Schedule A.',
+        "9.4 Key Person. The Service Provider shall ensure that the Services are principally performed by the Key Consultant, and shall not substitute the Key Consultant for another individual without the Client's prior written consent (not to be unreasonably withheld), save where substitution is necessary due to the Key Consultant's illness, incapacity, or unavailability arising from circumstances beyond the Service Provider's reasonable control."
       ] }
     ]);
 
-    // --- 10. IP ---
-    clauseSection('10. Intellectual Property', [
+    // --- 10. Independent Contractor ---
+    clauseSection('10. Independent Contractor Status', [
       { type: 'clauseItems', args: [
-        '10.1 Subject to clause 10.2 and full payment of all Fees due under this Agreement, all Deliverables created specifically for the Client under this Agreement (including the test strategy document and any bespoke automation test scripts) shall vest in and become the property of the Client upon creation.',
-        '10.2 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
-        "10.3 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
+        '10.1 The Service Provider is an independent contractor. Nothing in this Agreement creates an employment, partnership, joint venture, or agency relationship between the Parties, or between the Client and the Key Consultant.',
+        "10.2 The Service Provider is solely responsible for its own tax, statutory, and regulatory obligations (including income tax, VAT, and any applicable South African Revenue Service filings) arising from amounts received under this Agreement. The Client shall not withhold employees' tax (PAYE), make UIF or Skills Development Levy contributions, or provide employee benefits in respect of the Service Provider or the Key Consultant.",
+        '10.3 The Service Provider has the right to determine the manner, method, and means by which the Services are performed, subject to the deliverables and timelines agreed under Schedule A.'
       ] }
     ]);
 
-    // --- 11. Confidentiality ---
-    clauseSection('11. Confidentiality', [
+    // --- 11. IP ---
+    clauseSection('11. Intellectual Property', [
       { type: 'clauseItems', args: [
-        '11.1 Each Party shall keep confidential all non-public information disclosed by the other Party in connection with this Agreement and shall use it only for the purposes of this Agreement.',
-        '11.2 This obligation does not apply to information that is public, was already known to the receiving Party, is independently developed, or must be disclosed by law or regulation.',
-        '11.3 This clause survives termination or expiry of this Agreement for a period of three (3) years.'
+        '11.1 Subject to clause 11.2 and full payment of all Fees due under this Agreement, all Deliverables created specifically for the Client under this Agreement (including the test strategy document and any bespoke automation test scripts) shall vest in and become the property of the Client upon creation.',
+        '11.2 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
+        "11.3 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
       ] }
     ]);
 
-    // --- 12. Data Protection ---
-    clauseSection('12. Data Protection', [
+    // --- 12. Confidentiality ---
+    clauseSection('12. Confidentiality', [
       { type: 'clauseItems', args: [
-        '12.1 To the extent the Service Provider processes any personal information on behalf of the Client in the course of performing the Services (including candidate personal information gathered during recruitment under clause 6), it shall do so in accordance with the Protection of Personal Information Act 4 of 2013 ("POPIA") and only for the purposes of this Agreement.',
-        '12.2 Each Party shall implement reasonable technical and organisational measures to safeguard personal information in its possession or control against loss, unauthorised access, or disclosure.'
+        '12.1 Each Party shall keep confidential all non-public information disclosed by the other Party in connection with this Agreement and shall use it only for the purposes of this Agreement.',
+        '12.2 This obligation does not apply to information that is public, was already known to the receiving Party, is independently developed, or must be disclosed by law or regulation.',
+        '12.3 This clause survives termination or expiry of this Agreement for a period of three (3) years.'
       ] }
     ]);
 
-    // --- 13. Warranties ---
-    clauseSection('13. Warranties', [
+    // --- 13. Data Protection ---
+    clauseSection('13. Data Protection', [
       { type: 'clauseItems', args: [
-        '13.1 The Service Provider warrants that it shall perform the Services with reasonable skill, care, and diligence consistent with generally accepted industry standards for quality engineering consulting.',
-        '13.2 Save as expressly stated in this Agreement, all other warranties, conditions, or representations, whether express or implied by law, are excluded to the maximum extent permitted by law.'
+        '13.1 To the extent the Service Provider processes any personal information on behalf of the Client in the course of performing the Services (including candidate personal information gathered during recruitment under clause 6), it shall do so in accordance with the Protection of Personal Information Act 4 of 2013 ("POPIA") and only for the purposes of this Agreement.',
+        '13.2 Each Party shall implement reasonable technical and organisational measures to safeguard personal information in its possession or control against loss, unauthorised access, or disclosure.'
       ] }
     ]);
 
-    // --- 14. Termination ---
-    clauseSection('14. Termination', [
+    // --- 14. Warranties ---
+    clauseSection('14. Warranties', [
       { type: 'clauseItems', args: [
-        "14.1 For Convenience. Either Party may terminate this Agreement by giving the other Party not less than thirty (30) days' prior written notice.",
-        '14.2 For Cause. Either Party may terminate this Agreement with immediate effect on written notice if the other Party commits a material breach of this Agreement that is not remedied within fourteen (14) days of receiving written notice of the breach.',
-        "14.3 Effect of Termination. On termination, the Client shall pay the Service Provider for Services properly performed and Fees accrued up to the effective date of termination, on a pro-rata basis for any partial month. If this Agreement is terminated before the Permanent Hire's recruitment and knowledge transfer under clauses 6 and 7 are complete, the Parties shall discuss in good faith a reasonable arrangement to complete or hand over that process.",
-        '14.4 Clauses 9, 10, 11, 12, 15, 16, 18, and 19 survive termination or expiry of this Agreement.'
+        '14.1 The Service Provider warrants that it shall perform the Services with reasonable skill, care, and diligence consistent with generally accepted industry standards for quality engineering consulting.',
+        '14.2 Save as expressly stated in this Agreement, all other warranties, conditions, or representations, whether express or implied by law, are excluded to the maximum extent permitted by law.'
       ] }
     ]);
 
-    // --- 15. Limitation of Liability ---
-    clauseSection('15. Limitation of Liability', [
+    // --- 15. Termination ---
+    clauseSection('15. Termination', [
       { type: 'clauseItems', args: [
-        '15.1 Neither Party shall be liable to the other for any indirect, special, or consequential loss, or loss of profits, revenue, or business opportunity, arising out of or in connection with this Agreement.',
-        "15.2 The Service Provider's aggregate liability arising out of or in connection with this Agreement, whether in contract, delict, or otherwise, shall not exceed the total Fees paid by the Client under this Agreement in the six (6) months preceding the event giving rise to the claim.",
-        '15.3 Nothing in this Agreement limits liability for gross negligence, wilful misconduct, or fraud, to the extent such limitation is not permitted by law.'
+        "15.1 For Convenience. Either Party may terminate this Agreement by giving the other Party not less than thirty (30) days' prior written notice.",
+        '15.2 For Cause. Either Party may terminate this Agreement with immediate effect on written notice if the other Party commits a material breach of this Agreement that is not remedied within fourteen (14) days of receiving written notice of the breach.',
+        "15.3 Effect of Termination. On termination, the Client shall pay the Service Provider for Services properly performed and Fees accrued up to the effective date of termination, on a pro-rata basis for any partial month. If this Agreement is terminated before the Permanent Hire's recruitment and knowledge transfer under clauses 6 and 7 are complete, the Parties shall discuss in good faith a reasonable arrangement to complete or hand over that process.",
+        '15.4 Clauses 10, 11, 12, 13, 16, 17, 19, and 20 survive termination or expiry of this Agreement.'
       ] }
     ]);
 
-    // --- 16. Non-Solicitation ---
-    clauseSection('16. Non-Solicitation', [
+    // --- 16. Limitation of Liability ---
+    clauseSection('16. Limitation of Liability', [
+      { type: 'clauseItems', args: [
+        '16.1 Neither Party shall be liable to the other for any indirect, special, or consequential loss, or loss of profits, revenue, or business opportunity, arising out of or in connection with this Agreement.',
+        "16.2 The Service Provider's aggregate liability arising out of or in connection with this Agreement, whether in contract, delict, or otherwise, shall not exceed the total Fees paid by the Client under this Agreement in the six (6) months preceding the event giving rise to the claim.",
+        '16.3 Nothing in this Agreement limits liability for gross negligence, wilful misconduct, or fraud, to the extent such limitation is not permitted by law.'
+      ] }
+    ]);
+
+    // --- 17. Non-Solicitation ---
+    clauseSection('17. Non-Solicitation', [
       { type: 'paragraph', args: "Neither Party shall, during the Term and for twelve (12) months thereafter, directly solicit for employment any employee or contractor of the other Party who was materially involved in the performance of this Agreement, without that Party's prior written consent. This clause does not restrict the Client's right to permanently employ the Permanent Hire recruited under clause 6, which is the intended and agreed purpose of this Agreement." }
     ]);
 
-    // --- 17. Force Majeure ---
-    clauseSection('17. Force Majeure', [
+    // --- 18. Force Majeure ---
+    clauseSection('18. Force Majeure', [
       { type: 'paragraph', args: 'Neither Party shall be liable for any delay or failure to perform its obligations (other than payment obligations) resulting from causes beyond its reasonable control, including acts of God, load-shedding or extended power outages, internet or telecommunications failures, or governmental action, provided the affected Party notifies the other Party promptly and uses reasonable efforts to mitigate the impact.' }
     ]);
 
-    // --- 18. Governing Law ---
-    clauseSection('18. Governing Law and Dispute Resolution', [
+    // --- 19. Governing Law ---
+    clauseSection('19. Governing Law and Dispute Resolution', [
       { type: 'clauseItems', args: [
-        '18.1 This Agreement is governed by the laws of the Republic of South Africa.',
-        '18.2 The Parties shall first attempt to resolve any dispute arising out of this Agreement through good-faith negotiation between senior representatives. If unresolved within thirty (30) days, either Party may refer the dispute to the courts of South Africa having jurisdiction, or to mediation/arbitration if the Parties so agree in writing.'
+        '19.1 This Agreement is governed by the laws of the Republic of South Africa.',
+        '19.2 The Parties shall first attempt to resolve any dispute arising out of this Agreement through good-faith negotiation between senior representatives. If unresolved within thirty (30) days, either Party may refer the dispute to the courts of South Africa having jurisdiction, or to mediation/arbitration if the Parties so agree in writing.'
       ] }
     ]);
 
-    // --- 19. General ---
-    clauseSection('19. General', [
+    // --- 20. General ---
+    clauseSection('20. General', [
       { type: 'clauseItems', args: [
-        '19.1 Entire Agreement. This Agreement, including its Schedules, constitutes the entire agreement between the Parties regarding its subject matter and supersedes all prior discussions, proposals, and understandings, save to the extent expressly incorporated by reference.',
-        '19.2 Amendment. No amendment or variation of this Agreement is effective unless in writing and signed by authorised representatives of both Parties.',
-        "19.3 Assignment. Neither Party may assign or delegate its rights or obligations under this Agreement without the other Party's prior written consent, save that the Service Provider may subcontract elements of the Services with the Client's prior written consent, not to be unreasonably withheld.",
-        '19.4 Notices. Notices under this Agreement must be given in writing and delivered by email to the representatives named on the signature page, or such other address as either Party notifies to the other.',
-        '19.5 Severability. If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force and effect.',
-        '19.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.'
+        '20.1 Entire Agreement. This Agreement, including its Schedules, constitutes the entire agreement between the Parties regarding its subject matter and supersedes all prior discussions, proposals, and understandings, save to the extent expressly incorporated by reference.',
+        '20.2 Amendment. No amendment or variation of this Agreement is effective unless in writing and signed by authorised representatives of both Parties.',
+        "20.3 Assignment. Neither Party may assign or delegate its rights or obligations under this Agreement without the other Party's prior written consent, save that the Service Provider may subcontract elements of the Services with the Client's prior written consent, not to be unreasonably withheld.",
+        '20.4 Notices. Notices under this Agreement must be given in writing and delivered by email to the representatives named on the signature page, or such other address as either Party notifies to the other.',
+        '20.5 Severability. If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force and effect.',
+        '20.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.'
       ] }
     ]);
 
@@ -761,21 +772,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       'Design and implement a comprehensive test strategy;',
       'Set up all automation test frameworks;',
       'Lead quality assurance initiatives throughout the Term;',
-      'Recruit, train, and upskill the Permanent Hire to take over at the end of the Term.'
+      'Recruit, train, and upskill the Permanent Hire to take over at the end of the Term;',
+      'Train and upskill the Existing QA Testers alongside the Permanent Hire.'
     ]);
     subheading('A.2 Deliverables');
     bulletList([
       "Comprehensive test strategy document aligned with the Client's needs;",
       'Automated test framework implementation (tools, infrastructure, processes);',
-      'Training and mentoring records for the Permanent Hire;',
+      'Training and mentoring records for the Permanent Hire and the Existing QA Testers;',
       'Documentation and best practices guides;',
       'Transition plan and signed-off knowledge transfer checklist.'
     ]);
     subheading('A.3 Key Terms');
     bulletList([
-      'Garth has the flexibility to work from anywhere and is not limited to working exclusively for the Client (see clause 8);',
+      'Garth has the flexibility to work from anywhere and is not limited to working exclusively for the Client (see clause 9);',
       'Before the end of the 6-month engagement, the Service Provider will recruit a permanent Quality Assurance Engineer for the Client (see clause 6);',
-      'Full upskilling and handover of the test strategy and automation frameworks to the Permanent Hire (see clause 7).'
+      'Full upskilling and handover of the test strategy and automation frameworks to the Permanent Hire and the Existing QA Testers (see clause 7).'
+    ]);
+    subheading('A.4 Success Measures');
+    bulletList([
+      'Hiring of a Quality Engineer (the Permanent Hire);',
+      'Implementation of automation test frameworks;',
+      "Implementation of quality gates in the Client's deployment pipelines;",
+      'Upskilling of the Permanent Hire and the Existing QA Testers (see clause 8).'
     ]);
 
     // --- Schedule B ---
