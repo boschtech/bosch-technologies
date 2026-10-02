@@ -467,60 +467,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
   const SCHEDULES = [
     { type: 'heading', args: 'Schedule A — Services, Deliverables & Key Terms', pageBreakBefore: true },
-    { type: 'subheading', args: 'A.1 Scope of Work' },
-    { type: 'bulletList', args: [
-      'Design and implement a comprehensive test strategy;',
-      'Set up all automation test frameworks;',
-      'Lead quality assurance initiatives throughout the Term;',
-      'Recruit, train, and upskill the Permanent Hire to take over at the end of the Term;',
-      'Train and upskill the Existing QA Testers alongside the Permanent Hire.'
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.1 Scope of Work' },
+      { type: 'bulletList', args: [
+        'Design and implement a comprehensive test strategy;',
+        'Set up all automation test frameworks;',
+        'Lead quality assurance initiatives throughout the Term;',
+        'Recruit, train, and upskill the Permanent Hire to take over at the end of the Term;',
+        'Train and upskill the Existing QA Testers alongside the Permanent Hire.'
+      ] }
     ] },
-    { type: 'subheading', args: 'A.2 Deliverables' },
-    { type: 'bulletList', args: [
-      "Comprehensive test strategy document aligned with the Client's needs;",
-      'Automated test framework implementation (tools, infrastructure, processes);',
-      'Training and mentoring records for the Permanent Hire and the Existing QA Testers;',
-      'Documentation and best practices guides;',
-      'Transition plan and signed-off knowledge transfer checklist.'
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.2 Deliverables' },
+      { type: 'bulletList', args: [
+        "Comprehensive test strategy document aligned with the Client's needs;",
+        'Automated test framework implementation (tools, infrastructure, processes);',
+        'Training and mentoring records for the Permanent Hire and the Existing QA Testers;',
+        'Documentation and best practices guides;',
+        'Transition plan and signed-off knowledge transfer checklist.'
+      ] }
     ] },
-    { type: 'subheading', args: 'A.3 Key Terms' },
-    { type: 'bulletList', args: [
-      'Garth has the flexibility to work from anywhere and is not limited to working exclusively for the Client (see clause 9);',
-      'Before the end of the 6-month engagement, the Service Provider will recruit a permanent Quality Assurance Engineer for the Client (see clause 6);',
-      'Full upskilling and handover of the test strategy and automation frameworks to the Permanent Hire and the Existing QA Testers (see clause 7).'
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.3 Key Terms' },
+      { type: 'bulletList', args: [
+        'Garth has the flexibility to work from anywhere and is not limited to working exclusively for the Client (see clause 9);',
+        'Before the end of the 6-month engagement, the Service Provider will recruit a permanent Quality Assurance Engineer for the Client (see clause 6);',
+        'Full upskilling and handover of the test strategy and automation frameworks to the Permanent Hire and the Existing QA Testers (see clause 7).'
+      ] }
     ] },
-    { type: 'subheading', args: 'A.4 Success Measures' },
-    { type: 'bulletList', args: [
-      'Hiring of a Quality Engineer (the Permanent Hire);',
-      'Implementation of automation test frameworks;',
-      "Implementation of quality gates in the Client's deployment pipelines;",
-      'Upskilling of the Permanent Hire and the Existing QA Testers (see clause 8).'
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.4 Success Measures' },
+      { type: 'bulletList', args: [
+        'Hiring of a Quality Engineer (the Permanent Hire);',
+        'Implementation of automation test frameworks;',
+        "Implementation of quality gates in the Client's deployment pipelines;",
+        'Upskilling of the Permanent Hire and the Existing QA Testers (see clause 8).'
+      ] }
     ] },
-    { type: 'subheading', args: 'A.5 Transition Checklist' },
-    { type: 'paragraph', args: 'The following checklist must be completed and jointly signed off by the Parties in accordance with clause 7.3 to confirm that knowledge transfer is complete:' },
-    { type: 'checklist', args: [
-      'Test strategy document reviewed and understood by the Permanent Hire and the Existing QA Testers;',
-      'Automation test framework architecture and codebase walked through;',
-      'CI/CD pipeline integration and quality gates explained and demonstrated;',
-      'Test data management processes and tooling handed over;',
-      'Outstanding defects and automation backlog reviewed;',
-      'Access credentials, licences, and tooling ownership transferred to the Client;',
-      'Documentation and best practices guides confirmed as accessible to the Client;',
-      'Transition checklist signed off by the Service Provider and the Client.'
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.5 Transition Checklist' },
+      { type: 'paragraph', args: 'The following checklist must be completed and jointly signed off by the Parties in accordance with clause 7.3 to confirm that knowledge transfer is complete:' },
+      { type: 'checklist', args: [
+        'Test strategy document reviewed and understood by the Permanent Hire and the Existing QA Testers;',
+        'Automation test framework architecture and codebase walked through;',
+        'CI/CD pipeline integration and quality gates explained and demonstrated;',
+        'Test data management processes and tooling handed over;',
+        'Outstanding defects and automation backlog reviewed;',
+        'Access credentials, licences, and tooling ownership transferred to the Client;',
+        'Documentation and best practices guides confirmed as accessible to the Client;',
+        'Transition checklist signed off by the Service Provider and the Client.'
+      ] }
     ] },
-    { type: 'subheading', args: 'A.6 Engagement Timeline (6 Months)' },
-    { type: 'paragraph', args: 'The indicative timeline referred to in clauses 9.3 and 10.3 is as follows:' },
-    { type: 'feeTable', args: [
-      ['Month 1', 'Discovery, current-state assessment, and design of the test strategy.'],
-      ['Month 2', 'Automation framework architecture and tooling set-up; recruitment of the Permanent Hire commences.'],
-      ['Month 3', 'Automation framework implementation and CI/CD quality gate design; recruitment interviews continue.'],
-      ['Month 4', 'Quality gates implemented in the deployment pipelines; upskilling of the Existing QA Testers begins.'],
-      ['Month 5', 'Onboarding, training, and upskilling of the Permanent Hire; continued upskilling of the Existing QA Testers.'],
-      ['Month 6', 'Completion of knowledge transfer, joint sign-off of the transition checklist, and handover to the Client.']
+    { type: 'keepTogether', blocks: [
+      { type: 'subheading', args: 'A.6 Engagement Timeline (6 Months)' },
+      { type: 'paragraph', args: 'The indicative timeline referred to in clauses 9.3 and 10.3 is as follows:' },
+      { type: 'feeTable', args: [
+        ['Month 1', 'Discovery, current-state assessment, and design of the test strategy.'],
+        ['Month 2', 'Automation framework architecture and tooling set-up; recruitment of the Permanent Hire commences.'],
+        ['Month 3', 'Automation framework implementation and CI/CD quality gate design; recruitment interviews continue.'],
+        ['Month 4', 'Quality gates implemented in the deployment pipelines; upskilling of the Existing QA Testers begins.'],
+        ['Month 5', 'Onboarding, training, and upskilling of the Permanent Hire; continued upskilling of the Existing QA Testers.'],
+        ['Month 6', 'Completion of knowledge transfer, joint sign-off of the transition checklist, and handover to the Client.']
+      ] }
     ] },
     { type: 'heading', args: 'Schedule B — Fees & Payment Schedule' },
     { type: 'scheduleBTable', args: {
       headers: ['Month', '1', '2', '3', '4', '5', '6', 'Total'],
+      firstColWidth: 30, // mm; wide enough for "Fee (incl. VAT)" on one line
       rows: [['Fee (incl. VAT)', 'R100,000', 'R100,000', 'R100,000', 'R100,000', 'R100,000', 'R100,000', 'R600,000']]
     } }
   ];
@@ -669,9 +682,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       }
     }
 
-    function table(headers, rows, footerRow) {
+    function table(headers, rows, footerRow, firstColW) {
       const cols = headers ? headers.length : rows[0].length;
-      const colW = contentW / cols;
+      const restW = firstColW ? (contentW - firstColW) / (cols - 1) : contentW / cols;
+      const colX = i => marginL + (i === 0 ? 0 : (firstColW || restW) + (i - 1) * restW);
       const rowH = 8;
       if (headers) {
         checkPage(rowH + 2);
@@ -680,7 +694,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.setFontSize(8);
         doc.setFont(undefined, 'bold');
         doc.setTextColor(255, 255, 255);
-        headers.forEach((h, i) => doc.text(h, marginL + i * colW + 4, y + 5.5));
+        headers.forEach((h, i) => doc.text(h, colX(i) + 4, y + 5.5));
         y += rowH;
       }
       rows.forEach((row, idx) => {
@@ -692,7 +706,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.setFontSize(8);
         doc.setFont(undefined, 'normal');
         doc.setTextColor(...dark);
-        row.forEach((cell, i) => doc.text(cell, marginL + i * colW + 4, y + 5.5));
+        row.forEach((cell, i) => doc.text(cell, colX(i) + 4, y + 5.5));
         y += rowH;
       });
       if (footerRow) {
@@ -702,7 +716,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         doc.setFontSize(8);
         doc.setFont(undefined, 'bold');
         doc.setTextColor(255, 255, 255);
-        footerRow.forEach((cell, i) => doc.text(cell, marginL + i * colW + 4, y + 5.5));
+        footerRow.forEach((cell, i) => doc.text(cell, colX(i) + 4, y + 5.5));
         y += rowH;
       }
       y += 4;
@@ -735,6 +749,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         const indent = prefix ? doc.getTextWidth(prefix) : 0;
         h += doc.splitTextToSize(body, contentW - indent).length * 4 + 2;
       });
+      return h + 2;
+    }
+    function measureChecklist(items) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      let h = 0;
+      items.forEach(item => { h += doc.splitTextToSize(item, contentW - 10).length * 4 + 2.5; });
       return h + 2;
     }
     function measureFieldRow(label, value) {
@@ -801,25 +822,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     // Renders a numbered clause as a single unit: if the whole section (heading + body)
     // doesn't fit in the remaining space on the current page, it starts on a fresh page
     // instead of splitting mid-clause.
-    function clauseSection(title, blocks) {
-      let estH = HEADING_H;
-      blocks.forEach(b => {
-        if (b.type === 'clauseItems') estH += measureClauseItems(b.args);
-        else if (b.type === 'paragraph') estH += measureParagraph(b.args);
-        else if (b.type === 'bulletList') estH += measureBulletList(b.args);
-        else if (b.type === 'fieldRow') estH += measureFieldRow(b.args[0], b.args[1]);
-        else if (b.type === 'feeTable') estH += measureFeeTable(b.args);
-        else if (b.type === 'gap') estH += b.args;
-      });
+    function measureBlock(b) {
+      if (b.type === 'subheading') return 5.5;
+      if (b.type === 'clauseItems') return measureClauseItems(b.args);
+      if (b.type === 'paragraph') return measureParagraph(b.args);
+      if (b.type === 'bulletList') return measureBulletList(b.args);
+      if (b.type === 'checklist') return measureChecklist(b.args);
+      if (b.type === 'fieldRow') return measureFieldRow(b.args[0], b.args[1]);
+      if (b.type === 'feeTable') return measureFeeTable(b.args);
+      if (b.type === 'gap') return b.args;
+      return 0;
+    }
+
+    // If the blocks (plus leadH of heading) don't fit on the rest of the page, start a fresh
+    // page so they are never split. Blocks taller than a whole page flow normally.
+    function keepTogether(blocks, leadH) {
+      const estH = blocks.reduce((h, b) => h + measureBlock(b), leadH);
       const maxPageContent = pageHeight - bottomMargin - 20;
       if (estH <= maxPageContent) checkPage(estH);
+    }
+
+    function clauseSection(title, blocks) {
+      keepTogether(blocks, HEADING_H);
       heading(title);
       blocks.forEach(renderBlock);
     }
 
     function renderBlock(b) {
       if (b.pageBreakBefore) newPage();
-      if (b.type === 'heading') heading(b.args);
+      if (b.type === 'keepTogether') { keepTogether(b.blocks, 0); b.blocks.forEach(renderBlock); }
+      else if (b.type === 'heading') heading(b.args);
       else if (b.type === 'subheading') subheading(b.args);
       else if (b.type === 'paragraph') paragraph(b.args);
       else if (b.type === 'bulletList') bulletList(b.args);
@@ -827,7 +859,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       else if (b.type === 'checklist') checklist(b.args);
       else if (b.type === 'fieldRow') fieldRow(b.args[0], b.args[1]);
       else if (b.type === 'feeTable') feeTable(b.args);
-      else if (b.type === 'scheduleBTable') table(b.args.headers, b.args.rows, null);
+      else if (b.type === 'scheduleBTable') table(b.args.headers, b.args.rows, null, b.args.firstColWidth);
       else if (b.type === 'gap') y += b.args;
     }
 
@@ -1113,21 +1145,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     }
 
     // PDF table(): 8mm rows, dark header, alternate row shading, no grid lines, 8pt text.
-    function scheduleBTableObj({ headers, rows }) {
-      const colW = Math.floor(CONTENT_W / headers.length);
+    function scheduleBTableObj({ headers, rows, firstColWidth }) {
+      const firstW = firstColWidth ? mm(firstColWidth) : Math.floor(CONTENT_W / headers.length);
+      const restW = Math.floor((CONTENT_W - firstW) / (headers.length - 1));
+      const widths = headers.map((_, i) => (i === 0 ? firstW : restW));
       const mkRow = (cells, o) => new TableRow({
         cantSplit: true,
-        height: { value: mm(8), rule: HeightRule.EXACT },
-        children: cells.map(c => new TableCell({
-          width: { size: colW, type: WidthType.DXA },
+        height: { value: mm(8), rule: HeightRule.ATLEAST },
+        children: cells.map((c, i) => new TableCell({
+          width: { size: widths[i], type: WidthType.DXA },
           shading: o.fill ? shade(o.fill) : undefined,
           margins: { top: mm(2.1), bottom: 0, left: mm(4), right: 0 },
           children: [para([run(c, { pt: 8, bold: o.bold, color: o.color })], { keepProps: o.keepProps })]
         }))
       });
       return new Table({
-        width: { size: colW * headers.length, type: WidthType.DXA },
-        columnWidths: headers.map(() => colW),
+        width: { size: widths.reduce((a, b) => a + b, 0), type: WidthType.DXA },
+        columnWidths: widths,
         layout: TableLayoutType.FIXED,
         borders: allBorders(NONE),
         rows: [
@@ -1183,6 +1217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
     function blockParas(b, o) {
       switch (b.type) {
+        case 'keepTogether': return renderBlocks(b.blocks, true);
         case 'heading': return [headingPara(b.args, { ...o, pageBreakBefore: b.pageBreakBefore })];
         case 'subheading': return [subheadingPara(b.args, o)];
         case 'paragraph': return listParas([b.args], o, 3, 0, t => ({ children: [run(t)] }));
@@ -1200,6 +1235,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       return [];
     }
 
+    // A keepTogether group's spacing neighbours are its own first/last blocks.
+    function edgeType(b, edge) {
+      if (b.type !== 'keepTogether') return b.type;
+      return edgeType(edge === 'first' ? b.blocks[0] : b.blocks[b.blocks.length - 1], edge);
+    }
+
     // Lays out a run of blocks, converting the PDF's inter-block gaps into Word spacing.
     // keepChain ties every block to the next so the run never splits across pages.
     function renderBlocks(blocks, keepChain) {
@@ -1213,8 +1254,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         gap = 0;
       });
       return content.flatMap((b, i) => {
-        const prevTable = i > 0 && TABLE_TYPES.includes(content[i - 1].type);
-        const nextTable = i < content.length - 1 && TABLE_TYPES.includes(content[i + 1].type);
+        const prevTable = i > 0 && TABLE_TYPES.includes(edgeType(content[i - 1], 'last'));
+        const nextTable = i < content.length - 1 && TABLE_TYPES.includes(edgeType(content[i + 1], 'first'));
         return blockParas(b, {
           keep: keepChain ? (i < content.length - 1 ? 'all' : 'allButLast') : undefined,
           before: gapBefore[i] + (prevTable ? DESC_9 : 0),
