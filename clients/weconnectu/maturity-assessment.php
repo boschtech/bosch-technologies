@@ -1,6 +1,6 @@
 <?php
 /**
- * Private Client Maturity Assessment Results — WeConnectU
+ * Private Client Maturity Assessment Results — WeconnectU
  * Password-protected. Only accessible with the correct access code.
  */
 session_start();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>QE Maturity Assessment — WeConnectU — Bosch Technologies</title>
+  <title>QE Maturity Assessment — WeconnectU — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     <div class="container">
       <span class="badge badge-accent">Maturity Assessment Results</span>
       <h1>QE Maturity Assessment</h1>
-      <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p>Prepared for <strong>WeconnectU</strong> by Bosch Technologies</p>
       <a href="/clients/weconnectu/" class="btn btn-outline" style="margin-top: 16px;">← Back to Assessment Report</a>
     </div>
   </section>
@@ -288,7 +288,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
             ['Skills &', 'Culture']
           ],
           datasets: [{
-            label: 'WeConnectU Score',
+            label: 'WeconnectU Score',
             data: [2.0, 1.8, 2.2, 1.8, 2.2],
             backgroundColor: 'rgba(184, 150, 28, 0.25)',
             borderColor: '#b8961c',
@@ -355,7 +355,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       const contactUrl = 'https://boschtechnologies.com/contact/';
       let y = 20;
 
-      // WeConnectU assessment data
+      // WeconnectU assessment data
       const overallScore = 2.0;
       const overallLevel = 2;
       const levelName = 'Managed';
@@ -480,7 +480,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.text('Overall Maturity Score', pageWidth / 2, 48, { align: 'center' });
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
-      doc.text('Prepared for: WeConnectU  |  27 March 2026', pageWidth / 2, 56, { align: 'center' });
+      doc.text('Prepared for: WeconnectU  |  27 March 2026', pageWidth / 2, 56, { align: 'center' });
 
       y = headerH + 4;
 
@@ -589,7 +589,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       const linkW = doc.getTextWidth(linkText);
       doc.link(15, ctaY + 21, linkW, 5, { url: contactUrl });
 
-      doc.save('Bosch-Maturity-Assessment-WeConnectU.pdf');
+      doc.save('Bosch-Maturity-Assessment-WeconnectU.pdf');
     }
     <?php endif; ?>
   </script>

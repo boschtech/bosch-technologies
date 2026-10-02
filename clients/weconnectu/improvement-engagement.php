@@ -1,6 +1,6 @@
 <?php
 /**
- * Private Client Proposal Page — WeConnectU Improvement Engagement
+ * Private Client Proposal Page — WeconnectU Improvement Engagement
  * Password-protected. Only accessible with the correct access code.
  */
 session_start();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Improvement Engagement — WeConnectU — Bosch Technologies</title>
+  <title>Improvement Engagement — WeconnectU — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     <div class="container">
       <span class="badge badge-accent">Confidential Proposal</span>
       <h1>Improvement Engagement</h1>
-      <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p>Prepared for <strong>WeconnectU</strong> by Bosch Technologies</p>
       <a href="/clients/weconnectu/" class="btn btn-outline" style="margin-top: 16px;">← Back to Assessment Report</a>
     </div>
   </section>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Option 1: Test Strategy Creation Only</h2>
 
         <h3>Scope</h3>
-        <p>Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.</p>
+        <p>Development of a comprehensive Quality Engineering and Test Strategy aligned to WeconnectU's architecture, development practices, and delivery pipeline.</p>
 
         <h3>Activities</h3>
         <ul>
@@ -247,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Option 4: Test Strategy + Recruitment of a Quality Engineering Team</h2>
 
         <h3>Scope</h3>
-        <p>Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.</p>
+        <p>Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeconnectU.</p>
 
         <h3>Activities</h3>
         <p>Everything in Option 1 plus:</p>
@@ -548,7 +548,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.setFontSize(10);
     doc.setFont(undefined, 'normal');
     doc.setTextColor(200, 200, 200);
-    doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 46, { align: 'center' });
+    doc.text('Prepared for WeconnectU by Bosch Technologies', pageWidth / 2, 46, { align: 'center' });
     doc.setFontSize(8);
     doc.setTextColor(150, 150, 150);
     doc.text('27 March 2026', pageWidth / 2, 53, { align: 'center' });
@@ -563,7 +563,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     // Option 1
     heading('Option 1: Test Strategy Creation Only');
     subheading('Scope');
-    paragraph("Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.");
+    paragraph("Development of a comprehensive Quality Engineering and Test Strategy aligned to WeconnectU's architecture, development practices, and delivery pipeline.");
     subheading('Activities');
     bulletList(['Stakeholder interviews (Engineering, Product, Leadership)', 'Review of current SDLC and release processes', 'Architecture review', 'Risk assessment', 'Quality maturity assessment', 'Define testing pyramid and automation strategy', 'Define environments and test data strategy', 'CI/CD quality gate recommendations', 'Test reporting and metrics framework']);
     subheading('Deliverables');
@@ -611,7 +611,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     newPage();
     heading('Option 4: Test Strategy + Recruitment');
     subheading('Scope');
-    paragraph('Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.');
+    paragraph('Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeconnectU.');
     subheading('Activities');
     paragraph('Everything in Option 1 plus:');
     bulletList(['Define QA organisational structure', 'Define job descriptions', 'Candidate screening and technical interviews', 'Hiring recommendations', 'Onboarding guidance']);
@@ -666,7 +666,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.setFont(undefined, 'bold');
     doc.text('boschtechnologies.com/contact', marginL, pageHeight - ctaH + 21);
 
-    doc.save('WeConnectU-Improvement-Engagement-Proposal.pdf');
+    doc.save('WeconnectU-Improvement-Engagement-Proposal.pdf');
   }
   </script>
   <?php endif; ?>

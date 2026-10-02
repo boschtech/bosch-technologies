@@ -1,6 +1,6 @@
 <?php
 /**
- * Private Client Proposal Page — WeConnectU Alternative Engagement
+ * Private Client Proposal Page — WeconnectU Alternative Engagement
  * Password-protected. Only accessible with the correct access code.
  */
 session_start();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Alternative Engagement — WeConnectU — Bosch Technologies</title>
+  <title>Alternative Engagement — WeconnectU — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     <div class="container">
       <span class="badge badge-accent">Confidential Proposal</span>
       <h1>Alternative Engagement: Test Strategy Implementation &amp; QA Recruitment</h1>
-      <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p>Prepared for <strong>WeconnectU</strong> by Bosch Technologies</p>
       <a href="/clients/weconnectu/" class="btn btn-outline" style="margin-top: 16px;">← Back to Assessment Report</a>
     </div>
   </section>
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Overview</h2>
 
         <h3>Objective</h3>
-        <p>Strengthen WeConnectU's Quality Assurance capability through hands-on implementation and the permanent placement of a dedicated Quality Assurance Engineer.</p>
+        <p>Strengthen WeconnectU's Quality Assurance capability through hands-on implementation and the permanent placement of a dedicated Quality Assurance Engineer.</p>
         <p>This proposal presents two independent options. They can be taken separately, or Option 1 can be taken as the complete end-to-end solution, as it already includes recruitment of the permanent resource.</p>
       </div>
 
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Option 1: Test Strategy Implementation &amp; Recruitment</h2>
 
         <h3>Scope</h3>
-        <p>Garth (Bosch Technologies) will work directly with WeConnectU to design and implement the test strategy, stand up all automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer to take ownership at the end of the engagement.</p>
+        <p>Garth (Bosch Technologies) will work directly with WeconnectU to design and implement the test strategy, stand up all automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer to take ownership at the end of the engagement.</p>
         <ul>
           <li>Design and implement a comprehensive test strategy</li>
           <li>Set up all automation test frameworks</li>
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
         <h3>Deliverables</h3>
         <ul>
-          <li>Comprehensive test strategy document aligned with WeConnectU's needs</li>
+          <li>Comprehensive test strategy document aligned with WeconnectU's needs</li>
           <li>Automated test frameworks implementation (tools, infrastructure, processes)</li>
           <li>Training and mentoring of the permanent Quality Assurance Engineering resource</li>
           <li>Documentation and best practices guides</li>
@@ -134,8 +134,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
         <h3>Key Terms</h3>
         <ul>
-          <li><strong>Flexibility:</strong> Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeConnectU.</li>
-          <li><strong>Recruitment &amp; Transition:</strong> Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality Assurance Engineer for WeConnectU.</li>
+          <li><strong>Flexibility:</strong> Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeconnectU.</li>
+          <li><strong>Recruitment &amp; Transition:</strong> Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality Assurance Engineer for WeconnectU.</li>
           <li><strong>Knowledge Transfer:</strong> Full upskilling and handover of the test strategy and automation frameworks to the recruited permanent team member.</li>
         </ul>
 
@@ -160,21 +160,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Option 2: Quality Assurance Engineer Recruitment Only</h2>
 
         <h3>Scope</h3>
-        <p>Bosch Technologies will run a dedicated recruitment process to identify, assess and place a Quality Assurance Engineer who will be permanently employed by WeConnectU.</p>
+        <p>Bosch Technologies will run a dedicated recruitment process to identify, assess and place a Quality Assurance Engineer who will be permanently employed by WeconnectU.</p>
 
         <h3>Position Details</h3>
         <ul>
           <li><strong>Role:</strong> Quality Assurance Engineer</li>
-          <li><strong>Employment Type:</strong> Permanent, full-time at WeConnectU</li>
+          <li><strong>Employment Type:</strong> Permanent, full-time at WeconnectU</li>
           <li><strong>Remuneration:</strong> Maximum of R80,000 per month</li>
-          <li><strong>Benefits:</strong> Full WeConnectU employee benefits package</li>
+          <li><strong>Benefits:</strong> Full WeconnectU employee benefits package</li>
         </ul>
 
         <h3>Assessment &amp; Tooling</h3>
         <ul>
           <li><strong>Technical Assessment Tool:</strong> Bosch Technologies' own HackerRank platform</li>
-          <li><strong>Assessment Coverage:</strong> Based on WeConnectU's Job Description, Technical QA competencies and AI usage proficiency</li>
-          <li><strong>ATS Integration:</strong> HackerRank is integrated with WeConnectU's ATS (Workable) so candidate results are tracked in one place</li>
+          <li><strong>Assessment Coverage:</strong> Based on WeconnectU's Job Description, Technical QA competencies and AI usage proficiency</li>
+          <li><strong>ATS Integration:</strong> HackerRank is integrated with WeconnectU's ATS (Workable) so candidate results are tracked in one place</li>
         </ul>
 
         <h3>Timeline</h3>
@@ -464,7 +464,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.setFontSize(10);
     doc.setFont(undefined, 'normal');
     doc.setTextColor(200, 200, 200);
-    doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 46, { align: 'center' });
+    doc.text('Prepared for WeconnectU by Bosch Technologies', pageWidth / 2, 46, { align: 'center' });
     doc.setFontSize(8);
     doc.setTextColor(150, 150, 150);
     doc.text('2 September 2026', pageWidth / 2, 53, { align: 'center' });
@@ -473,18 +473,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     // Overview
     heading('Overview');
     subheading('Objective');
-    paragraph("Strengthen WeConnectU's Quality Assurance capability through hands-on implementation and the permanent placement of a dedicated Quality Assurance Engineer.");
+    paragraph("Strengthen WeconnectU's Quality Assurance capability through hands-on implementation and the permanent placement of a dedicated Quality Assurance Engineer.");
     paragraph('This proposal presents two independent options. They can be taken separately, or Option 1 can be taken as the complete end-to-end solution, as it already includes recruitment of the permanent resource.');
 
     // Option 1
     heading('Option 1: Test Strategy Implementation & Recruitment');
     subheading('Scope');
-    paragraph('Garth (Bosch Technologies) will work directly with WeConnectU to design and implement the test strategy, stand up all automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer to take ownership at the end of the engagement.');
+    paragraph('Garth (Bosch Technologies) will work directly with WeconnectU to design and implement the test strategy, stand up all automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer to take ownership at the end of the engagement.');
     bulletList(['Design and implement a comprehensive test strategy', 'Set up all automation test frameworks', 'Lead quality assurance initiatives', 'Recruit, train and upskill the newly recruited team member to take over at engagement end']);
     subheading('Deliverables');
-    bulletList(["Comprehensive test strategy document aligned with WeConnectU's needs", 'Automated test frameworks implementation (tools, infrastructure, processes)', 'Training and mentoring of the permanent Quality Assurance Engineering resource', 'Documentation and best practices guides', 'Transition plan and knowledge transfer completion']);
+    bulletList(["Comprehensive test strategy document aligned with WeconnectU's needs", 'Automated test frameworks implementation (tools, infrastructure, processes)', 'Training and mentoring of the permanent Quality Assurance Engineering resource', 'Documentation and best practices guides', 'Transition plan and knowledge transfer completion']);
     subheading('Key Terms');
-    bulletList(['Flexibility: Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeConnectU.', 'Recruitment & Transition: Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality Assurance Engineer for WeConnectU.', 'Knowledge Transfer: Full upskilling and handover of the test strategy and automation frameworks to the recruited permanent team member.']);
+    bulletList(['Flexibility: Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeconnectU.', 'Recruitment & Transition: Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality Assurance Engineer for WeconnectU.', 'Knowledge Transfer: Full upskilling and handover of the test strategy and automation frameworks to the recruited permanent team member.']);
     subheading('Duration & Investment');
     paragraph('6-month engagement at a monthly fee of R100,000 per month.');
     highlightBox('Total Investment: R600,000');
@@ -493,11 +493,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     newPage();
     heading('Option 2: Quality Assurance Engineer Recruitment Only');
     subheading('Scope');
-    paragraph('Bosch Technologies will run a dedicated recruitment process to identify, assess and place a Quality Assurance Engineer who will be permanently employed by WeConnectU.');
+    paragraph('Bosch Technologies will run a dedicated recruitment process to identify, assess and place a Quality Assurance Engineer who will be permanently employed by WeconnectU.');
     subheading('Position Details');
-    bulletList(['Role: Quality Assurance Engineer', 'Employment Type: Permanent, full-time at WeConnectU', 'Remuneration: Maximum of R80,000 per month', 'Benefits: Full WeConnectU employee benefits package']);
+    bulletList(['Role: Quality Assurance Engineer', 'Employment Type: Permanent, full-time at WeconnectU', 'Remuneration: Maximum of R80,000 per month', 'Benefits: Full WeconnectU employee benefits package']);
     subheading('Assessment & Tooling');
-    bulletList(["Technical Assessment Tool: Bosch Technologies' own HackerRank platform", "Assessment Coverage: Based on WeConnectU's Job Description, Technical QA competencies and AI usage proficiency", "ATS Integration: HackerRank is integrated with WeConnectU's ATS (Workable) so candidate results are tracked in one place"]);
+    bulletList(["Technical Assessment Tool: Bosch Technologies' own HackerRank platform", "Assessment Coverage: Based on WeconnectU's Job Description, Technical QA competencies and AI usage proficiency", "ATS Integration: HackerRank is integrated with WeconnectU's ATS (Workable) so candidate results are tracked in one place"]);
     subheading('Timeline');
     paragraph('Approximately 45 days');
     subheading('Investment');
@@ -543,7 +543,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.setFont(undefined, 'bold');
     doc.text('boschtechnologies.com/contact', marginL, pageHeight - ctaH + 21);
 
-    doc.save('WeConnectU-Alternative-Engagement-Proposal.pdf');
+    doc.save('WeconnectU-Alternative-Engagement-Proposal.pdf');
   }
   </script>
   <?php endif; ?>

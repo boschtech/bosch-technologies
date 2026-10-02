@@ -1,6 +1,6 @@
 <?php
 /**
- * Private Client Proposal Page — WeConnectU
+ * Private Client Proposal Page — WeconnectU
  * Password-protected. Only accessible with the correct access code.
  */
 session_start();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Proposal for WeConnectU — Bosch Technologies</title>
+  <title>Proposal for WeconnectU — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     <div class="container">
       <span class="badge badge-accent">Confidential Assessment Report</span>
       <h1>Quality Engineering Assessment: Findings & Improvement Opportunities</h1>
-      <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p>Prepared for <strong>WeconnectU</strong> by Bosch Technologies</p>
       <p class="text-muted">27 March 2026</p>
     </div>
   </section>
@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <!-- Link to Improvement Engagement -->
       <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
         <h2>Ready to Transform Your QE Practice?</h2>
-        <p>Based on our assessment findings, we have prepared a detailed Improvement Engagement proposal with multiple options tailored to WeConnectU's needs.</p>
+        <p>Based on our assessment findings, we have prepared a detailed Improvement Engagement proposal with multiple options tailored to WeconnectU's needs.</p>
         <div style="margin-top: 16px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
           <a href="/clients/weconnectu/improvement-engagement.php" class="btn btn-accent btn-lg">View Improvement Engagement Options →</a>
           <a href="/clients/weconnectu/alternative-engagement.php" class="btn btn-outline btn-lg">View Alternative Engagement Proposal →</a>

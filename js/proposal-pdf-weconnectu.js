@@ -1,6 +1,6 @@
 /* ============================================
    BOSCH TECHNOLOGIES — Proposal PDF Generator
-   WeConnectU: QE Process Discovery & Improvement
+   WeconnectU: QE Process Discovery & Improvement
    ============================================ */
 
 // Assessment Report PDF Generator
@@ -123,7 +123,7 @@ async function generateAssessmentReportPDF() {
   doc.setFontSize(10);
   doc.setFont(undefined, 'normal');
   doc.setTextColor(200, 200, 200);
-  doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 54, { align: 'center' });
+  doc.text('Prepared for WeconnectU by Bosch Technologies', pageWidth / 2, 54, { align: 'center' });
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text('27 March 2026', pageWidth / 2, 62, { align: 'center' });
@@ -320,7 +320,7 @@ async function generateAssessmentReportPDF() {
   doc.text('boschtechnologies.com/contact', marginL, pageHeight - ctaH + 21);
 
   // Save
-  doc.save('WeConnectU-QE-Assessment-Report.pdf');
+  doc.save('WeconnectU-QE-Assessment-Report.pdf');
 }
 
 // Original Proposal PDF Generator
@@ -461,7 +461,7 @@ async function generateProposalPDF() {
   doc.setFontSize(10);
   doc.setFont(undefined, 'normal');
   doc.setTextColor(200, 200, 200);
-  doc.text('Prepared for WeConnectU by Bosch Technologies', pageWidth / 2, 54, { align: 'center' });
+  doc.text('Prepared for WeconnectU by Bosch Technologies', pageWidth / 2, 54, { align: 'center' });
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text(new Date().toLocaleDateString('en-GB'), pageWidth / 2, 62, { align: 'center' });
@@ -515,7 +515,7 @@ async function generateProposalPDF() {
   heading('Option 1: Test Strategy Creation Only');
 
   subheading('Scope');
-  paragraph("Development of a comprehensive Quality Engineering and Test Strategy aligned to WeConnectU's architecture, development practices, and delivery pipeline.");
+  paragraph("Development of a comprehensive Quality Engineering and Test Strategy aligned to WeconnectU's architecture, development practices, and delivery pipeline.");
 
   subheading('Activities');
   bulletList([
@@ -700,7 +700,7 @@ async function generateProposalPDF() {
   heading('Option 4: Test Strategy + Recruitment of a Quality Engineering Team');
 
   subheading('Scope');
-  paragraph('Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeConnectU.');
+  paragraph('Creation of the test strategy and recruitment of a permanent Quality Engineering team for WeconnectU.');
 
   subheading('Activities');
   paragraph('Everything in Option 1 plus:');
@@ -841,5 +841,5 @@ async function generateProposalPDF() {
   doc.link(marginL, ctaY + 18, linkW, 5, { url: contactUrl });
 
   // --- Save ---
-  doc.save('Bosch-Technologies-Proposal-WeConnectU.pdf');
+  doc.save('Bosch-Technologies-Proposal-WeconnectU.pdf');
 }

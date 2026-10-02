@@ -1,6 +1,6 @@
 <?php
 /**
- * Private Client Service Agreement — WeConnectU
+ * Private Client Service Agreement — WeconnectU
  * Password-protected. Only accessible with the correct access code.
  *
  * Unlike the proposal pages, this page does NOT render the contract's legal
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Service Agreement — WeConnectU — Bosch Technologies</title>
+  <title>Service Agreement — WeconnectU — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     <div class="container">
       <span class="badge badge-accent">Confidential Document</span>
       <h1>Master Services Agreement</h1>
-      <p>Prepared for <strong>WeConnectU</strong> by Bosch Technologies</p>
+      <p>Prepared for <strong>WeconnectU</strong> by Bosch Technologies</p>
       <a href="/clients/weconnectu/alternative-engagement.php" class="btn btn-outline" style="margin-top: 16px;">← Back to Proposal</a>
     </div>
   </section>
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 12px;">Bosch Technologies (Pty) Ltd &middot; Reg. No. 2013/003965/07 &middot; 83 Vredeveld Street, Burgundy, Brackenfell, Western Cape, 7560 &middot; Represented by Garth Bosch, Founder</p>
 
         <h3>The Client</h3>
-        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 12px;">WeConnectU (Pty) Ltd &middot; Reg. No. 2017/012125/07 &middot; 65 Kara Place, Olive Grove Business Park, Somerset West, Western Cape, 7130 &middot; Represented by Dani&euml;l Van Der Merwe, Director</p>
+        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 12px;">WeconnectU (Pty) Ltd &middot; Reg. No. 2017/012125/07 &middot; 65 Kara Place, Olive Grove Business Park, Somerset West, Western Cape, 7130 &middot; Represented by Dani&euml;l Van Der Merwe, Director</p>
 
         <div class="form-group">
           <label for="effective-date">Effective Date</label>
@@ -244,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   function collectFormData() {
     return {
       sp: { name: 'Bosch Technologies (Pty) Ltd', rep: 'Garth Bosch, Founder' },
-      client: { name: 'WeConnectU (Pty) Ltd', rep: 'Daniël Van Der Merwe, Director' },
+      client: { name: 'WeconnectU (Pty) Ltd', rep: 'Daniël Van Der Merwe, Director' },
       effectiveDate: formatDate(fieldVal('effective-date')),
     };
   }
@@ -264,13 +264,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       { type: 'paragraph', args: 'Email: garth@boschtechnologies.com' },
       { type: 'paragraph', args: '("Bosch Technologies" or "the Service Provider")' },
       { type: 'heading', args: 'The Client' },
-      { type: 'fieldRow', args: ['WeConnectU', client.name] },
+      { type: 'fieldRow', args: ['WeconnectU', client.name] },
       { type: 'fieldRow', args: ['Registration No', CLIENT_REG] },
       { type: 'fieldRow', args: ['Address', CLIENT_ADDRESS] },
       { type: 'fieldRow', args: ['Represented by', client.rep] },
       { type: 'paragraph', args: 'Email: danie@weconnectu.co.za' },
-      { type: 'paragraph', args: '("WeConnectU" or "the Client")' },
-      { type: 'paragraph', args: 'Bosch Technologies and WeConnectU are each referred to individually as a "Party" and collectively as the "Parties".' },
+      { type: 'paragraph', args: '("WeconnectU" or "the Client")' },
+      { type: 'paragraph', args: 'Bosch Technologies and WeconnectU are each referred to individually as a "Party" and collectively as the "Parties".' },
       { type: 'fieldRow', args: ['Effective Date', effectiveDate] },
       { type: 'paragraph', args: '("Effective Date")' }
     ];
@@ -978,7 +978,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     doc.line(rightX + colW, tableTop, rightX + colW, ry);
     y = ry + 6;
 
-    doc.save('WeConnectU-Master-Services-Agreement.pdf');
+    doc.save('WeconnectU-Master-Services-Agreement.pdf');
   }
 
   // ===================== WORD (.docx) GENERATION =====================
@@ -1331,7 +1331,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     });
 
     const blob = await Packer.toBlob(docxDocument);
-    downloadBlob(blob, 'WeConnectU-Master-Services-Agreement.docx');
+    downloadBlob(blob, 'WeconnectU-Master-Services-Agreement.docx');
   }
   </script>
   <?php endif; ?>
