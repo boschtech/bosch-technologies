@@ -331,6 +331,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       y += 2;
     }
 
+    // A checkbox-style list for items that must be physically ticked off once complete
+    // (e.g. a sign-off checklist). Draws a real square box via vector lines, rather than
+    // relying on a Unicode checkbox glyph that the PDF's standard font may not support.
+    function checklist(items) {
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor(...dark);
+      const boxSize = 3.2;
+      items.forEach(item => {
+        const lines = doc.splitTextToSize(item, contentW - 10);
+        checkPage(lines.length * 4 + 2);
+        doc.setDrawColor(...dark);
+        doc.setLineWidth(0.3);
+        doc.rect(marginL + 1, y - boxSize + 0.5, boxSize, boxSize);
+        doc.text(lines, marginL + 9, y);
+        y += lines.length * 4 + 2.5;
+      });
+      y += 2;
+    }
+
     // Numbered legal sub-clauses (e.g. "6.1 The Service Provider shall..."). Uses a hanging
     // indent: the "X.Y " number prefix sits in its own column, and every wrapped line
     // (including continuation lines) aligns under the text, not under the number.
@@ -475,6 +495,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     function feeTable(rows) {
       const labelColW = contentW * FEE_LABEL_FRACTION;
       const rowHeights = computeFeeRowHeights(rows);
+      // Self-paginating: ensure the whole table fits on the current page (or starts a
+      // fresh one) even when called directly (e.g. from Schedule A) rather than only via
+      // clauseSection(), which otherwise pre-checks this for callers inside numbered clauses.
+      checkPage(rowHeights.reduce((s, r) => s + r.h, 0) + 4);
       const tableTop = y;
       let ry = y;
       const leftX = marginL;
@@ -578,6 +602,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
 
     paragraph('Bosch Technologies and WeConnectU are each referred to individually as a "Party" and collectively as the "Parties".');
     fieldRow('Effective Date', effectiveDate);
+    paragraph('("Effective Date")');
 
     // --- 1. Background ---
     clauseSection('1. Background', [
@@ -592,13 +617,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     // --- 2. Definitions ---
     clauseSection('2. Definitions and Interpretation', [
       { type: 'clauseItems', args: [
-        '2.1 "Deliverables" means the test strategy document, automation test frameworks, documentation, and other work product produced by the Service Provider under this Agreement, as further described in Schedule A.',
-        '2.2 "Key Consultant" means Garth Bosch, the individual through whom the Service Provider will principally perform the Services.',
-        '2.3 "Permanent Hire" means the Quality Assurance Engineer recruited by the Service Provider under clause 6 to be permanently employed by the Client.',
-        '2.4 "Existing QA Testers" means the two Quality Assurance Testers employed by the Client as at the Effective Date, who will receive training and upskilling from the Service Provider in accordance with clause 7.',
-        '2.5 "Services" means the services described in Schedule A.',
-        '2.6 "Term" means the period described in clause 4.',
-        '2.7 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
+        '2.1 "Effective Date" means the date specified as such on the first page of this Agreement, being the date on which this Agreement comes into force and from which the Term commences in accordance with clause 4.',
+        '2.2 "Deliverables" means the test strategy document, automation test frameworks, documentation, and other work product produced by the Service Provider under this Agreement, as further described in Schedule A.',
+        '2.3 "Key Consultant" means Garth Bosch, the individual through whom the Service Provider will principally perform the Services.',
+        '2.4 "Permanent Hire" means the Quality Assurance Engineer recruited by the Service Provider under clause 6 to be permanently employed by the Client.',
+        '2.5 "Existing QA Testers" means the two Quality Assurance Testers employed by the Client as at the Effective Date, who will receive training and upskilling from the Service Provider in accordance with clause 7.',
+        '2.6 "Services" means the services described in Schedule A.',
+        '2.7 "Term" means the period described in clause 4.',
+        '2.8 Clause headings are for convenience only and do not affect interpretation. A reference to a statute includes any amendment or re-enactment of it.'
       ] }
     ]);
 
@@ -760,7 +786,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         "20.3 Assignment. Neither Party may assign or delegate its rights or obligations under this Agreement without the other Party's prior written consent, save that the Service Provider may subcontract elements of the Services with the Client's prior written consent, not to be unreasonably withheld.",
         '20.4 Notices. Notices under this Agreement must be given in writing and delivered by email to the representatives named on the signature page, or such other address as either Party notifies to the other.',
         '20.5 Severability. If any provision of this Agreement is found invalid or unenforceable, the remaining provisions continue in full force and effect.',
-        '20.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.'
+        '20.6 Counterparts. This Agreement may be signed in counterparts (including electronically), each of which is deemed an original, and together constitute one agreement.',
+        '20.7 Electronic Signature. The Parties consent to conclude and sign this Agreement by electronic means. An electronic signature applied by either Party constitutes a valid and binding signature for the purposes of this Agreement, as contemplated in section 13 of the Electronic Communications and Transactions Act 25 of 2002 ("ECTA"), and this Agreement is not a transaction excluded from the use of an electronic signature under Schedule 2 of ECTA.'
       ] }
     ]);
 
@@ -796,6 +823,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       "Implementation of quality gates in the Client's deployment pipelines;",
       'Upskilling of the Permanent Hire and the Existing QA Testers (see clause 8).'
     ]);
+    subheading('A.5 Transition Checklist');
+    paragraph('The following checklist must be completed and jointly signed off by the Parties in accordance with clause 7.3 to confirm that knowledge transfer is complete:');
+    checklist([
+      'Test strategy document reviewed and understood by the Permanent Hire and the Existing QA Testers;',
+      'Automation test framework architecture and codebase walked through;',
+      'CI/CD pipeline integration and quality gates explained and demonstrated;',
+      'Test data management processes and tooling handed over;',
+      'Outstanding defects and automation backlog reviewed;',
+      'Access credentials, licences, and tooling ownership transferred to the Client;',
+      'Documentation and best practices guides confirmed as accessible to the Client;',
+      'Transition checklist signed off by the Service Provider and the Client.'
+    ]);
+    subheading('A.6 Engagement Timeline (6 Months)');
+    paragraph('The indicative timeline referred to in clauses 9.3 and 10.3 is as follows:');
+    feeTable([
+      ['Month 1', 'Discovery, current-state assessment, and design of the test strategy.'],
+      ['Month 2', 'Automation framework architecture and tooling set-up; recruitment of the Permanent Hire commences.'],
+      ['Month 3', 'Automation framework implementation and CI/CD quality gate design; recruitment interviews continue.'],
+      ['Month 4', 'Quality gates implemented in the deployment pipelines; upskilling of the Existing QA Testers begins.'],
+      ['Month 5', 'Onboarding, training, and upskilling of the Permanent Hire; continued upskilling of the Existing QA Testers.'],
+      ['Month 6', 'Completion of knowledge transfer, joint sign-off of the transition checklist, and handover to the Client.']
+    ]);
 
     // --- Schedule B ---
     heading('Schedule B — Fees & Payment Schedule');
@@ -807,6 +856,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     newPage();
     heading('Signatures');
     paragraph('Signed by the duly authorised representatives of the Parties:');
+    paragraph('This Agreement may be signed by electronic signature. Such a signature is valid and binding in accordance with section 13 of the Electronic Communications and Transactions Act 25 of 2002 ("ECTA") (see clause 20.7).');
     y += 4;
 
     const spSplit = splitNameTitle(sp.rep);
