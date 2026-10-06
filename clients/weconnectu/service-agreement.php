@@ -254,6 +254,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   const AGREEMENT_TITLE = 'MASTER SERVICES AGREEMENT';
   const AGREEMENT_SUBTITLE = 'Test Strategy Implementation & Quality Assurance Recruitment Engagement';
 
+  // Horizontal layout (mm) of a clauseItems list, shared by both generators. "X.Y text" hangs
+  // its number at the margin; "X.Y.Z text" hangs its number under the parent X.Y's text; an
+  // unnumbered item is a continuation paragraph aligned with the preceding X.Y's text.
+  function clauseLayout(items, textWidth) {
+    let col = 0;
+    return items.map(item => {
+      const match = item.match(/^(\d+(?:\.\d+)+)\s+(.*)$/s);
+      if (!match) return { prefix: '', body: item, markerX: col, textX: col };
+      const [, prefix, body] = match;
+      const markerX = prefix.split('.').length > 2 ? col : 0;
+      const textX = markerX + textWidth(prefix + ' ');
+      if (markerX === 0) col = textX;
+      return { prefix, body, markerX, textX };
+    });
+  }
+
   function partiesBlocks({ sp, client, effectiveDate }) {
     return [
       { type: 'heading', args: 'The Service Provider' },
@@ -383,9 +399,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   // --- 11. IP ---
   { title: '11. Intellectual Property', blocks: [
     { type: 'clauseItems', args: [
-      '11.1 Subject to clause 11.2 and full payment of all Fees due under this Agreement, all Deliverables created specifically for the Client under this Agreement (including the test strategy document and any bespoke automation test scripts) shall vest in and become the property of the Client upon creation.',
-      '11.2 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
-      "11.3 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
+      '11.1 Subject to clause 11.7 and full payment of all Fees due under this Agreement, all intellectual property rights, including copyright and moral rights, in any work done or created by the Service Provider specifically for or on behalf of the Client or in performance of the Services under this Agreement (including the test strategy document and any bespoke automation test scripts), whether now or in the future, (the "Works") shall automatically vest in and become the property of the Client upon creation, and the Service Provider hereby unconditionally and irrevocably cedes, assigns and transfers all rights, title and interest in and to such Works to the Client.',
+      '11.2 The Client hereby accepts the cession, assignment and transfer of the intellectual property rights contemplated in clause 11.1 above as of the Effective Date.',
+      "11.3 The Service Provider waives all residuary and moral rights in the Works. The Service Provider shall not challenge the validity of any intellectual property rights in the Works or assist any person, whether directly or indirectly, to challenge the Client's intellectual property rights in and to the Works.",
+      '11.4 The Service Provider undertakes to execute all documents, do all things, perform all acts and take all steps (or to procure the doing of all things and the performance of all acts), which may be necessary or incidental to, or helpful in, giving effect to the terms of this clause 11 and as may be reasonably required by the Client in any proceedings instituted by or against the Client in relation to the intellectual property rights in the Works.',
+      '11.5 Signature of this Agreement by the Service Provider shall also constitute signature as required by Section 22(3) of the Copyright Act 98 of 1978.',
+      '11.6 The Service Provider warrants that –',
+      '11.6.1 it is the sole and exclusive legal and beneficial owner of all right, title and interest in and to the Works, and has the full right, power and authority required to cede, assign and transfer the Works to WeconnectU, without the consent of any third party; and',
+      '11.6.2 the Works are free and clear of any liens, encumbrances and adverse claims of any nature whatsoever; and',
+      '11.6.3 the Works do not violate any laws or regulations and do not infringe upon the moral rights, copyrights, patents, trademarks, or other proprietary rights of any third party; and',
+      "11.6.4 there are no pending, threatened or anticipated claims, litigation or proceedings challenging the Service Provider's ownership of the Works,",
+      'and indemnifies and holds the Client harmless against any and all claims, damages, liabilities, losses, costs, and expenses (including legal fees on an attorney-and-client-scale) arising directly or indirectly from any breach of the warranties contained in this clause 11.6, or from any third party claim of intellectual property infringement related to the Works.',
+      '11.7 The Service Provider retains ownership of all pre-existing tools, templates, methodologies, frameworks, and know-how that it owned or developed prior to, or independently of, this Agreement ("Background IP"), and grants the Client a perpetual, royalty-free, non-exclusive licence to use any Background IP incorporated into the Deliverables for the Client\'s internal business purposes.',
+      "11.8 Nothing in this Agreement transfers ownership of any third-party or open-source software, tools, or licences used in delivering the Services; the Client's use of such items remains subject to their respective licence terms."
     ] }
   ] },
 
@@ -394,7 +420,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
     { type: 'clauseItems', args: [
       '12.1 Each Party shall keep confidential all non-public information disclosed by the other Party in connection with this Agreement and shall use it only for the purposes of this Agreement.',
       '12.2 This obligation does not apply to information that is public, was already known to the receiving Party, is independently developed, or must be disclosed by law or regulation.',
-      '12.3 This clause survives termination or expiry of this Agreement for a period of three (3) years.'
+      '12.3 This clause survives termination or expiry of this Agreement for a period of three (3) years from the date of termination, save in respect of trade secrets, which shall remain confidential for as long as such information retains its status as trade secrets or proprietary information under applicable law.'
     ] }
   ] },
 
@@ -646,15 +672,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
       doc.setTextColor(...dark);
-      items.forEach(item => {
-        const match = item.match(/^(\d+\.\d+)\s+(.*)$/s);
-        const prefix = match ? match[1] + ' ' : '';
-        const body = match ? match[2] : item;
-        const indent = prefix ? doc.getTextWidth(prefix) : 0;
-        const lines = doc.splitTextToSize(body, contentW - indent);
+      clauseLayout(items, t => doc.getTextWidth(t)).forEach(({ prefix, body, markerX, textX }) => {
+        const lines = doc.splitTextToSize(body, contentW - textX);
         checkPage(lines.length * 4 + 2);
-        if (prefix) doc.text(prefix, marginL, y);
-        doc.text(lines, marginL + indent, y);
+        if (prefix) doc.text(prefix, marginL + markerX, y);
+        doc.text(lines, marginL + textX, y);
         y += lines.length * 4 + 2;
       });
       y += 2;
@@ -742,12 +764,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       doc.setFontSize(9);
       doc.setFont(undefined, 'normal');
       let h = 0;
-      items.forEach(item => {
-        const match = item.match(/^(\d+\.\d+)\s+(.*)$/s);
-        const prefix = match ? match[1] + ' ' : '';
-        const body = match ? match[2] : item;
-        const indent = prefix ? doc.getTextWidth(prefix) : 0;
-        h += doc.splitTextToSize(body, contentW - indent).length * 4 + 2;
+      clauseLayout(items, t => doc.getTextWidth(t)).forEach(({ body, textX }) => {
+        h += doc.splitTextToSize(body, contentW - textX).length * 4 + 2;
       });
       return h + 2;
     }
@@ -1107,11 +1125,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       tabStops: [{ type: TabStopType.LEFT, position: mm(textMm) }]
     });
 
-    function clauseItem(item) {
-      const match = item.match(/^(\d+\.\d+)\s+(.*)$/s);
-      if (!match) return { children: [run(item)] };
-      const [, prefix, body] = match;
-      return { ...hanging(measure.getTextWidth(prefix + ' '), 0), children: [run(prefix), run('\t'), run(body)] };
+    function clauseItem({ prefix, body, markerX, textX }) {
+      if (!prefix) return { indent: textX ? { left: mm(textX) } : undefined, children: [run(body)] };
+      return { ...hanging(textX, markerX), children: [run(prefix), run('\t'), run(body)] };
     }
 
     function fieldRow([label, value]) {
@@ -1221,7 +1237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         case 'heading': return [headingPara(b.args, { ...o, pageBreakBefore: b.pageBreakBefore })];
         case 'subheading': return [subheadingPara(b.args, o)];
         case 'paragraph': return listParas([b.args], o, 3, 0, t => ({ children: [run(t)] }));
-        case 'clauseItems': return listParas(b.args, o, 2, 2, clauseItem);
+        case 'clauseItems': return listParas(clauseLayout(b.args, t => measure.getTextWidth(t)), o, 2, 2, clauseItem);
         case 'bulletList': return listParas(b.args, o, 1.5, 2, t => ({ ...hanging(8, 2), children: [run('•'), run('\t'), run(t)] }));
         case 'checklist': return listParas(b.args, o, 2.5, 2, t => ({
           ...hanging(9, 1),
