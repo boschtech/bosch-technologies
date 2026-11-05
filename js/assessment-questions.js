@@ -98,13 +98,13 @@ const ASSESSMENT_DIMENSIONS = [
       },
       {
         id: 'a4',
-        text: 'How are automated tests maintained when the application changes?',
+        text: 'How extensively does your team use AI to create and maintain automation tests?',
         options: [
-          { value: 1, label: 'Tests frequently break and are abandoned or rewritten from scratch' },
-          { value: 2, label: 'Developers/QAs fix tests reactively after builds fail' },
-          { value: 3, label: 'Test maintenance is part of the sprint. Locators and assertions are updated promptly' },
-          { value: 4, label: 'Tests use resilient selectors and abstraction layers. Maintenance cost is low' },
-          { value: 5, label: 'AI-assisted test maintenance with visual regression and automatic locator healing' }
+          { value: 1, label: 'Not at all. Tests are written and maintained entirely by hand, with no AI assistance' },
+          { value: 2, label: 'AI occasionally helps write test code or suggest locators, but all maintenance is manual and tests still break often' },
+          { value: 3, label: 'AI regularly assists with generating new test cases and suggesting fixes, but engineers still review and maintain most tests themselves' },
+          { value: 4, label: 'AI actively generates tests from requirements/user stories and auto-heals broken locators or assertions, significantly reducing manual maintenance' },
+          { value: 5, label: 'AI-native testing: AI agents generate, execute, and self-maintain tests directly from code, requirements, and production signals with minimal human intervention — the team no longer relies on a separate test management system' }
         ]
       }
     ]
@@ -280,8 +280,8 @@ const RECOMMENDATIONS = {
     1: 'Begin with automating your most critical smoke tests. Choose a modern framework (Playwright or Cypress) and start small.',
     2: 'Expand automation to cover your top 20 regression scenarios. Adopt Page Object Model for maintainability.',
     3: 'Focus on reducing flakiness and increasing parallel execution. Add API-level automation to complement UI tests.',
-    4: 'Optimise execution speed with test selection intelligence. Explore visual regression and contract testing.',
-    5: 'You have excellent coverage. Explore AI-assisted test generation and self-healing capabilities to further reduce maintenance.'
+    4: 'Optimise execution speed with test selection intelligence. Start introducing AI-assisted test generation and self-healing locators to cut manual maintenance further.',
+    5: 'You have excellent coverage and an AI-native testing practice. Keep governance light-touch but intentional: periodically review AI-generated test quality, and reassess whether a dedicated test management system still adds value over your in-repo, AI-maintained suite.'
   },
   tooling: {
     1: 'Set up a basic CI pipeline (GitHub Actions or Jenkins) and run at least smoke tests on every commit.',
