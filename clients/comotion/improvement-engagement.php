@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         </ul>
 
         <h3>Duration</h3>
-        <p>Initial implementation: 6 months, continuing on a monthly basis thereafter</p>
+        <p>12 months</p>
 
         <h3>Monthly Investment</h3>
         <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">

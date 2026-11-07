@@ -521,7 +521,7 @@ async function generateImprovementEngagementPDF() {
     '6 to 12 month quality roadmap per entity'
   ]);
   subheading('Duration');
-  paragraph('Initial implementation: 6 months, continuing on a monthly basis thereafter');
+  paragraph('12 months');
   subheading('Monthly Investment');
   highlightBox('R150,000 per month');
 
