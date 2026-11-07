@@ -1,0 +1,1911 @@
+[
+  [
+    {
+      "text": "Alternative Engagement Proposal",
+      "transform": [
+        16,
+        0,
+        0,
+        16,
+        170.19999999999996,
+        734.1734645669292
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        187.49,
+        711.4962992125984
+      ]
+    },
+    {
+      "text": "Prepared for WeconnectU by Bosch Technologies",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        187.49,
+        711.4962992125984
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        264.99999999999994,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "2 September 2026",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        264.99999999999994,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        643.4648031496063
+      ]
+    },
+    {
+      "text": "Overview",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        643.4648031496063
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "Objective",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        603.7797637795275
+      ]
+    },
+    {
+      "text": "Strengthen WeconnectU's Quality Assurance capability through hands-on implementation and the permanent placement of a",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        603.7797637795275
+      ]
+    },
+    {
+      "text": "dedicated Quality Assurance Engineer.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        593.4297637795274
+      ]
+    },
+    {
+      "text": "This proposal presents two independent options. They can be taken separately, or Option 1 can be taken as the complete",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "end-to-end solution, as it already includes recruitment of the permanent resource.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        562.2486614173228
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        541.4175590551181
+      ]
+    },
+    {
+      "text": "Option 1: Test Strategy Implementation & Recruitment",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        541.4175590551181
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        518.7403937007873
+      ]
+    },
+    {
+      "text": "Scope",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        518.7403937007873
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        501.73251968503934
+      ]
+    },
+    {
+      "text": "Garth (Bosch Technologies) will work directly with WeconnectU to design and implement the test strategy, stand up all",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        501.73251968503934
+      ]
+    },
+    {
+      "text": "automation test frameworks, and recruit and upskill a permanent Quality Assurance Engineer to take ownership at the end of the",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        491.3825196850393
+      ]
+    },
+    {
+      "text": "engagement.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        481.0325196850393
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        459.21283464566926
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        459.21283464566926
+      ]
+    },
+    {
+      "text": "Design and implement a comprehensive test strategy",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        459.21283464566926
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        443.62228346456686
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        443.62228346456686
+      ]
+    },
+    {
+      "text": "Set up all automation test frameworks",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        443.62228346456686
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        428.03173228346446
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        428.03173228346446
+      ]
+    },
+    {
+      "text": "Lead quality assurance initiatives",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        428.03173228346446
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "Recruit, train and upskill the newly recruited team member to take over at engagement end",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        391.18133858267703
+      ]
+    },
+    {
+      "text": "Deliverables",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        391.18133858267703
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        374.173464566929
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        374.173464566929
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        374.173464566929
+      ]
+    },
+    {
+      "text": "Comprehensive test strategy document aligned with WeconnectU's needs",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        374.173464566929
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        358.5829133858267
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        358.5829133858267
+      ]
+    },
+    {
+      "text": "Automated test frameworks implementation (tools, infrastructure, processes)",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        358.5829133858267
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        342.99236220472443
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        342.99236220472443
+      ]
+    },
+    {
+      "text": "Training and mentoring of the permanent Quality Assurance Engineering resource",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        342.99236220472443
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        327.40181102362203
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        327.40181102362203
+      ]
+    },
+    {
+      "text": "Documentation and best practices guides",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        327.40181102362203
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        311.8112598425196
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        311.8112598425196
+      ]
+    },
+    {
+      "text": "Transition plan and knowledge transfer completion",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        311.8112598425196
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        290.55141732283454
+      ]
+    },
+    {
+      "text": "Key Terms",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        290.55141732283454
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        273.54354330708657
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        273.54354330708657
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        273.54354330708657
+      ]
+    },
+    {
+      "text": "Flexibility: Garth has the flexibility to work from anywhere and is not limited to working exclusively for WeconnectU.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        273.54354330708657
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        257.9529921259843
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        257.9529921259843
+      ]
+    },
+    {
+      "text": "Recruitment & Transition: Before the end of the 6-month engagement, Bosch Technologies will recruit a permanent Quality",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        257.9529921259843
+      ]
+    },
+    {
+      "text": "Assurance Engineer for WeconnectU.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        247.6029921259843
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        231.02385826771652
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        231.02385826771652
+      ]
+    },
+    {
+      "text": "Knowledge Transfer: Full upskilling and handover of the test strategy and automation frameworks to the recruited",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        231.02385826771652
+      ]
+    },
+    {
+      "text": "permanent team member.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        220.67385826771653
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        198.42543307086598
+      ]
+    },
+    {
+      "text": "Duration & Investment",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        198.42543307086598
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        181.41755905511803
+      ]
+    },
+    {
+      "text": "6-month engagement at a monthly fee of R100,000 per month.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        181.41755905511803
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        220.72,
+        144.56716535433063
+      ]
+    },
+    {
+      "text": "Total Investment: R600,000",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        220.72,
+        144.56716535433063
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Option 2: Quality Assurance Engineer Recruitment Only",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "Scope",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "Bosch Technologies will run a dedicated recruitment process to identify, assess and place a Quality Assurance Engineer who will",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "be permanently employed by WeconnectU.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        735.1620472440944
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        714.3309448818898
+      ]
+    },
+    {
+      "text": "Position Details",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        714.3309448818898
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        697.3230708661417
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        697.3230708661417
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        697.3230708661417
+      ]
+    },
+    {
+      "text": "Role: Quality Assurance Engineer",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        697.3230708661417
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        681.7325196850392
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        681.7325196850392
+      ]
+    },
+    {
+      "text": "Employment Type: Permanent, full-time at WeconnectU",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        681.7325196850392
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "Remuneration: Maximum of R80,000 per month",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        650.5514173228345
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        650.5514173228345
+      ]
+    },
+    {
+      "text": "Benefits: Full WeconnectU employee benefits package",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        650.5514173228345
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        629.2915748031496
+      ]
+    },
+    {
+      "text": "Assessment & Tooling",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        629.2915748031496
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": "Technical Assessment Tool: Bosch Technologies' own HackerRank platform",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        596.6931496062991
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        596.6931496062991
+      ]
+    },
+    {
+      "text": "Assessment Coverage: Based on WeconnectU's Job Description, Technical QA competencies and AI usage proficiency",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        596.6931496062991
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "ATS Integration: HackerRank is integrated with WeconnectU's ATS (Workable) so candidate results are tracked in one",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "place",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        570.7525984251968
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        548.5041732283464
+      ]
+    },
+    {
+      "text": "Timeline",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        548.5041732283464
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        531.4962992125984
+      ]
+    },
+    {
+      "text": "Approximately 45 days",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        531.4962992125984
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        511.653779527559
+      ]
+    },
+    {
+      "text": "Investment",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        511.653779527559
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        494.64590551181095
+      ]
+    },
+    {
+      "text": "Placement fee is payable only once the successful candidate signs the offer letter.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        494.64590551181095
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        220.72,
+        457.79551181102363
+      ]
+    },
+    {
+      "text": "Total Investment: R144,000",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        220.72,
+        457.79551181102363
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Investment Summary",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "Option",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        79.63426771653546,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "Cost",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        223.93847769028866,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        241.71447769028867,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "Duration",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        394.018687664042,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": "Option 1 - Strategy & Recruitment",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        173.90626771653547,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": "R600,000",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        223.93847769028866,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        258.6264776902887,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": "6 months",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        394.018687664042,
+        724.2522047244095
+      ]
+    },
+    {
+      "text": "Option 2 - Recruitment Only",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        701.5750393700786
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        153.00226771653544,
+        701.5750393700786
+      ]
+    },
+    {
+      "text": "R144,000",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        223.93847769028866,
+        701.5750393700786
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        258.6264776902887,
+        701.5750393700786
+      ]
+    },
+    {
+      "text": "~45 days",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        394.018687664042,
+        701.5750393700786
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        683.149842519685
+      ]
+    },
+    {
+      "text": "Why This Works",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        683.149842519685
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": "Immediate quality improvement - expert-led test strategy and automation setup from day one",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        644.882125984252
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        644.882125984252
+      ]
+    },
+    {
+      "text": "Sustainable capability - internal QA expertise built through direct mentoring and knowledge transfer",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        644.882125984252
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        629.2915748031496
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        629.2915748031496
+      ]
+    },
+    {
+      "text": "Permanent resource - a vetted Quality Assurance Engineer trained by the person who built the frameworks",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        629.2915748031496
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        613.7010236220473
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        613.7010236220473
+      ]
+    },
+    {
+      "text": "Assessment rigour - HackerRank technical screening including AI usage, integrated with Workable",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        613.7010236220473
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "Flexibility - engagement structure optimises cost while internal capacity is built",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": "Engagement Model",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        554.1734645669292
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        554.1734645669292
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        554.1734645669292
+      ]
+    },
+    {
+      "text": "Remote-first delivery, with the flexibility to work from anywhere",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        554.1734645669292
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        538.5829133858267
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        538.5829133858267
+      ]
+    },
+    {
+      "text": "Non-exclusive engagement for the duration of Option 1",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        538.5829133858267
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        522.9923622047244
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        522.9923622047244
+      ]
+    },
+    {
+      "text": "Monthly reporting and governance",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        522.9923622047244
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        507.40181102362203
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        507.40181102362203
+      ]
+    },
+    {
+      "text": "Close collaboration with engineering leadership",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        507.40181102362203
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "Ready to Get Started?",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "Contact Bosch Technologies to discuss the best engagement option for your team.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    },
+    {
+      "text": "boschtechnologies.com/contact",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    }
+  ]
+]

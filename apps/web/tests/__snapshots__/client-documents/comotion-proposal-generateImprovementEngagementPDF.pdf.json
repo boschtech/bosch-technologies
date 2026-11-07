@@ -1,0 +1,1493 @@
+[
+  [
+    {
+      "text": "Quality Engineering Improvement",
+      "transform": [
+        16,
+        0,
+        0,
+        16,
+        169.95999999999998,
+        734.1734645669292
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        123.68999999999993,
+        711.4962992125984
+      ]
+    },
+    {
+      "text": "Prepared for Comotion (Comotion AI & Seed Analytics) by Bosch Technologies",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        123.68999999999993,
+        711.4962992125984
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        266.08,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "5 November 2026",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        266.08,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        643.4648031496063
+      ]
+    },
+    {
+      "text": "Quality Engineering Improvement",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        643.4648031496063
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": "Objective",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        612.2837007874016
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "Stand up a single, shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, combining strategy",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "creation with hands-on implementation: governed, requirements-to-release quality for Comotion AI's AI-assisted development",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        584.9258267716536
+      ]
+    },
+    {
+      "text": "practice, and a test management system plus CI/CD automation foundation for Seed Analytics.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        574.5758267716536
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        552.7561417322834
+      ]
+    },
+    {
+      "text": "Scope",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        552.7561417322834
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        535.7482677165353
+      ]
+    },
+    {
+      "text": "Development of a single Quality Engineering Test Strategy covering both Comotion AI and Seed Analytics, followed immediately",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        535.7482677165353
+      ]
+    },
+    {
+      "text": "by hands-on implementation of that strategy across both entities.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        525.3982677165353
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        504.5671653543306
+      ]
+    },
+    {
+      "text": "Activities",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        504.5671653543306
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "Stakeholder interviews across both entities (Engineering, Product, Leadership)",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": "Review of Comotion AI's existing unit, component, and Playwright end-to-end tests, and its AI-assisted test creation",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": "practice",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        461.6187401574802
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        445.03960629921255
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        445.03960629921255
+      ]
+    },
+    {
+      "text": "Review of Seed Analytics' delivery process, documented test cases, and pipeline",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        445.03960629921255
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "Architecture review of Comotion AI's stack (Python, TypeScript, Next.js, PostgreSQL)",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": "Risk assessment for both entities",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        398.2679527559055
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        398.2679527559055
+      ]
+    },
+    {
+      "text": "Quality maturity assessment validation",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        398.2679527559055
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        382.6774015748031
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        382.6774015748031
+      ]
+    },
+    {
+      "text": "Define requirements-to-release quality gates for Comotion AI, including governance of AI-generated tests",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        382.6774015748031
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        367.08685039370073
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        367.08685039370073
+      ]
+    },
+    {
+      "text": "Test management system selection and automation framework roadmap for Seed Analytics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        367.08685039370073
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        351.4962992125984
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        351.4962992125984
+      ]
+    },
+    {
+      "text": "CI/CD quality gate recommendations for both entities",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        351.4962992125984
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        335.905748031496
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        335.905748031496
+      ]
+    },
+    {
+      "text": "Release readiness scorecard framework",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        335.905748031496
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": "Embed quality from requirements through release readiness at Comotion AI, increase automated coverage, and mature",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": "CI/CD quality gates",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        309.96519685039357
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": "Stand up a test management system at Seed Analytics and migrate documented test cases into it",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        277.7955118110235
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        277.7955118110235
+      ]
+    },
+    {
+      "text": "Build an initial CI/CD automation framework at Seed Analytics (Playwright, consistent with the group's existing standard)",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        277.7955118110235
+      ]
+    },
+    {
+      "text": "and integrate it as a blocking pipeline gate",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        267.4455118110235
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        250.86637795275576
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        250.86637795275576
+      ]
+    },
+    {
+      "text": "Group-wide test reporting dashboards and release readiness metrics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        250.86637795275576
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        229.6065354330708
+      ]
+    },
+    {
+      "text": "Deliverables",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        229.6065354330708
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        212.5986614173228
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        212.5986614173228
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        212.5986614173228
+      ]
+    },
+    {
+      "text": "Group Quality Engineering Test Strategy document, with a Comotion AI annex and a Seed Analytics annex",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        212.5986614173228
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        197.00811023622043
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        197.00811023622043
+      ]
+    },
+    {
+      "text": "AI-assisted test governance framework, embedded and operating for Comotion AI",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        197.00811023622043
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        181.41755905511803
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        181.41755905511803
+      ]
+    },
+    {
+      "text": "Test management system implemented and populated for Seed Analytics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        181.41755905511803
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        165.82700787401564
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        165.82700787401564
+      ]
+    },
+    {
+      "text": "CI/CD-integrated automation framework for Seed Analytics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        165.82700787401564
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        150.2364566929133
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        150.2364566929133
+      ]
+    },
+    {
+      "text": "Group-wide test reporting dashboards and release readiness scorecard",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        150.2364566929133
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        134.64590551181098
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        134.64590551181098
+      ]
+    },
+    {
+      "text": "6 to 12 month quality roadmap per entity",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        134.64590551181098
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        113.38606299212584
+      ]
+    },
+    {
+      "text": "Duration",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        113.38606299212584
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        96.37818897637783
+      ]
+    },
+    {
+      "text": "12 months",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        96.37818897637783
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Monthly Investment",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        240.88,
+        751.1813385826773
+      ]
+    },
+    {
+      "text": "R150,000 per month",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        240.88,
+        751.1813385826773
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Business Benefits",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "A measurable release readiness signal for Comotion AI",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "An automated regression safety net for Seed Analytics where none exists today",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": "Governed, trustworthy AI-assisted test creation at Comotion AI",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": "Centralised, searchable test case management at Seed Analytics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": "Group-wide quality metrics and reporting",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        684.5671653543307
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        684.5671653543307
+      ]
+    },
+    {
+      "text": "Reduced production defects and faster, safer releases across both entities",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        684.5671653543307
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        663.3073228346456
+      ]
+    },
+    {
+      "text": "Engagement Model",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        663.3073228346456
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "Remote-first delivery across both entities",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        625.0396062992126
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        625.0396062992126
+      ]
+    },
+    {
+      "text": "Flexible scope to match each entity's evolving needs",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        625.0396062992126
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        609.4490551181102
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        609.4490551181102
+      ]
+    },
+    {
+      "text": "Monthly reporting and governance at the group level",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        609.4490551181102
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        593.8585039370079
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        593.8585039370079
+      ]
+    },
+    {
+      "text": "Close collaboration with engineering leadership at Comotion AI and Seed Analytics",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        593.8585039370079
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "Ready to Get Started?",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "Contact Bosch Technologies to discuss the best engagement option for your group.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    },
+    {
+      "text": "boschtechnologies.com/contact",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    }
+  ]
+]

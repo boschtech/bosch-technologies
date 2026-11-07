@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -11,8 +9,18 @@ vi.mock("chart.js/auto", () => ({
   }),
 }));
 
+// These pages were originally ported verbatim from legacy PHP sources (since
+// removed from the repository) and verified to match that source's rendered
+// HTML exactly at migration time. The frozen fixtures under
+// tests/__snapshots__/client-pages/ capture that verified output, so this
+// suite continues to guard against regressions without depending on the
+// removed legacy files.
 const pages = import.meta.glob("../../src/pages/clients/*/*.jsx");
 const generators = import.meta.glob("../../src/lib/pdf/clients/*.js");
+const fixtures = import.meta.glob("../__snapshots__/client-pages/*.json", {
+  eager: true,
+  import: "default",
+});
 const cases = [
   ["weconnectu", "index", "AssessmentReportPage"],
   ["weconnectu", "improvement-engagement", "ImprovementEngagementPage"],
@@ -34,10 +42,9 @@ const cases = [
   ["toomuchiwifi", "index", "ProposalPage"],
 ];
 const normalize = (text) => text.replace(/\s+/g, "");
-const root = resolve("../..");
 afterEach(() => vi.unstubAllGlobals());
 
-describe("client route content matches authenticated original HTML", () => {
+describe("client route content matches frozen fixture HTML", () => {
   it.each(cases)("%s/%s", async (slug, filename, page) => {
     vi.stubGlobal(
       "fetch",
@@ -46,14 +53,8 @@ describe("client route content matches authenticated original HTML", () => {
         json: async () => ({ authenticated: true }),
       })),
     );
-    const original = readFileSync(
-      resolve(root, `clients/${slug}/${filename}.php`),
-      "utf8",
-    );
-    const content = original
-      .split("<?php else: ?>")[1]
-      .split("<?php endif; ?>")[0];
-    const expected = new DOMParser().parseFromString(content, "text/html");
+    const expected =
+      fixtures[`../__snapshots__/client-pages/${slug}-${filename}.json`];
     const Page = (await pages[`../../src/pages/clients/${slug}/${page}.jsx`]())
       .default;
     const { container, unmount } = render(
@@ -63,23 +64,17 @@ describe("client route content matches authenticated original HTML", () => {
     );
     await screen.findByRole("heading", {
       level: 1,
-      name: expected.querySelector("h1").textContent,
+      name: expected.headingText,
     });
-    expect(normalize(container.textContent)).toBe(
-      normalize(expected.body.textContent),
-    );
+    expect(normalize(container.textContent)).toBe(normalize(expected.bodyText));
     expect(
       [...container.querySelectorAll("a")].map((a) => a.getAttribute("href")),
-    ).toEqual(
-      [...expected.querySelectorAll("a")].map((a) =>
-        a.getAttribute("href").replace(/\.(php|html)(?=$|[?#])/, ""),
-      ),
-    );
+    ).toEqual(expected.linkHrefs);
     expect(container.querySelectorAll("button")).toHaveLength(
-      expected.querySelectorAll("button").length,
+      expected.buttonCount,
     );
     expect(container.querySelectorAll("table")).toHaveLength(
-      expected.querySelectorAll("table").length,
+      expected.tableCount,
     );
     expect(document.querySelector('meta[name="robots"]')).toHaveAttribute(
       "content",
@@ -92,11 +87,8 @@ describe("client route content matches authenticated original HTML", () => {
         : `${slug}-${filename}`;
     const module =
       await generators[`../../src/lib/pdf/clients/${moduleName}.js`]();
-    const actions = [...expected.querySelectorAll("button[onclick]")];
-    for (let i = 0; i < actions.length; i++) {
-      const functionName = actions[i]
-        .getAttribute("onclick")
-        .match(/^(\w+)\(/)[1];
+    for (let i = 0; i < expected.actionFunctionNames.length; i++) {
+      const functionName = expected.actionFunctionNames[i];
       const generate = vi.spyOn(module, functionName).mockResolvedValue();
       fireEvent.click(container.querySelectorAll("button")[i]);
       await waitFor(() => expect(generate).toHaveBeenCalledOnce());

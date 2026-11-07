@@ -1,0 +1,510 @@
+[
+  [
+    {
+      "text": "Test Automation Maturity Assessment",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        170.65999999999994,
+        728.5041732283464
+      ]
+    },
+    {
+      "text": "Overall Maturity Score",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        223.64999999999998,
+        705.8270078740157
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        203.99499999999998,
+        683.149842519685
+      ]
+    },
+    {
+      "text": "Prepared for: Comotion AI | 5 November 2026",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        203.99499999999998,
+        683.149842519685
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        15,
+        0,
+        0,
+        15,
+        240.9448818897638,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "Level 3: Defined",
+      "transform": [
+        15,
+        0,
+        0,
+        15,
+        240.9448818897638,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        240.9448818897638,
+        575.4333070866141
+      ]
+    },
+    {
+      "text": "Standardised processes and solid automation foundation.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        240.9448818897638,
+        575.4333070866141
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        13,
+        0,
+        0,
+        13,
+        42.51968503937008,
+        515.9057480314959
+      ]
+    },
+    {
+      "text": "Dimension Scores",
+      "transform": [
+        13,
+        0,
+        0,
+        13,
+        42.51968503937008,
+        515.9057480314959
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": "Test Process & Governance",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        175.34968503937012,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": "2.0 / 5.0",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        516.7603149606299,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "Recommendation: Standardise your test case format and introduce a lightweight test management tool. Begin tracking defect metrics.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "Automation Coverage & Effectiveness",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        223.66968503937017,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "3.5 / 5.0",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        516.7603149606299,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        392.59866141732283
+      ]
+    },
+    {
+      "text": "Recommendation: Optimise execution speed with test selection intelligence. Explore visual regression and contract testing.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        392.59866141732283
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        365.66952755905504
+      ]
+    },
+    {
+      "text": "Tooling & Infrastructure",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        365.66952755905504
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        156.4196850393701,
+        365.66952755905504
+      ]
+    },
+    {
+      "text": "3.5 / 5.0",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        516.7603149606299,
+        365.66952755905504
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        328.8191338582676
+      ]
+    },
+    {
+      "text": "Recommendation: Move to ephemeral environments per PR. Implement synthetic test data generation and production-like staging.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        328.8191338582676
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        301.89
+      ]
+    },
+    {
+      "text": "Reporting & Observability",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        301.89
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        165.87968503937012,
+        301.89
+      ]
+    },
+    {
+      "text": "1.8 / 5.0",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        516.7603149606299,
+        301.89
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        265.0396062992125
+      ]
+    },
+    {
+      "text": "Recommendation: Set up a dashboard showing pass rates, flakiness trends, and coverage. Track these metrics over time.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        265.0396062992125
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        238.1104724409448
+      ]
+    },
+    {
+      "text": "Team Skills & Culture",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        42.51968503937008,
+        238.1104724409448
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        145.3296850393701,
+        238.1104724409448
+      ]
+    },
+    {
+      "text": "2.5 / 5.0",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        516.7603149606299,
+        238.1104724409448
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        201.26007874015738
+      ]
+    },
+    {
+      "text": "Recommendation: Implement a testing community of practice. Begin TDD/BDD adoption with willing teams as pilots.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        201.26007874015738
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        51.02362204724409
+      ]
+    },
+    {
+      "text": "Ready to Level Up?",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        51.02362204724409
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        31.181102362204683
+      ]
+    },
+    {
+      "text": "Book a free consultation with Bosch Technologies to build your improvement roadmap.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        31.181102362204683
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        11.338582677165393
+      ]
+    },
+    {
+      "text": "Click here to book a consultation",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        11.338582677165393
+      ]
+    }
+  ]
+]

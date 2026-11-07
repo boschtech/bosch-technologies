@@ -1,0 +1,15 @@
+{
+  "headingText": "Master Services Agreement",
+  "bodyText": "\n    \n      Confidential Document\n      Master Services Agreement\n      Prepared for WeconnectU by Bosch Technologies\n      ← Back to Proposal\n    \n  \n\n  \n  \n    \n\n      \n      \n        Overview\n        This is the service agreement for the Test Strategy Implementation & Quality Assurance Recruitment engagement. The full legal terms and conditions are only available in the downloadable PDF or Word document below — this page summarises the key commercial terms.\n        \n          Term: 6 months from the Effective Date\n          Fee: R100,000 per month, inclusive of VAT (R600,000 total)\n          Invoicing: On the 25th of each month (or the preceding Friday if the 25th falls on a weekend)\n          Payment Terms: Within 5 days of invoice date, by EFT\n          Working Arrangement: Remote and non-exclusive\n          Included: Recruitment, training, and upskilling of a permanent Quality Assurance Engineer, plus upskilling of the existing 2 Quality Assurance Testers\n          Success Measures: Quality Engineer hired, automation test frameworks implemented, quality gates implemented in the deployment pipelines, and upskilling of the Quality Engineer and existing QA Testers\n        \n      \n\n      \n      \n        Agreement Details\n        Select the Effective Date below. If left blank, it will appear as a blank underlined line in the downloaded document, ready to be completed by hand.\n\n        The Service Provider\n        Bosch Technologies (Pty) Ltd · Reg. No. 2013/003965/07 · 83 Vredeveld Street, Burgundy, Brackenfell, Western Cape, 7560 · Represented by Garth Bosch, Founder\n\n        The Client\n        WeconnectU (Pty) Ltd · Reg. No. 2017/012125/07 · 65 Kara Place, Olive Grove Business Park, Somerset West, Western Cape, 7130 · Represented by Daniël Van Der Merwe, Director\n\n        \n          Effective Date\n          \n        \n      \n\n      \n      \n         Download Service Agreement (PDF)\n         Download Service Agreement (Word)\n        ← Back to Proposal\n        Get in Touch to Discuss →\n      \n\n    \n  \n\n",
+  "linkHrefs": [
+    "/clients/weconnectu/alternative-engagement",
+    "/clients/weconnectu/alternative-engagement",
+    "/contact/"
+  ],
+  "buttonCount": 2,
+  "tableCount": 0,
+  "actionFunctionNames": [
+    "generateServiceAgreementPDF",
+    "generateServiceAgreementDOCX"
+  ]
+}

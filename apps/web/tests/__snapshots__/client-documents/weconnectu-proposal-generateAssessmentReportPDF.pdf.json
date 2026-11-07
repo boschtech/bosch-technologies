@@ -1,0 +1,2340 @@
+[
+  [
+    {
+      "text": "Quality Engineering Assessment: Findings & Improvement Opportunities",
+      "transform": [
+        13,
+        0,
+        0,
+        13,
+        72.21999999999998,
+        739.8427559055118
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        187.49,
+        688.8191338582676
+      ]
+    },
+    {
+      "text": "Prepared for WeconnectU by Bosch Technologies",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        187.49,
+        688.8191338582676
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        271.16,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "27 March 2026",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        271.16,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "Executive Summary",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "Current State",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "Quality Engineering practices are largely manual and reactive.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "Limited integration between testing and delivery pipelines. Small amount of Unit Test within the CICD pipelines.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "Quality risks are identified late in the development lifecycle.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        534.3309448818898
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        534.3309448818898
+      ]
+    },
+    {
+      "text": "Testing is heavily dependent on Quality Engineers with a lot of domain knowledge.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        534.3309448818898
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        518.7403937007873
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        518.7403937007873
+      ]
+    },
+    {
+      "text": "No structured onboarding and upskilling programs for new employees.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        518.7403937007873
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        497.4805511811023
+      ]
+    },
+    {
+      "text": "Business Impact",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        497.4805511811023
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        480.4726771653543
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        480.4726771653543
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        480.4726771653543
+      ]
+    },
+    {
+      "text": "Slower release cycles impacting time-to-market.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        480.4726771653543
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        464.8821259842519
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        464.8821259842519
+      ]
+    },
+    {
+      "text": "Increased production risk due to late defect detection.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        464.8821259842519
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        449.29157480314956
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        449.29157480314956
+      ]
+    },
+    {
+      "text": "Higher cost of rework and defect resolution.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        449.29157480314956
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        433.7010236220472
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        433.7010236220472
+      ]
+    },
+    {
+      "text": "Very high risk of Intellectual Property loss if any of the Quality Engineers leave the company.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        433.7010236220472
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "Recommendation",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        395.4333070866141
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        395.4333070866141
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        395.4333070866141
+      ]
+    },
+    {
+      "text": "Implement a structured Quality Engineering Test Strategy.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        395.4333070866141
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        379.84275590551175
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        379.84275590551175
+      ]
+    },
+    {
+      "text": "Focus on automation testing, shift-left testing, and CI/CD integration.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        379.84275590551175
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": "Continuous upskilling of Development and Quality Engineers on domain knowledge.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        364.25220472440947
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Current State Overview",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "Test Strategy",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "Heavily dependence on manual testing with domain experts.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        729.9214960629922
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        729.9214960629922
+      ]
+    },
+    {
+      "text": "Regression testing efforts are a lot hence the team identified a resource capacity issue.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        729.9214960629922
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        714.3309448818898
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        714.3309448818898
+      ]
+    },
+    {
+      "text": "Development Test Environment (DTA) creates inconsistency in testing specific features.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        714.3309448818898
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        693.0711023622047
+      ]
+    },
+    {
+      "text": "Automation",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        693.0711023622047
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        676.0632283464565
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        676.0632283464565
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        676.0632283464565
+      ]
+    },
+    {
+      "text": "Developers started writing unit tests. The code coverage is very low.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        676.0632283464565
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": "There is no integration tests.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        660.4726771653544
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        644.882125984252
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        644.882125984252
+      ]
+    },
+    {
+      "text": "There are some Selenium UI automation tests but this is not integrated into the CICD pipelines.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        644.882125984252
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        623.6222834645669
+      ]
+    },
+    {
+      "text": "CI/CD Integration",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        623.6222834645669
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        606.6144094488188
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        606.6144094488188
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        606.6144094488188
+      ]
+    },
+    {
+      "text": "Only a low percentage of Unit tests are integrated into delivery pipelines, nothing else.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        606.6144094488188
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        585.3545669291337
+      ]
+    },
+    {
+      "text": "Environments",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        585.3545669291337
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        568.3466929133857
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        568.3466929133857
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        568.3466929133857
+      ]
+    },
+    {
+      "text": "Staging environment is closely aligned with the Production environment.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        568.3466929133857
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        552.7561417322834
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        552.7561417322834
+      ]
+    },
+    {
+      "text": "The DEV environment can become inconsistent when features are deployed by multiple teams.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        552.7561417322834
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        531.4962992125984
+      ]
+    },
+    {
+      "text": "Test Data",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        531.4962992125984
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        514.4884251968504
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        514.4884251968504
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        514.4884251968504
+      ]
+    },
+    {
+      "text": "Manual and not centrally managed.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        514.4884251968504
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": "Key Findings",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        493.22858267716526
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        470.55141732283454
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        470.55141732283454
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        470.55141732283454
+      ]
+    },
+    {
+      "text": "Limited automation is creating a regression bottleneck.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        470.55141732283454
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        454.96086614173225
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        454.96086614173225
+      ]
+    },
+    {
+      "text": "Testing occurs late in the lifecycle, increasing defect leakage risk.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        454.96086614173225
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": "Lack of standardised QE Test Strategy.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "Manual regression cycles are slowing release velocity.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        408.1892125984251
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        408.1892125984251
+      ]
+    },
+    {
+      "text": "Limited visibility into quality metrics and reporting. Only manual test cases on the test management tool.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        408.1892125984251
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        386.9293700787401
+      ]
+    },
+    {
+      "text": "Business Impact",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        386.9293700787401
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": "Regression cycles delay releases by multiple days per cycle.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        364.25220472440947
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        348.661653543307
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        348.661653543307
+      ]
+    },
+    {
+      "text": "Late defect detection significantly increases cost of fixes.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        348.661653543307
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        333.07110236220467
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        333.07110236220467
+      ]
+    },
+    {
+      "text": "Lack of automation limits scalability of delivery.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        333.07110236220467
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        317.4805511811023
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        317.4805511811023
+      ]
+    },
+    {
+      "text": "Inconsistent environments increase production risk.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        317.4805511811023
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        301.89
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        301.89
+      ]
+    },
+    {
+      "text": "Reduced confidence in release quality, because with manual testing it becomes impossible to do regression testing for",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        301.89
+      ]
+    },
+    {
+      "text": "every release.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        291.53999999999996
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        269.2915748031495
+      ]
+    },
+    {
+      "text": "High-level QE Skills Assessment",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        269.2915748031495
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        246.61440944881886
+      ]
+    },
+    {
+      "text": "The current Quality Engineering capability is heavily reliant on manual testing, despite the team possessing strong domain",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        246.61440944881886
+      ]
+    },
+    {
+      "text": "expertise. While one Quality Engineer has implemented UI automation using Selenium and Java, these tests are executed",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        236.26440944881887
+      ]
+    },
+    {
+      "text": "locally and are not integrated into the CI/CD pipeline, limiting their effectiveness as quality gates.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        225.91440944881887
+      ]
+    },
+    {
+      "text": "This over-reliance on manual processes, combined with concentrated domain knowledge, introduces significant business risk.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        204.09472440944876
+      ]
+    },
+    {
+      "text": "The potential loss of key individuals would result in a substantial loss of intellectual property and continuity challenges.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        193.74472440944876
+      ]
+    },
+    {
+      "text": "Furthermore, existing resource and time constraints make it difficult for the team to onboard and upskill new Quality Engineers",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        183.39472440944877
+      ]
+    },
+    {
+      "text": "effectively.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        173.04472440944878
+      ]
+    },
+    {
+      "text": "Introducing a robust automation strategy, specifically by integrating automated tests into the CI/CD pipeline as enforceable",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        150.2364566929133
+      ]
+    },
+    {
+      "text": "quality gates, will reduce this dependency on individuals, improve scalability, and significantly mitigate operational risk.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        139.8864566929133
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Target State Vision",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "Automated regression fully integrated into CI/CD pipelines.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "Shift-left testing embedded within development workflows.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": "Stable, production-like environments.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        731.3388188976379
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": "Scalable and reusable automation frameworks.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        715.7482677165355
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": "Real-time quality metrics and visibility.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        700.1577165354331
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        678.897874015748
+      ]
+    },
+    {
+      "text": "Gap Analysis",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        678.897874015748
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "Area",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        71.64226771653543,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "Current State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        232.0904251968504,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "Target State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        355.2105826771652,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "Gap",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        640.6301574803149
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": "Automation",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        94.32226771653544,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": "Limited",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        207.2024251968504,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": "CI/CD Integrated",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        369.00258267716515,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        617.9529921259841
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "Test Strategy",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        101.43426771653546,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "Informal",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        210.31442519685038,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "Standardised",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        356.1145826771652,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "Medium",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        595.2758267716537
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "Environments",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        102.76226771653545,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "Unstable",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        212.98642519685043,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "Reliable",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        337.8745826771653,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        572.5986614173228
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "Test Data",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        88.53826771653544,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "Manual",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        207.65042519685042,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "Managed",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        342.3305826771652,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "Medium",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        549.9214960629921
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "Ready to Transform Your QE Practice?",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "Contact Bosch Technologies to discuss improvement engagement options.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    },
+    {
+      "text": "boschtechnologies.com/contact",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    }
+  ]
+]

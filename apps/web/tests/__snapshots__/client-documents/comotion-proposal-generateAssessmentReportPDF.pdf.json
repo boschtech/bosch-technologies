@@ -1,0 +1,3354 @@
+[
+  [
+    {
+      "text": "Quality Engineering Assessment: Findings & Improvement Opportunities",
+      "transform": [
+        13,
+        0,
+        0,
+        13,
+        72.21999999999998,
+        739.8427559055118
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        123.68999999999993,
+        688.8191338582676
+      ]
+    },
+    {
+      "text": "Prepared for Comotion (Comotion AI & Seed Analytics) by Bosch Technologies",
+      "transform": [
+        10,
+        0,
+        0,
+        10,
+        123.68999999999993,
+        688.8191338582676
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        266.08,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "5 November 2026",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        266.08,
+        666.1419685039369
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "Executive Summary",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        620.7876377952754
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "Current State",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "Comotion AI builds its product and much of its test suite with heavy AI assistance (Python, TypeScript, Next.js,",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "PostgreSQL), and already has unit, component, and Playwright end-to-end tests — but no dedicated Quality Engineer",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        570.7525984251968
+      ]
+    },
+    {
+      "text": "owns quality from requirements through release readiness.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        560.4025984251967
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "Seed Analytics has strict delivery processes, but very little quality embedded within them: test cases are written but kept",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "outside any test management system, and there is no test automation in the delivery pipeline.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        532.4848818897638
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        515.9057480314959
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        515.9057480314959
+      ]
+    },
+    {
+      "text": "Across both entities, quality is largely invisible to leadership — neither can currently measure or report on release",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        515.9057480314959
+      ]
+    },
+    {
+      "text": "readiness.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        505.5557480314959
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        488.97661417322826
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        488.97661417322826
+      ]
+    },
+    {
+      "text": "Reporting & Observability is the weakest dimension for both entities (1.8/5.0 for Comotion AI, 1.3/5.0 for Seed Analytics),",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        488.97661417322826
+      ]
+    },
+    {
+      "text": "meaning decisions are made with little real-time quality data.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        478.62661417322823
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "Business Impact",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": "Without a dedicated QE function, Comotion AI cannot objectively confirm that AI-generated code and AI-generated tests",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        439.3703149606298
+      ]
+    },
+    {
+      "text": "meet an agreed quality bar before release.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        429.0203149606298
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "Seed Analytics carries full regression risk on every release, since no automated safety net exists in the pipeline.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        412.4411811023621
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        396.8506299212598
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        396.8506299212598
+      ]
+    },
+    {
+      "text": "Test case knowledge at Seed Analytics lives in documents rather than a searchable system, creating risk of coverage gaps",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        396.8506299212598
+      ]
+    },
+    {
+      "text": "and duplicated effort.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        386.50062992125976
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        369.921496062992
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        369.921496062992
+      ]
+    },
+    {
+      "text": "Neither entity can currently produce a release readiness scorecard, slowing confident, data-driven release decisions at the",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        369.921496062992
+      ]
+    },
+    {
+      "text": "group level.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        359.57149606299197
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        337.3230708661417
+      ]
+    },
+    {
+      "text": "Recommendation",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        337.3230708661417
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": "Stand up a shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, with a strategy tailored",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        320.3151968503936
+      ]
+    },
+    {
+      "text": "to each entity's starting point.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        309.96519685039357
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": "For Comotion AI: embed quality from the requirements stage, govern and extend the existing AI-assisted testing practice,",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        293.38606299212586
+      ]
+    },
+    {
+      "text": "increase coverage, and mature CI/CD quality gates to produce a measurable release readiness signal.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        283.03606299212584
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        266.45692913385824
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        266.45692913385824
+      ]
+    },
+    {
+      "text": "For Seed Analytics: introduce a test management system to formalise existing test cases, and build a CI/CD test",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        266.45692913385824
+      ]
+    },
+    {
+      "text": "automation foundation from the ground up.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        256.1069291338582
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Current State Overview — Comotion AI",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "Test Strategy",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "Development and test creation are heavily AI-assisted across the stack (Python, TypeScript, Next.js, PostgreSQL, GitHub),",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "with unit, component, and Playwright end-to-end tests already in place.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        735.1620472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": "There is no Quality Engineer to own quality end-to-end, so requirements coverage, test design quality, and release",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": "readiness are not formally governed.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        708.2329133858267
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        691.653779527559
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "Quality decisions currently rely on engineering judgement rather than a defined, measurable process.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        691.653779527559
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        670.393937007874
+      ]
+    },
+    {
+      "text": "Automation",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        670.393937007874
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        653.386062992126
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        653.386062992126
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        653.386062992126
+      ]
+    },
+    {
+      "text": "Automation Coverage & Effectiveness scored 3.5 / 5.0 — the strongest dimension, reflecting good existing unit,",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        653.386062992126
+      ]
+    },
+    {
+      "text": "component, and Playwright end-to-end coverage.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        643.036062992126
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        626.4569291338584
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        626.4569291338584
+      ]
+    },
+    {
+      "text": "Without governance, there is a risk that AI-generated tests accumulate without a clear view of what they actually cover or",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        626.4569291338584
+      ]
+    },
+    {
+      "text": "how reliable they are.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        616.1069291338583
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        593.8585039370079
+      ]
+    },
+    {
+      "text": "Tooling & Infrastructure",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        593.8585039370079
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": "Scored 3.5 / 5.0. The modern stack provides a solid foundation, but production-like staging and synthetic test data",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        576.8506299212596
+      ]
+    },
+    {
+      "text": "practices are not yet in place.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        566.5006299212596
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        544.2522047244096
+      ]
+    },
+    {
+      "text": "Reporting & Observability",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        544.2522047244096
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        527.2443307086614
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        527.2443307086614
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        527.2443307086614
+      ]
+    },
+    {
+      "text": "The weakest dimension at 1.8 / 5.0. There is no dashboard for pass rates, flakiness, or coverage trends, so release",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        527.2443307086614
+      ]
+    },
+    {
+      "text": "readiness cannot currently be measured objectively.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        516.8943307086614
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        494.64590551181095
+      ]
+    },
+    {
+      "text": "Team & Process",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        494.64590551181095
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        477.63803149606287
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        477.63803149606287
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        477.63803149606287
+      ]
+    },
+    {
+      "text": "Test Process & Governance scored 2.0 / 5.0 and Team Skills & Culture 2.5 / 5.0. Practices exist informally but are not",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        477.63803149606287
+      ]
+    },
+    {
+      "text": "standardised, and there is no shared testing community of practice to govern the growing use of AI in test creation.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        467.28803149606284
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Current State Overview — Seed Analytics",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "Test Strategy",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "Delivery processes are strict and well defined, but quality is not embedded within them. Test cases are written manually but",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        745.5120472440944
+      ]
+    },
+    {
+      "text": "kept outside of any test management system.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        735.1620472440944
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": "Test Process & Governance scored 2.0 / 5.0 — the same score as Comotion AI, but for a different reason: process",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        718.5829133858267
+      ]
+    },
+    {
+      "text": "discipline exists, while the testing substance within it does not.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        708.2329133858267
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        685.9844881889763
+      ]
+    },
+    {
+      "text": "Automation",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        685.9844881889763
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        668.9766141732282
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        668.9766141732282
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        668.9766141732282
+      ]
+    },
+    {
+      "text": "Automation Coverage & Effectiveness is the weakest dimension at 1.0 / 5.0. There are currently no automated tests in the",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        668.9766141732282
+      ]
+    },
+    {
+      "text": "delivery pipeline.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        658.6266141732282
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        636.3781889763778
+      ]
+    },
+    {
+      "text": "Tooling & Infrastructure",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        636.3781889763778
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        619.3703149606299
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        619.3703149606299
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        619.3703149606299
+      ]
+    },
+    {
+      "text": "Scored 1.5 / 5.0. No CI/CD quality gates exist, and there is no consistent, containerised test environment strategy.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        619.3703149606299
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "Reporting & Observability",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        598.1104724409447
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "Scored 1.3 / 5.0. No automated reporting exists, so quality status is not visible to the wider team or leadership.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        581.1025984251968
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        559.8427559055116
+      ]
+    },
+    {
+      "text": "Team & Process",
+      "transform": [
+        11,
+        0,
+        0,
+        11,
+        42.51968503937008,
+        559.8427559055116
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "Team Skills & Culture scored 1.8 / 5.0. Manual testers would benefit from pairing with engineers and basic automation",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "training to begin building in-house automation capability.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        532.4848818897638
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        510.23645669291335
+      ]
+    },
+    {
+      "text": "Key Findings",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        510.23645669291335
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "Comotion AI has a solid automation foundation but no one accountable for quality from requirements through release.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        487.5592913385825
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": "Seed Analytics has no automated regression safety net, leaving every release fully dependent on manual effort.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        471.9687401574802
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "Test case knowledge at Seed Analytics is undocumented in any shared system, creating duplication and coverage-gap",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        456.3781889763778
+      ]
+    },
+    {
+      "text": "risk.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        446.0281889763778
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "Neither entity can currently produce a release readiness scorecard or quality trend reporting.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        429.44905511811015
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": "Governance over AI-generated tests at Comotion AI is informal, risking unmanaged growth of the test suite.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        413.85850393700787
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        392.59866141732283
+      ]
+    },
+    {
+      "text": "Business Impact",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        392.59866141732283
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        369.921496062992
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        369.921496062992
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        369.921496062992
+      ]
+    },
+    {
+      "text": "Release decisions for both entities are made without objective quality data.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        369.921496062992
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        354.3309448818897
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        354.3309448818897
+      ]
+    },
+    {
+      "text": "Seed Analytics' lack of automation increases regression cost and risk with every release cycle.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        354.3309448818897
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        338.74039370078725
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        338.74039370078725
+      ]
+    },
+    {
+      "text": "Comotion AI risks false confidence in AI-generated code if AI-generated tests are not independently governed.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        338.74039370078725
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        323.149842519685
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        323.149842519685
+      ]
+    },
+    {
+      "text": "Group-wide reporting on quality and release readiness is not currently possible.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        323.149842519685
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        307.5592913385827
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        307.5592913385827
+      ]
+    },
+    {
+      "text": "Both entities face scaling risk: Comotion AI's test suite will keep growing with AI assistance, and Seed Analytics has no",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        307.5592913385827
+      ]
+    },
+    {
+      "text": "automation base to build on.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        297.20929133858266
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        274.96086614173225
+      ]
+    },
+    {
+      "text": "High-level QE Skills Assessment",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        274.96086614173225
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        252.28370078740147
+      ]
+    },
+    {
+      "text": "Comotion AI's engineering team is clearly comfortable using AI to accelerate both feature development and test creation, and",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        252.28370078740147
+      ]
+    },
+    {
+      "text": "this has produced a genuinely useful base of unit, component, and end-to-end tests. However, without a dedicated Quality",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        241.93370078740148
+      ]
+    },
+    {
+      "text": "Engineer, no one is accountable for whether that AI-generated test suite actually reflects requirements, how reliable it is, or",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        231.58370078740148
+      ]
+    },
+    {
+      "text": "whether it provides enough confidence to call a release \"ready\". As the codebase and AI usage grow, this gap will widen rather",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        221.2337007874015
+      ]
+    },
+    {
+      "text": "than close on its own.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        210.8837007874015
+      ]
+    },
+    {
+      "text": "Seed Analytics presents the opposite profile: a disciplined delivery process with almost no testing substance behind it. Test",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        187.08685039370073
+      ]
+    },
+    {
+      "text": "cases are written diligently but are not stored anywhere searchable or reportable, and there is no automation protecting the",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        176.73685039370073
+      ]
+    },
+    {
+      "text": "pipeline from regressions. This leaves the team fully reliant on manual effort for every release, with no scalable way to increase",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        166.38685039370074
+      ]
+    },
+    {
+      "text": "release frequency without proportionally increasing manual testing effort.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        156.03685039370075
+      ]
+    },
+    {
+      "text": "A shared Quality Engineering capability — tailored to each entity's starting point — would give Comotion AI the governance and",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        133.22858267716526
+      ]
+    },
+    {
+      "text": "measurement it currently lacks, and give Seed Analytics the foundational tooling and automation it has not yet built. Over time,",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        122.87858267716527
+      ]
+    },
+    {
+      "text": "this also allows the group to report on quality and release readiness consistently across both entities.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        42.51968503937008,
+        112.52858267716528
+      ]
+    }
+  ],
+  [
+    {
+      "text": "Target State Vision",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        785.1970866141731
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "A shared Quality Engineering function with clear ownership of quality across both entities.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        762.5199212598425
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "Comotion AI: quality embedded from the requirements stage through release readiness, governed AI-assisted test",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        746.9293700787402
+      ]
+    },
+    {
+      "text": "creation, increased coverage, and CI/CD quality gates producing a measurable release readiness signal.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        736.5793700787402
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        720.0002362204724
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        720.0002362204724
+      ]
+    },
+    {
+      "text": "Seed Analytics: all test cases held in a test management system, with a CI/CD automation foundation (built on the group's",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        720.0002362204724
+      ]
+    },
+    {
+      "text": "existing Playwright standard) acting as a regression safety net.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        709.6502362204724
+      ]
+    },
+    {
+      "text": "•",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        48.18897637795276,
+        693.0711023622047
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        51.33897637795276,
+        693.0711023622047
+      ]
+    },
+    {
+      "text": "Group-wide quality metrics and release readiness reporting, visible to engineering and leadership.",
+      "transform": [
+        9,
+        0,
+        0,
+        9,
+        65.1968503937008,
+        693.0711023622047
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        671.8112598425197
+      ]
+    },
+    {
+      "text": "Gap Analysis — Comotion AI",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        671.8112598425197
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": "Area",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        71.64226771653543,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": "Current State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        232.0904251968504,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": "Target State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        355.2105826771652,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": "Gap",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        633.5435433070867
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": "Quality Ownership",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        119.21026771653544,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": "No dedicated QE",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        242.33842519685044,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": "Embedded QE, req. to release",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        417.03458267716496,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        610.8663779527559
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": "Test Governance",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        115.21826771653548,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": "Informal AI test growth",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        261.45042519685035,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": "Governed AI-assisted testing",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        411.690582677165,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": "Medium",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        588.1892125984251
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "Coverage",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        88.53826771653544,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "Good unit/component/E2E",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        275.2504251968504,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "Requirement-linked coverage",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        413.458582677165,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "Medium",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        565.5120472440943
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "Reporting",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        88.53826771653544,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "No dashboards/trend data",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        273.91442519685035,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "Release readiness scorecard",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        412.570582677165,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        542.8348818897638
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        507.40181102362203
+      ]
+    },
+    {
+      "text": "Gap Analysis — Seed Analytics",
+      "transform": [
+        14,
+        0,
+        0,
+        14,
+        42.51968503937008,
+        507.40181102362203
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": "Area",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        71.64226771653543,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": "Current State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        232.0904251968504,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": "Target State",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        355.2105826771652,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": "Gap",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        469.13409448818885
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": "Automation",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        94.32226771653544,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": "None in pipeline",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        238.7784251968505,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": "CI/CD-integrated automation",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        410.794582677165,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        446.45692913385824
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "Test Management",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        118.33026771653549,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "Documents, no TMS",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        254.3304251968504,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "Centralised test mgmt system",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        414.33858267716505,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        423.77976377952757
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": "Process",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        82.75426771653545,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": "Strict process, low quality",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        271.66642519685035,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": "Quality embedded in process",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        412.578582677165,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": "Medium",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        401.1025984251968
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        378.425433070866
+      ]
+    },
+    {
+      "text": "Reporting",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        53.85826771653544,
+        378.425433070866
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        88.53826771653544,
+        378.425433070866
+      ]
+    },
+    {
+      "text": "No automated reporting",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        181.4184251968504,
+        378.425433070866
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        265.4584251968503,
+        378.425433070866
+      ]
+    },
+    {
+      "text": "Automated reporting & visibility",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        308.9785826771653,
+        378.425433070866
+      ]
+    },
+    {
+      "text": " ",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        418.79458267716507,
+        378.425433070866
+      ]
+    },
+    {
+      "text": "High",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        436.5387401574802,
+        378.425433070866
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "Ready to Build a Shared QE Capability?",
+      "transform": [
+        12,
+        0,
+        0,
+        12,
+        42.51968503937008,
+        42.51968503937008
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "Contact Bosch Technologies to discuss improvement engagement options.",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        25.511811023622045
+      ]
+    },
+    {
+      "text": "",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    },
+    {
+      "text": "boschtechnologies.com/contact",
+      "transform": [
+        8,
+        0,
+        0,
+        8,
+        42.51968503937008,
+        8.503937007874017
+      ]
+    }
+  ]
+]

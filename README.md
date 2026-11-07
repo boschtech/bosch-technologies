@@ -76,7 +76,7 @@ scripts/package-hostinger.mjs   Assembles and validates the Hostinger deployment
 .github/workflows/ci.yml        Lint, test, build, and package on every push/PR
 ```
 
-Original PHP/HTML/vanilla-JS files (`index.html`, `services/`, `api/`, `clients/*.php`, `css/`, `js/`, etc.) remain in the repository root as a historical reference pending removal in a follow-up cleanup; they are not part of the deployed Node app and should not be edited going forward.
+The original PHP/HTML/vanilla-JS site has been fully removed; the Node/React apps above are the entire application. `apps/server/seed/testimonials.json` preserves the real, already-approved testimonial content from the old site for reference/reseeding.
 
 ## The maturity assessment
 
@@ -185,7 +185,7 @@ Alternatively, download the `hostinger-release` artifact from a successful GitHu
 2. Upload and extract the release archive's contents into that application root, so `package.json` and `src/` sit directly in it (not nested inside an extra folder).
 3. Set the environment variables listed in `.env.example` in hPanel's Node.js app settings — at minimum `SESSION_SECRET`, `ADMIN_SESSION_SECRET`, the three `CLIENT_ACCESS_CODE_*` values, and the SMTP variables. Set `NODE_ENV=production` and `SITE_URL` to the real domain.
 4. Run hPanel's "Install NPM Packages" action (equivalent to `npm install` against the shipped `package.json`), then start/restart the app.
-5. If migrating from the old PHP site, copy its `data/testimonials.json` into the new app's `DATA_DIR` (default `apps/server/data`, override with the `DATA_DIR` env var) before first start, so existing approved testimonials carry over. `data/leads.csv` can be migrated the same way if you want to retain lead history.
+5. To carry over the original site's approved testimonials, copy `apps/server/seed/testimonials.json` into the new app's `DATA_DIR` (default `apps/server/data`, override with the `DATA_DIR` env var) as `testimonials.json` before first start.
 6. Verify `/`, every marketing route, `/assessment`, `/testimonials`, `/contact`, and each `/clients/<slug>/...` route both by clicking through and by opening/refreshing their URLs directly (confirms the SPA fallback works). Check the browser console for errors and confirm `/api/health` responds.
 
 ### Rollback
