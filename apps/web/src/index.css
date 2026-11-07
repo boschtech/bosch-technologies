@@ -11,6 +11,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* A CSS @import must be the first statement in a stylesheet, so legacy.css
+   above cannot be moved after @tailwind base. Tailwind's preflight reset
+   (part of @tailwind base) resets several plain element selectors -
+   h1-h6, body, a - that legacy.css also targets at the same (lowest)
+   specificity, and since preflight is declared later it silently wins the
+   tie (e.g. headings losing font-weight: 700, links losing their gold
+   color, body losing its 1.7 line-height). Reassert legacy.css's exact
+   values for just those properties here, after @tailwind utilities, so
+   they reliably win instead. Keep in sync with styles/legacy.css. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.3;
+}
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.1rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
+
+body {
+  line-height: 1.7;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
 /* shadcn/ui-style CSS variables, mapped onto the existing Bosch palette
    (dark surfaces, gold primary) so Tailwind/Radix-based components built in
    later phases inherit the same look as the legacy design system.
