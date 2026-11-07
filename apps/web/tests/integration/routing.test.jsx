@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import App from '@/App';
 
@@ -18,6 +18,6 @@ describe('App routing', () => {
   it('renders the shared header navigation', () => {
     window.history.pushState({}, '', '/');
     render(<App />);
-    expect(screen.getByRole('link', { name: /take free assessment/i })).toBeInTheDocument();
+    expect(within(screen.getByRole('navigation')).getByRole('link', { name: /take free assessment/i })).toBeInTheDocument();
   });
 });

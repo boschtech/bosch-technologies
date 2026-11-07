@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -7,21 +7,29 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="nav-logo">
-              <img src="/images/logo.png" alt="Bosch Technologies" className="logo-img" />
+              <img
+                src="/images/logo.png"
+                alt="Bosch Technologies"
+                className="logo-img"
+              />
             </Link>
             <p>
-              Helping software teams ship faster with fewer defects through smart automation and
-              expert quality engineering.
+              Helping software teams ship faster with fewer defects through
+              smart automation and expert quality engineering.
             </p>
           </div>
           <div>
             <h4>Services</h4>
             <ul>
               <li>
-                <Link to="/services/automation-test-strategy">Automation Test Strategy</Link>
+                <Link to="/services/automation-test-strategy">
+                  Automation Test Strategy
+                </Link>
               </li>
               <li>
-                <Link to="/services/quality-engineering">Quality Engineering</Link>
+                <Link to="/services/quality-engineering">
+                  Quality Engineering
+                </Link>
               </li>
               <li>
                 <Link to="/services/training">Training &amp; Enablement</Link>
@@ -38,6 +46,9 @@ export default function Footer() {
                 <Link to="/assessment">Free Assessment</Link>
               </li>
               <li>
+                <Link to="/portfolio">Portfolio</Link>
+              </li>
+              <li>
                 <Link to="/testimonials">Testimonials</Link>
               </li>
             </ul>
@@ -52,7 +63,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Bosch Technologies. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Bosch Technologies. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>
