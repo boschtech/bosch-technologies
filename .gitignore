@@ -9,3 +9,9 @@ coverage/
 .env.local
 apps/*/.env
 .DS_Store
+
+# Server-owned runtime data (outside the Vite build)
+apps/server/data/*.csv
+apps/server/data/testimonials.json
+apps/server/data/*.tmp
+apps/server/data/uploads/
