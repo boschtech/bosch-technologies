@@ -1,0 +1,25 @@
+{
+  "name": "bosch-technologies",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm ci",
+    "dev": "concurrently --kill-others --raw \"npm run dev --prefix apps/server\" \"npm run dev --prefix apps/web\"",
+    "build": "npm run build --prefix apps/web",
+    "package:hostinger": "npm run build && node scripts/package-hostinger.mjs",
+    "start": "npm run start --workspace apps/server",
+    "lint": "npm run lint --workspace apps/web && npm run lint --workspace apps/server",
+    "lint:fix": "npm run lint:fix --workspace apps/web && npm run lint:fix --workspace apps/server",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,md}\"",
+    "test": "npm run test --workspace apps/web && npm run test --workspace apps/server",
+    "test:coverage": "npm run test:coverage --workspace apps/web && npm run test:coverage --workspace apps/server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "prettier": "^3.4.2"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}

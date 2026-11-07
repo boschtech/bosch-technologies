@@ -1,2 +1,11 @@
 proposals/*
 contracts/*
+
+# Node / monorepo tooling (apps/web, apps/server)
+node_modules/
+dist/
+coverage/
+.env
+.env.local
+apps/*/.env
+.DS_Store
