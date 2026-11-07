@@ -1,4 +1,5 @@
 import { jsPDF } from "jspdf";
+import { loadCompressedLogo } from "../logo";
 
 /* ============================================
    BOSCH TECHNOLOGIES — Proposal PDF Generator
@@ -7,7 +8,7 @@ import { jsPDF } from "jspdf";
 
 // Assessment Report PDF Generator
 export async function generateAssessmentReportPDF() {
-  const doc = new jsPDF("p", "mm", "a4");
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4", compress: true });
 
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -24,27 +25,8 @@ export async function generateAssessmentReportPDF() {
   const red = [192, 57, 43];
   const orange = [243, 156, 18];
 
-  // --- Load logo ---
-  let logoDataUrl = null;
-  let logoAspect = 1;
-  try {
-    const logoImg = new Image();
-    logoImg.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => {
-      logoImg.onload = resolve;
-      logoImg.onerror = reject;
-      logoImg.src = "/images/logo.png";
-    });
-    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = logoImg.naturalWidth;
-    canvas.height = logoImg.naturalHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(logoImg, 0, 0);
-    logoDataUrl = canvas.toDataURL("image/png");
-  } catch (e) {
-    console.log("Logo load skipped:", e.message);
-  }
+  // Load logo as a downscaled, compressed PNG (see ../logo.js)
+  const { logoDataUrl, logoAspect } = await loadCompressedLogo();
 
   // Helpers
   function checkPage(needed) {
@@ -343,7 +325,7 @@ export async function generateAssessmentReportPDF() {
 
 // Original Proposal PDF Generator
 export async function generateProposalPDF() {
-  const doc = new jsPDF("p", "mm", "a4");
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4", compress: true });
 
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -361,27 +343,8 @@ export async function generateProposalPDF() {
   const white = [255, 255, 255];
   const lightBg = [245, 245, 245];
 
-  // --- Load logo ---
-  let logoDataUrl = null;
-  let logoAspect = 1;
-  try {
-    const logoImg = new Image();
-    logoImg.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => {
-      logoImg.onload = resolve;
-      logoImg.onerror = reject;
-      logoImg.src = "/images/logo.png";
-    });
-    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = logoImg.naturalWidth;
-    canvas.height = logoImg.naturalHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(logoImg, 0, 0);
-    logoDataUrl = canvas.toDataURL("image/png");
-  } catch (e) {
-    console.log("Logo load skipped:", e.message);
-  }
+  // --- Load logo as a downscaled, compressed PNG (see ../logo.js) ---
+  const { logoDataUrl, logoAspect } = await loadCompressedLogo();
 
   // --- Helper: check for page break ---
   function checkPage(needed) {

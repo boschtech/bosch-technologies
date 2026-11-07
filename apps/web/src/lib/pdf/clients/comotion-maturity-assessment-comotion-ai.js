@@ -1,5 +1,6 @@
 import { jsPDF } from "jspdf";
 import Chart from "chart.js/auto";
+import { loadCompressedLogo } from "../logo";
 
 export function mountChart() {
   // Render Radar Chart
@@ -81,7 +82,7 @@ export function mountChart() {
 
 // PDF Generation - matches Bosch-Maturity-Assessment style
 export async function generateMaturityPDF() {
-  const doc = new jsPDF("p", "mm", "a4");
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4", compress: true });
 
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -123,26 +124,8 @@ export async function generateMaturityPDF() {
     },
   ];
 
-  // --- Load logo ---
-  let logoDataUrl = null;
-  let logoAspect = 1;
-  try {
-    const logoImg = new Image();
-    logoImg.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => {
-      logoImg.onload = resolve;
-      logoImg.onerror = reject;
-      logoImg.src = "/images/logo.png";
-    });
-    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = logoImg.naturalWidth;
-    canvas.height = logoImg.naturalHeight;
-    canvas.getContext("2d").drawImage(logoImg, 0, 0);
-    logoDataUrl = canvas.toDataURL("image/png");
-  } catch (e) {
-    console.log("Logo load skipped:", e.message);
-  }
+  // --- Load logo (downscaled, compressed — see ../logo.js) ---
+  const { logoDataUrl, logoAspect } = await loadCompressedLogo();
 
   // --- Render gauge to data URL ---
   function renderGaugeToDataUrl(score, max) {

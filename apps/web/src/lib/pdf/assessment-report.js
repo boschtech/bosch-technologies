@@ -1,8 +1,9 @@
 import { jsPDF } from "jspdf";
 import { MATURITY_LEVELS, RECOMMENDATIONS } from "../assessment-data";
+import { loadCompressedLogo } from "./logo";
 
 export async function generateAssessmentReport({ results, name, company }) {
-  const doc = new jsPDF("p", "mm", "a4");
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4", compress: true });
   const levelInfo = MATURITY_LEVELS[results.overallLevel];
 
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -10,27 +11,8 @@ export async function generateAssessmentReport({ results, name, company }) {
   const contactUrl = "https://boschtechnologies.com/contact/";
   let y = 20;
 
-  // Load logo as base64 (preserve aspect ratio)
-  let logoDataUrl = null;
-  let logoAspect = 1;
-  try {
-    const logoImg = new Image();
-    logoImg.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => {
-      logoImg.onload = resolve;
-      logoImg.onerror = reject;
-      logoImg.src = "/images/logo.png";
-    });
-    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = logoImg.naturalWidth;
-    canvas.height = logoImg.naturalHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(logoImg, 0, 0);
-    logoDataUrl = canvas.toDataURL("image/png");
-  } catch (e) {
-    console.log("Logo load skipped:", e.message);
-  }
+  // Load logo as a downscaled, compressed PNG (see ./logo.js)
+  const { logoDataUrl, logoAspect } = await loadCompressedLogo();
 
   // Header
   const headerH = 66;

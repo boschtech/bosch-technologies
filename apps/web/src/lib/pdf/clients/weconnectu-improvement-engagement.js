@@ -1,7 +1,8 @@
 import { jsPDF } from "jspdf";
+import { loadCompressedLogo } from "../logo";
 
 export async function generateImprovementEngagementPDF() {
-  const doc = new jsPDF("p", "mm", "a4");
+  const doc = new jsPDF({ orientation: "p", unit: "mm", format: "a4", compress: true });
 
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
@@ -14,26 +15,8 @@ export async function generateImprovementEngagementPDF() {
   const dark = [26, 26, 46];
   const grey = [108, 117, 125];
 
-  // Load logo
-  let logoDataUrl = null;
-  let logoAspect = 1;
-  try {
-    const logoImg = new Image();
-    logoImg.crossOrigin = "anonymous";
-    await new Promise((resolve, reject) => {
-      logoImg.onload = resolve;
-      logoImg.onerror = reject;
-      logoImg.src = "/images/logo.png";
-    });
-    logoAspect = logoImg.naturalWidth / logoImg.naturalHeight;
-    const canvas = document.createElement("canvas");
-    canvas.width = logoImg.naturalWidth;
-    canvas.height = logoImg.naturalHeight;
-    canvas.getContext("2d").drawImage(logoImg, 0, 0);
-    logoDataUrl = canvas.toDataURL("image/png");
-  } catch (e) {
-    console.log("Logo skipped");
-  }
+  // Load logo as a downscaled, compressed PNG (see ../logo.js)
+  const { logoDataUrl, logoAspect } = await loadCompressedLogo();
 
   function checkPage(needed) {
     if (y + needed > pageHeight - bottomMargin) {
