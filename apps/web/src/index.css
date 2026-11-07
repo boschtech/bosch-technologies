@@ -1,0 +1,38 @@
+/*
+  The existing hand-authored design system (dark theme, gold accent) is kept
+  as-is rather than rewritten into Tailwind utilities, to avoid visual
+  regressions while pages are migrated. New interactive components (forms,
+  admin views) may use Tailwind utilities and the Radix-based primitives
+  alongside it.
+*/
+@import './styles/legacy.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* shadcn/ui-style CSS variables, mapped onto the existing Bosch palette
+   (dark surfaces, gold primary) so Tailwind/Radix-based components built in
+   later phases inherit the same look as the legacy design system. */
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 100%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 45 69% 42%;
+  --primary-foreground: 0 0% 7%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 220 9% 65%;
+  --accent: 45 69% 42%;
+  --accent-foreground: 0 0% 7%;
+  --destructive: 6 78% 57%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
+  --ring: 45 69% 42%;
+  --radius: 0.5rem;
+}
