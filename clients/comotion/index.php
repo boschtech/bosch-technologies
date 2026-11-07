@@ -281,9 +281,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
       <!-- Link to Improvement Engagement -->
       <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05); text-align: center;">
         <h2>Ready to Build a Shared QE Capability?</h2>
-        <p>Based on our assessment findings, we have prepared a detailed Improvement Engagement proposal with options tailored to the needs of both Comotion AI and Seed Analytics.</p>
+        <p>Based on our assessment findings, we have prepared a Quality Engineering Improvement proposal tailored to the needs of both Comotion AI and Seed Analytics.</p>
         <div style="margin-top: 16px;">
-          <a href="/clients/comotion/improvement-engagement.php" class="btn btn-accent btn-lg">View Improvement Engagement Options →</a>
+          <a href="/clients/comotion/improvement-engagement.php" class="btn btn-accent btn-lg">View Quality Engineering Improvement Proposal →</a>
         </div>
       </div>
 

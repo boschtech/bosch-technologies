@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           <!-- Actions -->
           <div class="results-actions">
             <button class="btn btn-primary btn-lg" onclick="generateMaturityPDF()"><i data-lucide="file-text"></i> Download PDF Report</button>
-            <a href="/clients/comotion/improvement-engagement.php" class="btn btn-accent btn-lg">View Improvement Options →</a>
+            <a href="/clients/comotion/improvement-engagement.php" class="btn btn-accent btn-lg">View Improvement Proposal →</a>
           </div>
 
           <!-- What's Next -->
@@ -208,12 +208,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
             <h3>What's Next?</h3>
             <p>Your assessment provides a snapshot of where you stand today. To build a roadmap for improvement:</p>
             <ul style="list-style: none; margin-top: 16px;">
-              <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Review the Improvement Engagement options</strong> to see which approach best fits your needs</li>
+              <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Review the Quality Engineering Improvement proposal</strong> to see the recommended approach</li>
               <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Explore our maturity model</strong> to understand what each level looks like in detail</li>
               <li style="padding: 8px 0; font-size: 0.95rem;">→ <strong>Book a consultation</strong> to discuss priority actions and next steps</li>
             </ul>
             <div class="btn-group mt-3">
-              <a href="/clients/comotion/improvement-engagement.php" class="btn btn-primary">View Improvement Options</a>
+              <a href="/clients/comotion/improvement-engagement.php" class="btn btn-primary">View Improvement Proposal</a>
               <a href="/maturity-model/" class="btn btn-outline">View Maturity Model</a>
             </div>
           </div>
