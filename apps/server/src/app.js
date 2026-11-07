@@ -3,6 +3,7 @@ import express from 'express';
 import session from 'express-session';
 import multer from 'multer';
 import path from 'node:path';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { randomBytes } from 'node:crypto';
 import { createStorage } from './lib/storage.js';
@@ -24,6 +25,14 @@ export function createApp(options = {}) {
   if (production && !env.SESSION_SECRET) throw new Error('SESSION_SECRET is required in production');
   const dataDir = path.resolve(options.dataDir || env.DATA_DIR || fileURLToPath(new URL('../data', import.meta.url)));
   const uploadDir = path.join(dataDir, 'uploads');
+  // The built frontend (apps/web's Vite output). Populated by
+  // scripts/package-hostinger.mjs as a `web/` sibling of this server's own
+  // source on deployment; absent in local dev, where Vite serves the
+  // frontend itself and proxies /api and /uploads to this server instead.
+  const webDistDir = path.resolve(
+    options.webDistDir || env.WEB_DIST_DIR || fileURLToPath(new URL('../web', import.meta.url)),
+  );
+  const serveWebBuild = existsSync(webDistDir);
   const dependencies = {
     env, uploadDir, storage: createStorage(dataDir), sendMail: createMailer(env),
   };
@@ -79,6 +88,25 @@ export function createApp(options = {}) {
   app.use('/api', adminTestimonialRoutes(dependencies));
   app.use('/api', clientAuthRoutes(dependencies));
   app.use('/api', (_req, res) => res.status(404).json({ error: 'API route not found' }));
+  if (serveWebBuild) {
+    app.use(express.static(webDistDir, {
+      index: false,
+      setHeaders(res, filePath) {
+        // index.html must always revalidate; fingerprinted Vite assets
+        // (under /assets) are safe to cache for a year.
+        res.setHeader('Cache-Control', path.basename(filePath) === 'index.html'
+          ? 'no-cache' : 'public, max-age=31536000, immutable');
+      },
+    }));
+    // SPA fallback: any other GET request renders the client app, which
+    // resolves the route via React Router. /api and /uploads are already
+    // handled above and never reach here. res.sendFile() does not run
+    // through express.static's setHeaders above, so set the header here too.
+    app.get('*', (req, res) => {
+      res.setHeader('Cache-Control', 'no-cache');
+      res.sendFile(path.join(webDistDir, 'index.html'));
+    });
+  }
   app.use((error, _req, res, _next) => {
     const status = error instanceof multer.MulterError ? 400 :
       (error.status >= 400 && error.status < 500 ? error.status : 500);

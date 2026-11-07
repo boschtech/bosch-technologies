@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint, test, and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run all tests and enforce coverage gates
+        run: npm run test:coverage
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Package and validate the Hostinger Node.js release
+        run: node scripts/package-hostinger.mjs
+
+      - name: Upload Hostinger deployment archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: hostinger-release
+          path: |
+            dist/bosch-technologies-hostinger.tar.gz
+            dist/bosch-technologies-hostinger.tar.gz.sha256
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload coverage reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: |
+            apps/web/coverage/
+            apps/server/coverage/
+          if-no-files-found: ignore
+          retention-days: 14
