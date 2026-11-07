@@ -18,7 +18,7 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
+          DEFAULT: 'hsl(var(--shadcn-primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
@@ -34,7 +34,7 @@ module.exports = {
           foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
+          DEFAULT: 'hsl(var(--shadcn-accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {

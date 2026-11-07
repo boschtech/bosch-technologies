@@ -13,7 +13,13 @@
 
 /* shadcn/ui-style CSS variables, mapped onto the existing Bosch palette
    (dark surfaces, gold primary) so Tailwind/Radix-based components built in
-   later phases inherit the same look as the legacy design system. */
+   later phases inherit the same look as the legacy design system.
+   NOTE: --shadcn-primary/--shadcn-accent are deliberately NOT named
+   --primary/--accent: those names are already used by legacy.css as plain
+   hex colors (e.g. var(--primary) in .btn-accent, .nav-cta, icon strokes).
+   Reusing the names here would redefine them as bare HSL triplets, which is
+   invalid wherever legacy.css consumes them directly (not via hsl(...)),
+   silently breaking those rules (transparent buttons, invisible icons, etc). */
 :root {
   --background: 0 0% 0%;
   --foreground: 0 0% 100%;
@@ -21,13 +27,13 @@
   --card-foreground: 0 0% 100%;
   --popover: 0 0% 7%;
   --popover-foreground: 0 0% 100%;
-  --primary: 45 69% 42%;
+  --shadcn-primary: 45 69% 42%;
   --primary-foreground: 0 0% 7%;
   --secondary: 0 0% 10%;
   --secondary-foreground: 0 0% 100%;
   --muted: 0 0% 10%;
   --muted-foreground: 220 9% 65%;
-  --accent: 45 69% 42%;
+  --shadcn-accent: 45 69% 42%;
   --accent-foreground: 0 0% 7%;
   --destructive: 6 78% 57%;
   --destructive-foreground: 0 0% 100%;
