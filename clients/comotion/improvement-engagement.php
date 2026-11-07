@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Improvement Engagement — Comotion — Bosch Technologies</title>
+  <title>Quality Engineering Improvement — Comotion — Bosch Technologies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <section class="service-hero" style="padding-bottom: 24px;">
     <div class="container">
       <span class="badge badge-accent">Confidential Proposal</span>
-      <h1>Improvement Engagement</h1>
+      <h1>Quality Engineering Improvement</h1>
       <p>Prepared for <strong>Comotion</strong> — covering <strong>Comotion AI</strong> and <strong>Seed Analytics</strong> — by Bosch Technologies</p>
       <a href="/clients/comotion/" class="btn btn-outline" style="margin-top: 16px;">← Back to Assessment Report</a>
     </div>
@@ -101,21 +101,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
   <section class="section" style="padding-top: 0;">
     <div class="container proposal-content">
 
-      <!-- Improvement Engagement Overview -->
+      <!-- Quality Engineering Improvement -->
       <div class="proposal-option-card">
-        <h2>Improvement Engagement</h2>
+        <h2>Quality Engineering Improvement</h2>
 
         <h3>Objective</h3>
-        <p>Stand up a single, shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, with a strategy and delivery plan tailored to each entity's starting point: governed, requirements-to-release quality for Comotion AI's AI-assisted development practice, and a test management system plus CI/CD automation foundation for Seed Analytics.</p>
-        <p>The proposal outlines four engagement options depending on the level of support required.</p>
-      </div>
-
-      <!-- Option 1 -->
-      <div class="proposal-option-card">
-        <h2>Option 1: Shared Test Strategy Creation</h2>
+        <p>Stand up a single, shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, combining strategy creation with hands-on implementation: governed, requirements-to-release quality for Comotion AI's AI-assisted development practice, and a test management system plus CI/CD automation foundation for Seed Analytics.</p>
 
         <h3>Scope</h3>
-        <p>Development of a single Quality Engineering Test Strategy covering both Comotion AI and Seed Analytics, with a company-specific execution plan for each.</p>
+        <p>Development of a single Quality Engineering Test Strategy covering both Comotion AI and Seed Analytics, followed immediately by hands-on implementation of that strategy across both entities.</p>
 
         <h3>Activities</h3>
         <ul>
@@ -129,166 +123,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           <li>Test management system selection and automation framework roadmap for Seed Analytics</li>
           <li>CI/CD quality gate recommendations for both entities</li>
           <li>Release readiness scorecard framework</li>
+          <li>Embed quality from requirements through release readiness at Comotion AI, increase automated coverage, and mature CI/CD quality gates</li>
+          <li>Stand up a test management system at Seed Analytics and migrate documented test cases into it</li>
+          <li>Build an initial CI/CD automation framework at Seed Analytics (Playwright, consistent with the group's existing standard) and integrate it as a blocking pipeline gate</li>
+          <li>Group-wide test reporting dashboards and release readiness metrics</li>
         </ul>
 
         <h3>Deliverables</h3>
         <ul>
           <li>Group Quality Engineering Test Strategy document, with a Comotion AI annex and a Seed Analytics annex</li>
-          <li>AI-assisted test governance framework for Comotion AI</li>
-          <li>Test management system recommendation and automation framework for Seed Analytics</li>
-          <li>Release readiness scorecard</li>
+          <li>AI-assisted test governance framework, embedded and operating for Comotion AI</li>
+          <li>Test management system implemented and populated for Seed Analytics</li>
+          <li>CI/CD-integrated automation framework for Seed Analytics</li>
+          <li>Group-wide test reporting dashboards and release readiness scorecard</li>
           <li>6 to 12 month quality roadmap per entity</li>
         </ul>
 
         <h3>Duration</h3>
-        <p>4 to 5 weeks</p>
-
-        <h3>Investment</h3>
-        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">
-          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R280,000</span>
-        </div>
-      </div>
-
-      <!-- Option 2 -->
-      <div class="proposal-option-card">
-        <h2>Option 2: Test Strategy + Shared Quality Engineering Implementation Team</h2>
-
-        <h3>Scope</h3>
-        <p>Creation of the group test strategy and deployment of a shared Quality Engineering team to implement it across both entities.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
-        <ul>
-          <li>Comotion AI: embed quality from requirements through release readiness, increase automated coverage, mature CI/CD quality gates, and govern the quality of AI-generated tests</li>
-          <li>Seed Analytics: stand up a test management system and migrate documented test cases into it</li>
-          <li>Seed Analytics: build an initial CI/CD automation framework (Playwright, consistent with the group's existing standard) and integrate it as a blocking pipeline gate</li>
-          <li>Group-wide test reporting dashboards and release readiness metrics</li>
-          <li>Mentoring of both engineering teams</li>
-        </ul>
-
-        <h3>Suggested Team</h3>
-        <ul>
-          <li>1 Quality Engineering Lead (group-wide)</li>
-          <li>1 Quality Automation Engineer (primarily Seed Analytics automation build-out)</li>
-          <li>1 Quality Engineer (primarily Comotion AI quality governance and coverage)</li>
-        </ul>
-
-        <h3>Duration</h3>
-        <p>Initial implementation: 6 months</p>
+        <p>Initial implementation: 6 months, continuing on a monthly basis thereafter</p>
 
         <h3>Monthly Investment</h3>
-        <table class="proposal-table">
-          <thead>
-            <tr><th>Role</th><th>Monthly Cost</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Quality Engineering Lead</td><td>R120,000</td></tr>
-            <tr><td>Quality Automation Engineer</td><td>R95,000</td></tr>
-            <tr><td>Quality Engineer</td><td>R75,000</td></tr>
-          </tbody>
-          <tfoot>
-            <tr><td><strong>Total Monthly Cost</strong></td><td><strong>R290,000 per month</strong></td></tr>
-          </tfoot>
-        </table>
-
-        <h3>Estimated 6-Month Investment</h3>
         <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center;">
-          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R1,740,000</span>
+          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">R150,000 per month</span>
         </div>
-      </div>
-
-      <!-- Option 3 -->
-      <div class="proposal-option-card">
-        <h2>Option 3: Test Strategy + Upskill Existing Teams</h2>
-
-        <h3>Scope</h3>
-        <p>Create the group test strategy and train both existing teams to adopt the quality practices relevant to their starting point.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
-        <ul>
-          <li>Comotion AI: workshops on embedding quality from requirements, governing AI-assisted test creation, and increasing coverage</li>
-          <li>Seed Analytics: automation training for manual testers, and onboarding onto a new test management system</li>
-          <li>CI/CD testing integration for Seed Analytics</li>
-          <li>Coaching during implementation for both teams</li>
-          <li>Code review for automation</li>
-          <li>Testing best practices training</li>
-        </ul>
-
-        <h3>Deliverables</h3>
-        <ul>
-          <li>Group Test Strategy</li>
-          <li>Training sessions for both teams</li>
-          <li>Automation framework templates</li>
-          <li>Test management system setup guidance for Seed Analytics</li>
-          <li>3 months of coaching support</li>
-        </ul>
-
-        <h3>Duration</h3>
-        <p>10 to 12 weeks</p>
-
-        <h3>Investment</h3>
-        <table class="proposal-table">
-          <tbody>
-            <tr><td>Strategy Creation</td><td>R280,000</td></tr>
-            <tr><td>Training & Coaching</td><td>R220,000</td></tr>
-          </tbody>
-        </table>
-
-        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center; margin-top: 16px;">
-          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R500,000</span>
-        </div>
-      </div>
-
-      <!-- Option 4 -->
-      <div class="proposal-option-card">
-        <h2>Option 4: Test Strategy + Recruitment of a Shared Quality Engineering Team</h2>
-
-        <h3>Scope</h3>
-        <p>Creation of the group test strategy and recruitment of a permanent Quality Engineering team serving both Comotion AI and Seed Analytics.</p>
-
-        <h3>Activities</h3>
-        <p>Everything in Option 1 plus:</p>
-        <ul>
-          <li>Define QE organisational structure for the group</li>
-          <li>Define job descriptions</li>
-          <li>Candidate screening and technical interviews</li>
-          <li>Hiring recommendations</li>
-          <li>Onboarding guidance covering both entities</li>
-        </ul>
-
-        <h3>Suggested Team Structure</h3>
-        <ul>
-          <li>Quality Engineering Lead</li>
-          <li>Quality Automation Engineer</li>
-          <li>Quality Engineer</li>
-        </ul>
-
-        <h3>Recruitment Fees</h3>
-        <table class="proposal-table">
-          <thead>
-            <tr><th>Role</th><th>Placement Fee</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Lead Quality Engineer</td><td>R120,000</td></tr>
-            <tr><td>Quality Automation Engineer</td><td>R90,000</td></tr>
-            <tr><td>Quality Engineer</td><td>R70,000</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Example Recruitment Cost (3 hires)</h3>
-        <p>1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer</p>
-        <div style="background: #1a1a1a; border: 2px solid #b8961c; border-radius: 8px; padding: 20px 32px; text-align: center; margin-top: 16px;">
-          <span style="color: #b8961c; font-size: 1.5rem; font-weight: 700;">Total Investment: R280,000</span>
-        </div>
-      </div>
-
-      <!-- Recommended Engagement -->
-      <div class="proposal-option-card" style="border-color: var(--accent); background: rgba(184, 150, 28, 0.05);">
-        <h2>Recommended Engagement</h2>
-        <p>With Comotion AI needing governance embedded into an existing practice, and Seed Analytics needing automation and tooling built from scratch, we recommend:</p>
-        <div class="proposal-highlight" style="margin-top: 16px;">Option 2: Strategy + Shared Implementation Team</div>
-        <p style="margin-top: 16px;">This approach ensures the strategy is not only defined but successfully embedded into both engineering cultures and delivery pipelines, with one team accountable for quality across the group.</p>
       </div>
 
       <!-- Business Benefits -->
@@ -309,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
         <h2>Engagement Model</h2>
         <ul>
           <li>Remote-first delivery across both entities</li>
-          <li>Flexible scaling of engineering resources as each entity's needs evolve</li>
+          <li>Flexible scope to match each entity's evolving needs</li>
           <li>Monthly reporting and governance at the group level</li>
           <li>Close collaboration with engineering leadership at Comotion AI and Seed Analytics</li>
         </ul>
@@ -325,7 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['access_code'])) {
           </div>
           <div class="process-step">
             <h4>Agreement</h4>
-            <p>Agreement on engagement option</p>
+            <p>Agreement to proceed</p>
           </div>
           <div class="process-step">
             <h4>Kick-off</h4>

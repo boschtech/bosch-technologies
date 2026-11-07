@@ -463,45 +463,6 @@ async function generateImprovementEngagementPDF() {
     y += 16;
   }
 
-  function table(headers, rows, footerRow) {
-    const cols = headers ? headers.length : rows[0].length;
-    const colW = contentW / cols;
-    const rowH = 8;
-    if (headers) {
-      checkPage(rowH + 2);
-      doc.setFillColor(28, 28, 28);
-      doc.rect(marginL, y, contentW, rowH, 'F');
-      doc.setFontSize(8);
-      doc.setFont(undefined, 'bold');
-      doc.setTextColor(255, 255, 255);
-      headers.forEach((h, i) => doc.text(h, marginL + i * colW + 4, y + 5.5));
-      y += rowH;
-    }
-    rows.forEach((row, idx) => {
-      checkPage(rowH + 2);
-      if (idx % 2 === 0) {
-        doc.setFillColor(245, 245, 245);
-        doc.rect(marginL, y, contentW, rowH, 'F');
-      }
-      doc.setFontSize(8);
-      doc.setFont(undefined, 'normal');
-      doc.setTextColor(...dark);
-      row.forEach((cell, i) => doc.text(cell, marginL + i * colW + 4, y + 5.5));
-      y += rowH;
-    });
-    if (footerRow) {
-      checkPage(rowH + 2);
-      doc.setFillColor(28, 28, 28);
-      doc.rect(marginL, y, contentW, rowH, 'F');
-      doc.setFontSize(8);
-      doc.setFont(undefined, 'bold');
-      doc.setTextColor(...gold);
-      footerRow.forEach((cell, i) => doc.text(cell, marginL + i * colW + 4, y + 5.5));
-      y += rowH;
-    }
-    y += 4;
-  }
-
   function newPage() { doc.addPage(); y = 20; }
 
   // Header
@@ -515,7 +476,7 @@ async function generateImprovementEngagementPDF() {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(16);
   doc.setFont(undefined, 'bold');
-  doc.text('Improvement Engagement Proposal', pageWidth / 2, 38, { align: 'center' });
+  doc.text('Quality Engineering Improvement', pageWidth / 2, 38, { align: 'center' });
   doc.setFontSize(10);
   doc.setFont(undefined, 'normal');
   doc.setTextColor(200, 200, 200);
@@ -526,15 +487,13 @@ async function generateImprovementEngagementPDF() {
   y = headerH + 10;
 
   // Objective
-  wrappedHeading('Improvement Engagement');
+  wrappedHeading('Quality Engineering Improvement');
   subheading('Objective');
-  paragraph("Stand up a single, shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, with a strategy and delivery plan tailored to each entity's starting point: governed, requirements-to-release quality for Comotion AI's AI-assisted development practice, and a test management system plus CI/CD automation foundation for Seed Analytics.");
-  paragraph('The proposal outlines four engagement options depending on the level of support required.');
+  paragraph("Stand up a single, shared Quality Engineering capability that serves both Comotion AI and Seed Analytics, combining strategy creation with hands-on implementation: governed, requirements-to-release quality for Comotion AI's AI-assisted development practice, and a test management system plus CI/CD automation foundation for Seed Analytics.");
 
-  // Option 1
-  heading('Option 1: Shared Test Strategy Creation');
+  // Scope, Activities, Deliverables
   subheading('Scope');
-  paragraph('Development of a single Quality Engineering Test Strategy covering both Comotion AI and Seed Analytics, with a company-specific execution plan for each.');
+  paragraph('Development of a single Quality Engineering Test Strategy covering both Comotion AI and Seed Analytics, followed immediately by hands-on implementation of that strategy across both entities.');
   subheading('Activities');
   bulletList([
     'Stakeholder interviews across both entities (Engineering, Product, Leadership)',
@@ -546,121 +505,28 @@ async function generateImprovementEngagementPDF() {
     'Define requirements-to-release quality gates for Comotion AI, including governance of AI-generated tests',
     'Test management system selection and automation framework roadmap for Seed Analytics',
     'CI/CD quality gate recommendations for both entities',
-    'Release readiness scorecard framework'
+    'Release readiness scorecard framework',
+    'Embed quality from requirements through release readiness at Comotion AI, increase automated coverage, and mature CI/CD quality gates',
+    'Stand up a test management system at Seed Analytics and migrate documented test cases into it',
+    "Build an initial CI/CD automation framework at Seed Analytics (Playwright, consistent with the group's existing standard) and integrate it as a blocking pipeline gate",
+    'Group-wide test reporting dashboards and release readiness metrics'
   ]);
   subheading('Deliverables');
   bulletList([
     'Group Quality Engineering Test Strategy document, with a Comotion AI annex and a Seed Analytics annex',
-    'AI-assisted test governance framework for Comotion AI',
-    'Test management system recommendation and automation framework for Seed Analytics',
-    'Release readiness scorecard',
+    'AI-assisted test governance framework, embedded and operating for Comotion AI',
+    'Test management system implemented and populated for Seed Analytics',
+    'CI/CD-integrated automation framework for Seed Analytics',
+    'Group-wide test reporting dashboards and release readiness scorecard',
     '6 to 12 month quality roadmap per entity'
   ]);
   subheading('Duration');
-  paragraph('4 to 5 weeks');
-  subheading('Investment');
-  highlightBox('R280,000');
-
-  // Option 2
-  newPage();
-  heading('Option 2: Test Strategy + Shared QE Implementation Team');
-  subheading('Scope');
-  paragraph('Creation of the group test strategy and deployment of a shared Quality Engineering team to implement it across both entities.');
-  subheading('Activities');
-  paragraph('Everything in Option 1 plus:');
-  bulletList([
-    'Comotion AI: embed quality from requirements through release readiness, increase automated coverage, mature CI/CD quality gates, and govern the quality of AI-generated tests',
-    'Seed Analytics: stand up a test management system and migrate documented test cases into it',
-    "Seed Analytics: build an initial CI/CD automation framework (Playwright, consistent with the group's existing standard) and integrate it as a blocking pipeline gate",
-    'Group-wide test reporting dashboards and release readiness metrics',
-    'Mentoring of both engineering teams'
-  ]);
-  subheading('Suggested Team');
-  bulletList([
-    '1 Quality Engineering Lead (group-wide)',
-    '1 Quality Automation Engineer (primarily Seed Analytics automation build-out)',
-    '1 Quality Engineer (primarily Comotion AI quality governance and coverage)'
-  ]);
-  subheading('Duration');
-  paragraph('Initial implementation: 6 months');
+  paragraph('Initial implementation: 6 months, continuing on a monthly basis thereafter');
   subheading('Monthly Investment');
-  table(['Role', 'Monthly Cost'], [['Quality Engineering Lead', 'R120,000'], ['Quality Automation Engineer', 'R95,000'], ['Quality Engineer', 'R75,000']], ['Total Monthly Cost', 'R290,000 per month']);
-  subheading('Estimated 6-Month Investment');
-  highlightBox('R1,740,000');
-
-  // Option 3
-  newPage();
-  heading('Option 3: Test Strategy + Upskill Existing Teams');
-  subheading('Scope');
-  paragraph('Create the group test strategy and train both existing teams to adopt the quality practices relevant to their starting point.');
-  subheading('Activities');
-  paragraph('Everything in Option 1 plus:');
-  bulletList([
-    'Comotion AI: workshops on embedding quality from requirements, governing AI-assisted test creation, and increasing coverage',
-    'Seed Analytics: automation training for manual testers, and onboarding onto a new test management system',
-    'CI/CD testing integration for Seed Analytics',
-    'Coaching during implementation for both teams',
-    'Code review for automation',
-    'Testing best practices training'
-  ]);
-  subheading('Deliverables');
-  bulletList([
-    'Group Test Strategy',
-    'Training sessions for both teams',
-    'Automation framework templates',
-    'Test management system setup guidance for Seed Analytics',
-    '3 months of coaching support'
-  ]);
-  subheading('Duration');
-  paragraph('10 to 12 weeks');
-  subheading('Investment');
-  table(null, [['Strategy Creation', 'R280,000'], ['Training & Coaching', 'R220,000']], ['Total Investment', 'R500,000']);
-
-  // Option 4
-  newPage();
-  heading('Option 4: Test Strategy + Recruitment of a Shared QE Team');
-  subheading('Scope');
-  paragraph('Creation of the group test strategy and recruitment of a permanent Quality Engineering team serving both Comotion AI and Seed Analytics.');
-  subheading('Activities');
-  paragraph('Everything in Option 1 plus:');
-  bulletList([
-    'Define QE organisational structure for the group',
-    'Define job descriptions',
-    'Candidate screening and technical interviews',
-    'Hiring recommendations',
-    'Onboarding guidance covering both entities'
-  ]);
-  subheading('Suggested Team Structure');
-  bulletList([
-    'Quality Engineering Lead',
-    'Quality Automation Engineer',
-    'Quality Engineer'
-  ]);
-  subheading('Recruitment Fees');
-  table(['Role', 'Placement Fee'], [['Lead Quality Engineer', 'R120,000'], ['Quality Automation Engineer', 'R90,000'], ['Quality Engineer', 'R70,000']], null);
-  subheading('Example Recruitment Cost (3 hires)');
-  paragraph('1 Lead Quality Engineer, 1 Quality Automation Engineer, 1 Quality Engineer');
-  highlightBox('Total Investment: R280,000');
-
-  // Recommendation
-  newPage();
-  heading('Recommended Engagement');
-  paragraph('With Comotion AI needing governance embedded into an existing practice, and Seed Analytics needing automation and tooling built from scratch, we recommend:');
-  checkPage(20);
-  doc.setFillColor(245, 245, 245);
-  doc.roundedRect(marginL, y - 1, contentW, 18, 3, 3, 'F');
-  doc.setFontSize(11);
-  doc.setFont(undefined, 'bold');
-  doc.setTextColor(...gold);
-  doc.text('Option 2: Strategy + Shared Implementation Team', marginL + 6, y + 5);
-  doc.setFontSize(8);
-  doc.setFont(undefined, 'normal');
-  doc.setTextColor(...grey);
-  doc.text('This approach ensures the strategy is not only defined but successfully embedded into both', marginL + 6, y + 11);
-  doc.text('engineering cultures and delivery pipelines, with one team accountable for quality across the group.', marginL + 6, y + 15);
-  y += 24;
+  highlightBox('R150,000 per month');
 
   // Business Benefits
+  newPage();
   heading('Business Benefits');
   bulletList([
     'A measurable release readiness signal for Comotion AI',
@@ -675,7 +541,7 @@ async function generateImprovementEngagementPDF() {
   heading('Engagement Model');
   bulletList([
     'Remote-first delivery across both entities',
-    "Flexible scaling of engineering resources as each entity's needs evolve",
+    "Flexible scope to match each entity's evolving needs",
     'Monthly reporting and governance at the group level',
     'Close collaboration with engineering leadership at Comotion AI and Seed Analytics'
   ]);
@@ -697,5 +563,5 @@ async function generateImprovementEngagementPDF() {
   doc.setFont(undefined, 'bold');
   doc.text('boschtechnologies.com/contact', marginL, pageHeight - ctaH + 21);
 
-  doc.save('Comotion-Improvement-Engagement-Proposal.pdf');
+  doc.save('Comotion-Quality-Engineering-Improvement.pdf');
 }
