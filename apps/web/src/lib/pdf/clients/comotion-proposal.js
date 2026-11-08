@@ -473,9 +473,9 @@ export async function generateImprovementEngagementPDF() {
       checkPage(lines.length * 4 + 2);
       doc.text("•", marginL + 2, y);
       doc.text(lines, marginL + 8, y);
-      y += lines.length * 4 + 1.5;
+      y += lines.length * 4 + 1;
     });
-    y += 2;
+    y += 1;
   }
 
   function highlightBox(text) {
@@ -521,7 +521,10 @@ export async function generateImprovementEngagementPDF() {
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text("5 November 2026", pageWidth / 2, 53, { align: "center" });
-  y = headerH + 10;
+  // Page 1 spacing (header gap, bullet spacing) is kept tight enough that
+  // Duration and Monthly Investment both fit on page 1 rather than leaving
+  // the investment box stranded alone on page 2.
+  y = headerH + 6;
 
   // Objective
   wrappedHeading("Quality Engineering Improvement");

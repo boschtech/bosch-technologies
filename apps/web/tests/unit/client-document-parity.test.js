@@ -171,3 +171,18 @@ describe("client PDF/DOCX generators match their frozen fixtures", () => {
     }
   }
 });
+
+describe("comotion improvement engagement PDF layout", () => {
+  it("keeps Monthly Investment on page 1 with Duration (no stranded page)", async () => {
+    const port = await modules["../../src/lib/pdf/clients/comotion-proposal.js"]();
+    await port.generateImprovementEngagementPDF();
+    const pages = await pdfText(capturedPdf);
+    const pageOf = (text) =>
+      pages.findIndex((items) => items.some((item) => item.text.includes(text))) + 1;
+    expect(pageOf("Duration")).toBe(1);
+    expect(pageOf("Monthly Investment")).toBe(1);
+    expect(pageOf("R150,000 per month")).toBe(1);
+    expect(pageOf("Business Benefits")).toBe(2);
+    expect(pages).toHaveLength(2);
+  }, 30000);
+});

@@ -1,7 +1,23 @@
+const fs = require('node:fs');
+const path = require('node:path');
+
+// legacy.css is @import-ed before @tailwind (an @import must come first), so
+// any Tailwind utility sharing a class name with a legacy rule wins the
+// equal-specificity cascade tie and silently restyles legacy markup - e.g.
+// Tailwind's .text-muted (shadcn `muted`, near-black) made every muted
+// subtitle unreadable, and .mt-2/.mt-3/.mb-3/.mb-4 halved legacy's spacing.
+// Never let Tailwind generate a class the legacy design system already owns.
+const legacyClassNames = ['legacy.css', 'portfolio.css'].flatMap((file) => {
+  const css = fs.readFileSync(path.join(__dirname, 'src/styles', file), 'utf8')
+    .replace(/\/\*[\s\S]*?\*\//g, '');
+  return [...css.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)].map((match) => match[1]);
+});
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,jsx}'],
+  blocklist: [...new Set(legacyClassNames)],
   // Tailwind's built-in "container" core plugin emits its own .container
   // class (via @tailwind components, which loads after legacy.css's @import)
   // with the same specificity as legacy.css's .container { max-width: 1200px;
