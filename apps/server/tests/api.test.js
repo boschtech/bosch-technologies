@@ -8,6 +8,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createApp } from '../src/app.js';
 
 vi.mock('nodemailer', () => ({ default: { createTransport: vi.fn() } }));
+// Pin "no built frontend" so results never depend on a local dist/apps/web.
+const noWebBuild = path.join(os.tmpdir(), 'bosch-no-web-build-does-not-exist');
 const sendMail = vi.fn();
 let dataDir;
 let app;
@@ -52,7 +54,7 @@ beforeEach(async () => {
   };
   sendMail.mockReset().mockResolvedValue({ messageId: 'test-message' });
   nodemailer.createTransport.mockReturnValue({ sendMail });
-  app = createApp({ dataDir, env });
+  app = createApp({ dataDir, webDistDir: noWebBuild, env });
 });
 afterEach(async () => { await rm(dataDir, { recursive: true, force: true }); });
 
@@ -322,7 +324,7 @@ describe('client auth', () => {
     await request(app).post('/api/clients/weconnectu/logout').expect(200, { success: true });
   });
   it('fails closed when client/admin secrets are unconfigured', async () => {
-    app = createApp({ dataDir, env: { SESSION_SECRET: env.SESSION_SECRET } });
+    app = createApp({ dataDir, webDistDir: noWebBuild, env: { SESSION_SECRET: env.SESSION_SECRET } });
     await request(app).post('/api/admin/login').send({ key: '' }).expect(401);
     await request(app).post('/api/clients/weconnectu/unlock').send({ code: '' }).expect(401);
   });
@@ -333,7 +335,7 @@ describe('app configuration and errors', () => {
     expect(() => createApp({ env: { NODE_ENV: 'production' } })).toThrow('SESSION_SECRET');
   });
   it('uses Secure cookies behind the production HTTPS proxy', async () => {
-    app = createApp({ dataDir, env: { ...env, NODE_ENV: 'production' } });
+    app = createApp({ dataDir, webDistDir: noWebBuild, env: { ...env, NODE_ENV: 'production' } });
     const response = await request(app).post('/api/admin/login').set('X-Forwarded-Proto', 'https')
       .send({ key: env.ADMIN_SESSION_SECRET }).expect(200);
     expect(response.headers['set-cookie'][0]).toContain('Secure');
@@ -347,7 +349,7 @@ describe('app configuration and errors', () => {
       .set('Host', 'localhost:4000').send(contact).expect(200);
   });
   it('supports explicitly allowed development origins with credentials', async () => {
-    app = createApp({ dataDir, env: { ...env, WEB_ORIGIN: 'http://localhost:5173' } });
+    app = createApp({ dataDir, webDistDir: noWebBuild, env: { ...env, WEB_ORIGIN: 'http://localhost:5173' } });
     const response = await request(app).post('/api/admin/login').set('Origin', 'http://localhost:5173')
       .send({ key: env.ADMIN_SESSION_SECRET }).expect(200);
     expect(response.headers['access-control-allow-origin']).toBe('http://localhost:5173');
@@ -358,13 +360,13 @@ describe('app configuration and errors', () => {
     await request(app).get('/api/missing').expect(404, { error: 'API route not found' });
   });
   it('handles absent SMTP config without exposing details or losing the lead', async () => {
-    app = createApp({ dataDir, env: { SESSION_SECRET: env.SESSION_SECRET } });
+    app = createApp({ dataDir, webDistDir: noWebBuild, env: { SESSION_SECRET: env.SESSION_SECRET } });
     await request(app).post('/api/contact').send(contact).expect(500);
     expect(sendMail).not.toHaveBeenCalled();
     expect(await readFile(path.join(dataDir, 'leads.csv'), 'utf8')).toContain(person.email);
   });
   it('uses TLS directly for SMTP port 465', async () => {
-    app = createApp({ dataDir, env: { ...env, SMTP_PORT: '465' } });
+    app = createApp({ dataDir, webDistDir: noWebBuild, env: { ...env, SMTP_PORT: '465' } });
     await request(app).post('/api/contact').send(contact).expect(200);
     expect(nodemailer.createTransport).toHaveBeenCalledWith(expect.objectContaining({ port: 465, secure: true }));
   });

@@ -27,7 +27,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
  *   - web/ — apps/web's production build, served by the Express app itself
  *     (see apps/server/src/app.js's webDistDir handling)
  */
-const allowedRoots = new Set(['package.json', '.env.example', 'src', 'web']);
+const allowedRoots = new Set(['package.json', '.env.example', 'src', 'seed', 'web']);
 const disallowedPatterns = /node_modules|(^|\/)\.env$|(^|\/)\.git(ignore)?$/;
 
 export function buildRelease(destination) {
@@ -54,6 +54,8 @@ export function buildRelease(destination) {
   // --- Server source and env reference ---
   cpSync(join(root, 'apps/server/src'), join(releaseDir, 'src'), { recursive: true });
   cpSync(join(root, 'apps/server/.env.example'), join(releaseDir, '.env.example'));
+  // Seed data copied into an empty DATA_DIR on first start (see src/index.js).
+  cpSync(join(root, 'apps/server/seed'), join(releaseDir, 'seed'), { recursive: true });
 
   // --- Built frontend (must already exist: run `npm run build` first) ---
   const webBuildDir = join(root, 'dist/apps/web');

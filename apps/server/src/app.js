@@ -29,8 +29,15 @@ export function createApp(options = {}) {
   // scripts/package-hostinger.mjs as a `web/` sibling of this server's own
   // source on deployment; absent in local dev, where Vite serves the
   // frontend itself and proxies /api and /uploads to this server instead.
+  // When deployed straight from the Git repo (Hostinger's Git auto-deploy runs
+  // the root `npm run build` and starts apps/server/src/index.js in place),
+  // there is no packaged `web/` sibling, so fall back to the monorepo build
+  // output at <repo>/dist/apps/web.
   const webDistDir = path.resolve(
-    options.webDistDir || env.WEB_DIST_DIR || fileURLToPath(new URL('../web', import.meta.url)),
+    options.webDistDir || env.WEB_DIST_DIR || [
+      fileURLToPath(new URL('../web', import.meta.url)),
+      fileURLToPath(new URL('../../../dist/apps/web', import.meta.url)),
+    ].find((candidate) => existsSync(candidate)) || fileURLToPath(new URL('../web', import.meta.url)),
   );
   const serveWebBuild = existsSync(webDistDir);
   const dependencies = {
@@ -91,6 +98,10 @@ export function createApp(options = {}) {
   if (serveWebBuild) {
     app.use(express.static(webDistDir, {
       index: false,
+      // public/ ships real directories (e.g. /testimonials/ for the reference
+      // letter PDF) whose names collide with SPA routes; don't 301 them to a
+      // trailing slash, let them fall through to the SPA fallback below.
+      redirect: false,
       setHeaders(res, filePath) {
         // index.html must always revalidate; fingerprinted Vite assets
         // (under /assets) are safe to cache for a year.
